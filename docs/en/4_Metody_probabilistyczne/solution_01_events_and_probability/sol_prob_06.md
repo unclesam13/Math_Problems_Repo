@@ -1,4 +1,4 @@
-# Task 6 – Total Probability and Bayes' Theorem
+# Solution 6 – Total Probability and Bayes' Theorem
 
 ## Given
 
