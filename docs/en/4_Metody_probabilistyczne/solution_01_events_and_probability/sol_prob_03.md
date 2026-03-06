@@ -1,4 +1,4 @@
-# Solution 3 – Classical Probability
+# # Solution 1 – Task 3
 
 ## Given
 

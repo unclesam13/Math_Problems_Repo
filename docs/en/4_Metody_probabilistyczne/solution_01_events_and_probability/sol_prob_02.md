@@ -1,4 +1,4 @@
-# Solution 2 – Reliability of a Circuit
+# # Solution 1 – Task 2
 
 
 ## Given

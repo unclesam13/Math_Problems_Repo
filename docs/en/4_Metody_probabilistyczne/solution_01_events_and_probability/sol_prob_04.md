@@ -1,4 +1,4 @@
-# Solution 4 – Parallel System Reliability
+# # Solution 1 – Task 4
 
 ## Given
 
