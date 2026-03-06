@@ -34,7 +34,7 @@ $$
 
 Symbols are independent.
 
----
+
 
 ## 1. Probability of receiving 111
 
@@ -64,7 +64,7 @@ $$
 P(111) = 0.3356
 $$
 
----
+
 
 ## 2. Probability of receiving 000
 
@@ -90,7 +90,7 @@ $$
 P(000) = 0.1844
 $$
 
----
+
 
 ## 3. Probability of receiving 010
 
