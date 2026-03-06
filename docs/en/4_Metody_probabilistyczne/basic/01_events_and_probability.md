@@ -4,6 +4,8 @@
 
 Consider an experiment consisting of tossing a **fair coin**.
 
+The order of outcomes matters.
+
 1. Define the **sample space** $\Omega_1$ for **one coin toss**.
 2. Construct the **sample space** $\Omega_2$ for **two coin tosses**.
 3. Construct the **sample space** $\Omega_3$ for **three coin tosses**.
@@ -16,6 +18,8 @@ Consider an experiment consisting of tossing a **fair coin**.
 
 Consider an experiment consisting of rolling a **fair six-sided die**.
 
+The order of outcomes matters.
+
 1. Define the **sample space** $\Omega_1$ for **one roll of the die**.
 2. Construct the **sample space** $\Omega_2$ for **two consecutive rolls**.
 3. Construct the **sample space** $\Omega_3$ for **three consecutive rolls**.
@@ -27,6 +31,8 @@ Consider an experiment consisting of rolling a **fair six-sided die**.
 ## Task 3 — Drawing Cards
 
 Consider an experiment consisting of drawing cards from a **standard 52-card deck**.
+
+The order of outcomes matters.
 
 1. Define the **sample space** $\Omega_1$ for **drawing one card**.
 2. Construct the **sample space** $\Omega_2$ for **two consecutive draws with replacement**.
