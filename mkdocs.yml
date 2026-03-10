@@ -60,7 +60,8 @@ plugins:
               - Metody probabilistyczne:
                 - Podstawowe:
                     - '1. Zdarzenia i prawdopodobieństwo': '4_Metody_probabilistyczne/basic/01_events_and_probability.md'
-                    - '2. Rozkłady prawdopodobieństwa': '4_Metody_probabilistyczne/basic/02_probability_distributions.md'
+                    - '2. Kombinatoryka': '4_Metody_probabilistyczne/basic/02_combinatorics.md'
+                    - '3. Rozkłady prawdopodobieństwa': '4_Metody_probabilistyczne/basic/03_probability_distributions.md'
                 - Zaawansowane:
                     - '1. Zdarzenia i prawdopodobieństwo': '4_Metody_probabilistyczne/advanced/01_events_and_probability.md'
                     - '2. Zmienne losowe': '4_Metody_probabilistyczne/advanced/02_random_variables.md'
@@ -105,7 +106,8 @@ plugins:
               - Probabilistic Methods:
                 - Basic:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/basic/01_events_and_probability.md'
-                    - '2. Probability Distributions': '4_Metody_probabilistyczne/basic/02_probability_distributions.md'
+                    - '2. Combinatorics': '4_Metody_probabilistyczne/basic/02_combinatorics.md'
+                    - '3. Probability Distributions': '4_Metody_probabilistyczne/basic/03_probability_distributions.md'
                 - Advanced:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/advanced/01_events_and_probability.md'
                     - '2. Random Variables': '4_Metody_probabilistyczne/advanced/02_random_variables.md'
