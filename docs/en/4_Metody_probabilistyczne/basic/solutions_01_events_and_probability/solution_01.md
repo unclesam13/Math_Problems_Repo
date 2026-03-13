@@ -30,7 +30,7 @@ Each elementary outcome represents a **complete sequence** of results across all
 
 Switch between $\Omega_1$, $\Omega_2$, $\Omega_3$ and watch the highlighted outcome in the sample space.
 
-<iframe src="en/anim/4_Metody_probalistyczne/coin_toss.html" width="100%" height="520" frameborder="0" style="border-radius:4px;"></iframe>
+<iframe src="https://unclesam13.github.io/Math_Problems_Repo/anim/4_Metody_probalistyczne/coin_toss.html" width="100%" height="520" frameborder="0" style="border-radius:4px;"></iframe>
 
 > **Monte Carlo observation:** Run ×1000 tosses and notice how the frequency of Heads approaches $\frac{1}{2} = 0.5$ as the number of trials grows. This illustrates the **Law of Large Numbers**.
 
