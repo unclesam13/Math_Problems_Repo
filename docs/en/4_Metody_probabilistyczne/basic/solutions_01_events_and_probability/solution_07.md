@@ -12,7 +12,7 @@ $$\Omega_2 = \{(i,j) : i,j \in \{1,\ldots,6\}\}, \qquad |\Omega_2| = 36, \qquad 
 
 $$\Omega_3 = \{(i,j,k) : i,j,k \in \{1,\ldots,6\}\}, \qquad |\Omega_3| = 216, \qquad P(\omega) = \frac{1}{216}$$
 
----
+
 
 ## One Die Roll — Events on $\Omega_1$
 
