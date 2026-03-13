@@ -73,6 +73,7 @@ plugins:
                     - 'Solution 01 - Task 7 - Events and Probabilities in Die Rolling': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_07.md'
                     - 'Solution 01 - Task 8 - Events and Probabilities in Card Drawing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_08.md'
                     - 'Solution 01 - Task 9 - Events and Probabilities in Weekly Weather Observation': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_09.md'
+                    - 'Solution 01 - Task 10 - Events and Probabilities in Buffon Needle': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_10.md'
                 - Advanced:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/advanced/01_events_and_probability.md'
                     - '2. Random Variables': '4_Metody_probabilistyczne/advanced/02_random_variables.md'
