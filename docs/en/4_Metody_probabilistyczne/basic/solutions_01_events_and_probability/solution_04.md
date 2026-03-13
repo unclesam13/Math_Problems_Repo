@@ -1,7 +1,6 @@
 # Solution 1 — Events and Probability
 
-## Task 3 — Weekly Weather Observation
-
+## Task 4 — Weekly Weather Observation
 
 
 ### Setup — Sample Space
