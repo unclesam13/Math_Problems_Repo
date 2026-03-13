@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card Draw Simulator</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background: #0d1117;
+    color: #e8e4d9;
+    min-height: 100vh;
+    padding: 20px 14px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #7eb8f7;
+    margin-bottom: 16px;
+  }
+
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center; margin-bottom: 16px;
+  }
+
+  .btn {
+    background: transparent;
+    border: 1.5px solid #7eb8f7;
+    color: #7eb8f7;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.18s;
+    letter-spacing: 0.04em;
+  }
+  .btn:hover, .btn.active { background: #7eb8f7; color: #0d1117; }
+
+  /* CARDS */
+  .cards-row {
+    display: flex; justify-content: center; gap: 16px;
+    flex-wrap: wrap; margin-bottom: 18px;
+    min-height: 110px; align-items: center;
+  }
+
+  .card {
+    width: 64px; height: 90px;
+    background: #fff;
+    border-radius: 7px;
+    border: 2px solid #2a3a4a;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: space-between;
+    padding: 5px 4px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    position: relative;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+  .card.red { color: #c0392b; }
+  .card.black { color: #1a1a2e; }
+  .card.back {
+    background: linear-gradient(135deg, #1a2a4a, #0d1117);
+    border-color: #7eb8f7;
+  }
+  .card.flip-in { animation: flipIn 0.45s ease-out; }
+
+  @keyframes flipIn {
+    0%   { transform: rotateY(90deg) scale(0.8); opacity: 0; }
+    100% { transform: rotateY(0deg) scale(1); opacity: 1; }
+  }
+
+  .card-rank-top { font-size: 0.75rem; align-self: flex-start; line-height: 1; }
+  .card-suit-mid { font-size: 1.6rem; line-height: 1; }
+  .card-rank-bot { font-size: 0.75rem; align-self: flex-end; transform: rotate(180deg); line-height: 1; }
+
+  .card-label {
+    text-align: center; font-size: 0.6rem;
+    color: #555; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-top: 5px;
+  }
+  .card-wrap { display: flex; flex-direction: column; align-items: center; }
+
+  /* info boxes */
+  .info-box {
+    background: #111820; border: 1px solid #1e2d3d;
+    padding: 10px 16px; margin-bottom: 12px; text-align: center;
+  }
+  .info-label { font-size: 0.6rem; color: #445; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+  .info-value { font-size: 0.95rem; color: #e8e4d9; letter-spacing: 0.1em; }
+
+  /* stats grid */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 7px; margin-bottom: 12px;
+  }
+  .stat-box { background: #111820; border: 1px solid #1e2d3d; padding: 7px; text-align: center; }
+  .stat-num { font-size: 0.95rem; font-weight: 700; color: #7eb8f7; }
+  .stat-lbl { font-size: 0.55rem; color: #445; letter-spacing: 0.07em; text-transform: uppercase; margin-top: 2px; }
+
+  /* probability tracker */
+  .prob-section {
+    background: #111820; border: 1px solid #1e2d3d;
+    padding: 10px 14px; margin-bottom: 12px;
+  }
+  .prob-label { font-size: 0.6rem; color: #445; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .prob-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+  .prob-name { font-size: 0.65rem; color: #7eb8f7; width: 160px; flex-shrink: 0; }
+  .prob-bar-wrap { flex: 1; height: 8px; background: #1e2d3d; border-radius: 2px; overflow: hidden; }
+  .prob-bar { height: 100%; background: #7eb8f7; border-radius: 2px; transition: width 0.3s; }
+  .prob-val { font-size: 0.62rem; color: #7eb8f7; width: 50px; text-align: right; }
+
+  /* history */
+  .history {
+    background: #111820; border: 1px solid #1e2d3d;
+    padding: 7px 12px; max-height: 55px; overflow-y: auto;
+    font-size: 0.65rem; color: #334; line-height: 1.9; word-break: break-all;
+  }
+  .history .hr { color: #c0392b; }
+  .history .hb { color: #7eb8f7; }
+
+  .mode-desc {
+    font-size: 0.68rem; color: #556; text-align: center;
+    margin-bottom: 12px; line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<h2>🃏 Card Draw Simulator</h2>
+
+<div class="controls">
+  <button class="btn active" id="btnA" onclick="setMode('1')">1 Card (Ω₁)</button>
+  <button class="btn" id="btnB" onclick="setMode('2r')">2 Cards w/ replacement (Ω₂)</button>
+  <button class="btn" id="btnC" onclick="setMode('2nr')">2 Cards w/o replacement (Ω₂')</button>
+</div>
+
+<div class="mode-desc" id="modeDesc"></div>
+
+<div class="cards-row" id="cardsRow"></div>
+
+<div class="info-box">
+  <div class="info-label">Current Outcome</div>
+  <div class="info-value" id="currentOutcome">—</div>
+</div>
+
+<div class="prob-section">
+  <div class="prob-label">Event Tracker (empirical frequencies)</div>
+  <div id="probRows"></div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num" id="totalDraws">0</div><div class="stat-lbl">Total Draws</div></div>
+  <div class="stat-box"><div class="stat-num" id="heartsCount">0%</div><div class="stat-lbl">Hearts %</div></div>
+  <div class="stat-box"><div class="stat-num" id="kingsCount">0%</div><div class="stat-lbl">Kings %</div></div>
+  <div class="stat-box"><div class="stat-num" id="acesCount">0%</div><div class="stat-lbl">Aces %</div></div>
+</div>
+
+<div class="controls" style="margin-bottom:10px;">
+  <button class="btn" onclick="draw()">Draw Once</button>
+  <button class="btn" onclick="drawMany(100)">Draw ×100</button>
+  <button class="btn" onclick="drawMany(5000)">Draw ×5000</button>
+  <button class="btn" onclick="resetAll()">Reset</button>
+</div>
+
+<div class="history" id="history">Draw history will appear here...</div>
+
+<script>
+  const SUITS = ['♠','♥','♦','♣'];
+  const SUIT_NAMES = ['Spades','Hearts','Diamonds','Clubs'];
+  const RANKS = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+  const RED_SUITS = ['♥','♦'];
+
+  // build full deck
+  function buildDeck() {
+    const deck = [];
+    for (const s of SUITS) for (const r of RANKS) deck.push({rank: r, suit: s});
+    return deck;
+  }
+
+  function isRed(card) { return RED_SUITS.includes(card.suit); }
+  function isHeart(card) { return card.suit === '♥'; }
+  function isKing(card) { return card.rank === 'K'; }
+  function isAce(card) { return card.rank === 'A'; }
+  function isFace(card) { return ['J','Q','K'].includes(card.rank); }
+  function cardStr(card) { return card.rank + card.suit; }
+
+  function randomCard(exclude=[]) {
+    const deck = buildDeck().filter(c => !exclude.find(e => e.rank===c.rank && e.suit===c.suit));
+    return deck[Math.floor(Math.random()*deck.length)];
+  }
+
+  let mode = '1';
+  let totalDraws = 0;
+  let eventCounts = {};
+  let historyItems = [];
+
+  const modeDescs = {
+    '1':  '|Ω₁| = 52 outcomes — one card drawn from full deck',
+    '2r': '|Ω₂| = 52 × 52 = 2704 outcomes — card returned before second draw',
+    '2nr':'|Ω₂\'| = 52 × 51 = 2652 outcomes — card NOT returned before second draw',
+  };
+
+  const eventDefs = {
+    '1': [
+      { key:'A1', label:'A₁: Card is a Heart', theory: 13/52, check: ([c]) => isHeart(c) },
+      { key:'B1', label:'B₁: Card is a King',  theory: 4/52,  check: ([c]) => isKing(c) },
+      { key:'C1', label:'C₁: Not a face card', theory: 40/52, check: ([c]) => !isFace(c) },
+    ],
+    '2r': [
+      { key:'A2', label:'A₂: Both Hearts',      theory: (13/52)**2,      check: ([a,b]) => isHeart(a)&&isHeart(b) },
+      { key:'B2', label:'B₂: Same rank',         theory: 13*(4/52)**2,    check: ([a,b]) => a.rank===b.rank },
+      { key:'C2', label:'C₂: At least one Ace', theory: 1-(48/52)**2,    check: ([a,b]) => isAce(a)||isAce(b) },
+    ],
+    '2nr': [
+      { key:'A3', label:'A₃: Both Hearts',           theory: (13/52)*(12/51),    check: ([a,b]) => isHeart(a)&&isHeart(b) },
+      { key:'B3', label:'B₃: Same rank',              theory: 13*(4/52)*(3/51),   check: ([a,b]) => a.rank===b.rank },
+      { key:'C3', label:'C₃: One King, one Queen',   theory: 2*(4/52)*(4/51),    check: ([a,b]) => (isKing(a)&&b.rank==='Q')||(b.rank==='Q'&&isKing(a))||(a.rank==='Q'&&isKing(b))||(isKing(b)&&a.rank==='Q') },
+    ],
+  };
+
+  function setMode(m) {
+    mode = m;
+    document.querySelectorAll('.btn[id^=btn]').forEach(b=>b.classList.remove('active'));
+    document.getElementById('btn'+{1:'A','2r':'B','2nr':'C'}[m]).classList.add('active');
+    document.getElementById('modeDesc').textContent = modeDescs[m];
+    resetAll(false);
+    renderCards([]);
+    renderProbRows();
+  }
+
+  function makeCardEl(card, idx, total) {
+    const wrap = document.createElement('div');
+    wrap.className = 'card-wrap';
+    const el = document.createElement('div');
+    el.className = 'card flip-in ' + (isRed(card) ? 'red' : 'black');
+    const top = document.createElement('div');
+    top.className = 'card-rank-top';
+    top.textContent = card.rank;
+    const mid = document.createElement('div');
+    mid.className = 'card-suit-mid';
+    mid.textContent = card.suit;
+    const bot = document.createElement('div');
+    bot.className = 'card-rank-bot';
+    bot.textContent = card.rank;
+    el.appendChild(top); el.appendChild(mid); el.appendChild(bot);
+    const lbl = document.createElement('div');
+    lbl.className = 'card-label';
+    lbl.textContent = total > 1 ? 'Card '+(idx+1) : 'Drawn Card';
+    wrap.appendChild(el); wrap.appendChild(lbl);
+    return wrap;
+  }
+
+  function makeBackCard(idx, total) {
+    const wrap = document.createElement('div');
+    wrap.className = 'card-wrap';
+    const el = document.createElement('div');
+    el.className = 'card back';
+    el.innerHTML = '<div style="color:#7eb8f7;font-size:1.4rem;margin:auto">🂠</div>';
+    const lbl = document.createElement('div');
+    lbl.className = 'card-label';
+    lbl.textContent = total > 1 ? 'Card '+(idx+1) : 'Drawn Card';
+    wrap.appendChild(el); wrap.appendChild(lbl);
+    return wrap;
+  }
+
+  function renderCards(cards) {
+    const row = document.getElementById('cardsRow');
+    row.innerHTML = '';
+    const n = mode === '1' ? 1 : 2;
+    for (let i = 0; i < n; i++) {
+      if (cards[i]) row.appendChild(makeCardEl(cards[i], i, n));
+      else row.appendChild(makeBackCard(i, n));
+    }
+  }
+
+  function renderProbRows() {
+    const container = document.getElementById('probRows');
+    container.innerHTML = '';
+    eventDefs[mode].forEach(ev => {
+      const row = document.createElement('div');
+      row.className = 'prob-row';
+      const name = document.createElement('div');
+      name.className = 'prob-name';
+      name.textContent = ev.label;
+      const barWrap = document.createElement('div');
+      barWrap.className = 'prob-bar-wrap';
+      const bar = document.createElement('div');
+      bar.className = 'prob-bar';
+      bar.id = 'bar_'+ev.key;
+      // theoretical line
+      bar.style.width = (ev.theory*100).toFixed(1)+'%';
+      bar.style.opacity = '0.3';
+      barWrap.appendChild(bar);
+      const val = document.createElement('div');
+      val.className = 'prob-val';
+      val.id = 'val_'+ev.key;
+      val.textContent = 'th: '+(ev.theory*100).toFixed(1)+'%';
+      row.appendChild(name); row.appendChild(barWrap); row.appendChild(val);
+      container.appendChild(row);
+      eventCounts[ev.key] = 0;
+    });
+  }
+
+  function updateProbBars() {
+    if (totalDraws === 0) return;
+    eventDefs[mode].forEach(ev => {
+      const emp = eventCounts[ev.key] / totalDraws;
+      const bar = document.getElementById('bar_'+ev.key);
+      const val = document.getElementById('val_'+ev.key);
+      if (bar) { bar.style.width = (emp*100).toFixed(1)+'%'; bar.style.opacity = '1'; }
+      if (val) val.textContent = (emp*100).toFixed(1)+'% (th: '+(ev.theory*100).toFixed(1)+'%)';
+    });
+  }
+
+  function getCards() {
+    if (mode === '1') return [randomCard()];
+    if (mode === '2r') return [randomCard(), randomCard()];
+    const c1 = randomCard();
+    const c2 = randomCard([c1]);
+    return [c1, c2];
+  }
+
+  function draw() {
+    const cards = getCards();
+    renderCards(Array(mode==='1'?1:2).fill(null));
+    setTimeout(() => {
+      renderCards(cards);
+      document.getElementById('currentOutcome').textContent =
+        cards.map(cardStr).join(' + ');
+      processCards(cards);
+      updateStats();
+      updateProbBars();
+      addHistory(cards);
+    }, 100);
+  }
+
+  function drawMany(n) {
+    let last;
+    for (let i = 0; i < n; i++) {
+      const cards = getCards();
+      processCards(cards);
+      addHistory(cards, true);
+      last = cards;
+    }
+    renderCards(last);
+    document.getElementById('currentOutcome').textContent = last.map(cardStr).join(' + ');
+    updateStats();
+    updateProbBars();
+    renderHistoryDisplay();
+  }
+
+  function processCards(cards) {
+    totalDraws++;
+    eventDefs[mode].forEach(ev => {
+      if (ev.check(cards)) eventCounts[ev.key]++;
+    });
+    // for stat bars
+    if (mode==='1') {
+      if (isHeart(cards[0])) _hearts++;
+      if (isKing(cards[0]))  _kings++;
+      if (isAce(cards[0]))   _aces++;
+    } else {
+      cards.forEach(c => {
+        if (isHeart(c)) _hearts++;
+        if (isKing(c))  _kings++;
+        if (isAce(c))   _aces++;
+      });
+    }
+  }
+
+  let _hearts=0, _kings=0, _aces=0;
+
+  function updateStats() {
+    const total = mode==='1' ? totalDraws : totalDraws*2;
+    document.getElementById('totalDraws').textContent = totalDraws;
+    document.getElementById('heartsCount').textContent = total>0 ? (_hearts/total*100).toFixed(1)+'%' : '0%';
+    document.getElementById('kingsCount').textContent  = total>0 ? (_kings/total*100).toFixed(1)+'%'  : '0%';
+    document.getElementById('acesCount').textContent   = total>0 ? (_aces/total*100).toFixed(1)+'%'   : '0%';
+  }
+
+  function addHistory(cards, batch=false) {
+    historyItems.unshift(cards.map(cardStr).join('+'));
+    if (historyItems.length > 300) historyItems.pop();
+    if (!batch) renderHistoryDisplay();
+  }
+
+  function renderHistoryDisplay() {
+    const h = document.getElementById('history');
+    h.innerHTML = historyItems.map(s =>
+      s.split('+').map(c => {
+        const isR = c.includes('♥')||c.includes('♦');
+        return `<span class="${isR?'hr':'hb'}">${c}</span>`;
+      }).join('<span style="color:#223">+</span>') + ' '
+    ).join('· ');
+  }
+
+  function resetAll(rerender=true) {
+    totalDraws=0; _hearts=0; _kings=0; _aces=0;
+    historyItems=[];
+    eventDefs[mode].forEach(ev => eventCounts[ev.key]=0);
+    document.getElementById('totalDraws').textContent='0';
+    document.getElementById('heartsCount').textContent='0%';
+    document.getElementById('kingsCount').textContent='0%';
+    document.getElementById('acesCount').textContent='0%';
+    document.getElementById('currentOutcome').textContent='—';
+    document.getElementById('history').innerHTML='Draw history will appear here...';
+    renderProbRows();
+    if (rerender) renderCards([]);
+  }
+
+  setMode('1');
+</script>
+</body>
+</html>

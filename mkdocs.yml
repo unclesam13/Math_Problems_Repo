@@ -66,6 +66,7 @@ plugins:
                 - 'My Solutions':
                     - 'Solution 01 - Task 1 - Coin Tossing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_01.md'
                     - 'Solution 01 - Task 2 - Dice Roll': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_02.md'
+                    - 'Solution 01 - Task 3 - Card Draw': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_03.md'
                 - Advanced:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/advanced/01_events_and_probability.md'
                     - '2. Random Variables': '4_Metody_probabilistyczne/advanced/02_random_variables.md'
@@ -81,3 +82,4 @@ plugins:
               - Animations:
                 - 'Solution 1 - Task 1 - Coin Toss': 'en/anim/4_Metody_probalistyczne/coin_toss.html'
                 - 'Solution 1 - Task 2 - Dice Roll': 'en/anim/4_Metody_probalistyczne/dice_roll.html'
+                - 'Solution 1 - Task 3 - Card Draw': 'en/anim/4_Metody_probalistyczne/card_draw.html'
