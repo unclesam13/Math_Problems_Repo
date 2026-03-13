@@ -1,5 +1,5 @@
 site_name: Math Problems
-site_url: https://dchorazkiewicz.github.io/Math_Problems_Repo/
+site_url: https://unclesam13.github.io/Math_Problems_Repo/
 
 theme:
   name: material
@@ -108,6 +108,8 @@ plugins:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/basic/01_events_and_probability.md'
                     - '2. Combinatorics': '4_Metody_probabilistyczne/basic/02_combinatorics.md'
                     - '3. Probability Distributions': '4_Metody_probabilistyczne/basic/03_probability_distributions.md'
+                - 'My Solutions':
+                    - 'Solution 01 - Events & Probability': '4_Metody_probabilistyczne/advanced/solution_01_events_and_probability/sol_prob_01.md'
                 - Advanced:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/advanced/01_events_and_probability.md'
                     - '2. Random Variables': '4_Metody_probabilistyczne/advanced/02_random_variables.md'
