@@ -21,7 +21,7 @@
     
     
       
-        <title>Solution 04 - Math Problems</title>
+        <title>Solution 1 — Events and Probability - Math Problems</title>
       
     
     
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#solution-1-events-and-probability" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -105,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Solution 04
+              Solution 1 — Events and Probability
             
           </span>
         </div>
@@ -1764,6 +1769,132 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-weekly-weather-observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 3 — Weekly Weather Observation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 3 — Weekly Weather Observation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-sample-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup — Sample Space
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-a-entire-weekend-is-sunny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event \(A\) — Entire Weekend is Sunny
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-b-wednesday-thursday-friday-all-rainy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event \(B\) — Wednesday, Thursday, Friday All Rainy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-c-at-least-one-sunny-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event \(C\) — At Least One Sunny Day
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-d-no-rainy-day-during-the-entire-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event \(D\) — No Rainy Day During the Entire Week
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-e-exactly-two-sunny-days" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event \(E\) — Exactly Two Sunny Days
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Event
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-techniques-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Techniques Used
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1780,9 +1911,150 @@
 
 
 
-  <h1>Solution 04</h1>
-
-
+<h1 id="solution-1-events-and-probability">Solution 1 — Events and Probability</h1>
+<h2 id="task-3-weekly-weather-observation">Task 3 — Weekly Weather Observation</h2>
+<h3 id="setup-sample-space">Setup — Sample Space</h3>
+<p>From Task 4, each day is one of three states: Sunny (<span class="arithmatex">\(S\)</span>), Cloudy (<span class="arithmatex">\(C\)</span>), Rainy (<span class="arithmatex">\(R\)</span>).</p>
+<p>The full sample space for <strong>7 independent days</strong> is:</p>
+<div class="arithmatex">\[\Omega_7 = \{(w_1, w_2, w_3, w_4, w_5, w_6, w_7) : w_i \in \{S, C, R\}\}\]</div>
+<div class="arithmatex">\[|\Omega_7| = 3^7 = 2187\]</div>
+<p>Each day is <strong>independent</strong> and each state occurs with equal probability <span class="arithmatex">\(\tfrac{1}{3}\)</span>, so each elementary outcome has probability:</p>
+<div class="arithmatex">\[P(\omega) = \left(\frac{1}{3}\right)^7 = \frac{1}{2187}\]</div>
+<p>We label the days: <span class="arithmatex">\(w_1\)</span> = Monday, <span class="arithmatex">\(w_2\)</span> = Tuesday, <span class="arithmatex">\(w_3\)</span> = Wednesday, <span class="arithmatex">\(w_4\)</span> = Thursday, <span class="arithmatex">\(w_5\)</span> = Friday, <span class="arithmatex">\(w_6\)</span> = Saturday, <span class="arithmatex">\(w_7\)</span> = Sunday.</p>
+<hr />
+<h2 id="event-a-entire-weekend-is-sunny">Event <span class="arithmatex">\(A\)</span> — Entire Weekend is Sunny</h2>
+<p>Both Saturday (<span class="arithmatex">\(w_6\)</span>) and Sunday (<span class="arithmatex">\(w_7\)</span>) must be <span class="arithmatex">\(S\)</span>. The remaining 5 days are free.</p>
+<div class="arithmatex">\[A = \{(w_1,\ldots,w_7) : w_6 = S,\ w_7 = S\}\]</div>
+<div class="arithmatex">\[|A| = 3^5 = 243 \quad \text{(5 free days, 3 choices each)}\]</div>
+<div class="arithmatex">\[P(A) = \left(\frac{1}{3}\right)^2 = \frac{1}{9} \approx 11.11\%\]</div>
+<hr />
+<h2 id="event-b-wednesday-thursday-friday-all-rainy">Event <span class="arithmatex">\(B\)</span> — Wednesday, Thursday, Friday All Rainy</h2>
+<p><span class="arithmatex">\(w_3 = R\)</span>, <span class="arithmatex">\(w_4 = R\)</span>, <span class="arithmatex">\(w_5 = R\)</span>. The remaining 4 days are free.</p>
+<div class="arithmatex">\[B = \{(w_1,\ldots,w_7) : w_3 = w_4 = w_5 = R\}\]</div>
+<div class="arithmatex">\[|B| = 3^4 = 81\]</div>
+<div class="arithmatex">\[P(B) = \left(\frac{1}{3}\right)^3 = \frac{1}{27} \approx 3.70\%\]</div>
+<hr />
+<h2 id="event-c-at-least-one-sunny-day">Event <span class="arithmatex">\(C\)</span> — At Least One Sunny Day</h2>
+<p>Use the complement: no day is sunny means every day is either <span class="arithmatex">\(C\)</span> or <span class="arithmatex">\(R\)</span> (2 choices per day).</p>
+<div class="arithmatex">\[P(\text{no sunny day}) = \left(\frac{2}{3}\right)^7 = \frac{128}{2187}\]</div>
+<div class="arithmatex">\[P(C) = 1 - \left(\frac{2}{3}\right)^7 = 1 - \frac{128}{2187} = \frac{2059}{2187} \approx 94.15\%\]</div>
+<hr />
+<h2 id="event-d-no-rainy-day-during-the-entire-week">Event <span class="arithmatex">\(D\)</span> — No Rainy Day During the Entire Week</h2>
+<p>Every day must be either <span class="arithmatex">\(S\)</span> or <span class="arithmatex">\(C\)</span> (2 choices per day):</p>
+<div class="arithmatex">\[D = \{(w_1,\ldots,w_7) : w_i \in \{S, C\} \text{ for all } i\}\]</div>
+<div class="arithmatex">\[|D| = 2^7 = 128\]</div>
+<div class="arithmatex">\[P(D) = \left(\frac{2}{3}\right)^7 = \frac{128}{2187} \approx 5.85\%\]</div>
+<hr />
+<h2 id="event-e-exactly-two-sunny-days">Event <span class="arithmatex">\(E\)</span> — Exactly Two Sunny Days</h2>
+<p>We need to choose <strong>which 2 days</strong> are sunny, while the remaining 5 days are each <span class="arithmatex">\(C\)</span> or <span class="arithmatex">\(R\)</span>.</p>
+<div class="arithmatex">\[|E| = \binom{7}{2} \times 2^5 = 21 \times 32 = 672\]</div>
+<div class="arithmatex">\[P(E) = \binom{7}{2} \left(\frac{1}{3}\right)^2 \left(\frac{2}{3}\right)^5 = 21 \times \frac{1}{9} \times \frac{32}{243} = \frac{672}{2187} \approx 30.73\%\]</div>
+<p>This follows the <strong>Binomial distribution</strong> <span class="arithmatex">\(\text{Bin}(7, \tfrac{1}{3})\)</span> with <span class="arithmatex">\(k=2\)</span> successes:</p>
+<div class="arithmatex">\[P(E) = \binom{7}{2}\left(\frac{1}{3}\right)^2\left(\frac{2}{3}\right)^5\]</div>
+<hr />
+<h2 id="additional-event">Additional Event</h2>
+<p><strong>Event <span class="arithmatex">\(F\)</span></strong> — At least 4 days are the same weather state (any state).</p>
+<p>Use inclusion-exclusion. Let <span class="arithmatex">\(F_S\)</span>, <span class="arithmatex">\(F_C\)</span>, <span class="arithmatex">\(F_R\)</span> be the events that at least 4 days are Sunny, Cloudy, Rainy respectively. These are mutually exclusive (a week cannot have <span class="arithmatex">\(\geq 4\)</span> sunny AND <span class="arithmatex">\(\geq 4\)</span> cloudy days simultaneously since <span class="arithmatex">\(4+4=8&gt;7\)</span>).</p>
+<p>For any fixed state <span class="arithmatex">\(X\)</span>, the number of outcomes with <strong>exactly <span class="arithmatex">\(k\)</span></strong> days of state <span class="arithmatex">\(X\)</span> is <span class="arithmatex">\(\binom{7}{k} \cdot 2^{7-k}\)</span>, so:</p>
+<div class="arithmatex">\[P(\text{at least 4 days of state } X) = \sum_{k=4}^{7} \binom{7}{k} \left(\frac{1}{3}\right)^k \left(\frac{2}{3}\right)^{7-k}\]</div>
+<p>Computing each term:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(k\)</span></th>
+<th><span class="arithmatex">\(\binom{7}{k}\)</span></th>
+<th><span class="arithmatex">\(\left(\tfrac{1}{3}\right)^k\left(\tfrac{2}{3}\right)^{7-k}\)</span></th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>35</td>
+<td><span class="arithmatex">\(\tfrac{1}{81} \cdot \tfrac{8}{27} = \tfrac{8}{2187}\)</span></td>
+<td><span class="arithmatex">\(\tfrac{280}{2187}\)</span></td>
+</tr>
+<tr>
+<td>5</td>
+<td>21</td>
+<td><span class="arithmatex">\(\tfrac{1}{243} \cdot \tfrac{4}{9} = \tfrac{4}{2187}\)</span></td>
+<td><span class="arithmatex">\(\tfrac{84}{2187}\)</span></td>
+</tr>
+<tr>
+<td>6</td>
+<td>7</td>
+<td><span class="arithmatex">\(\tfrac{1}{729} \cdot \tfrac{2}{3} = \tfrac{2}{2187}\)</span></td>
+<td><span class="arithmatex">\(\tfrac{14}{2187}\)</span></td>
+</tr>
+<tr>
+<td>7</td>
+<td>1</td>
+<td><span class="arithmatex">\(\tfrac{1}{2187}\)</span></td>
+<td><span class="arithmatex">\(\tfrac{1}{2187}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="arithmatex">\[P(\text{at least 4 days of state } X) = \frac{280+84+14+1}{2187} = \frac{379}{2187}\]</div>
+<p>Since the three states are symmetric and mutually exclusive for the "at least 4" condition:</p>
+<div class="arithmatex">\[P(F) = 3 \times \frac{379}{2187} = \frac{1137}{2187} = \frac{379}{729} \approx 51.99\%\]</div>
+<hr />
+<h2 id="summary-table">Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+<th>Probability</th>
+<th>Decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(A\)</span></td>
+<td>Full weekend sunny</td>
+<td><span class="arithmatex">\(\tfrac{1}{9}\)</span></td>
+<td>11.11%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(B\)</span></td>
+<td>Wed–Fri all rainy</td>
+<td><span class="arithmatex">\(\tfrac{1}{27}\)</span></td>
+<td>3.70%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(C\)</span></td>
+<td>At least one sunny day</td>
+<td><span class="arithmatex">\(\tfrac{2059}{2187}\)</span></td>
+<td>94.15%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(D\)</span></td>
+<td>No rainy day</td>
+<td><span class="arithmatex">\(\tfrac{128}{2187}\)</span></td>
+<td>5.85%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(E\)</span></td>
+<td>Exactly 2 sunny days</td>
+<td><span class="arithmatex">\(\tfrac{672}{2187}\)</span></td>
+<td>30.73%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(F\)</span></td>
+<td>At least 4 days same state</td>
+<td><span class="arithmatex">\(\tfrac{379}{729}\)</span></td>
+<td>51.99%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-techniques-used">Key Techniques Used</h2>
+<ul>
+<li><strong>Multiplication principle</strong> (independent days): <span class="arithmatex">\(P(w_i = x \text{ and } w_j = y) = P(w_i=x)\cdot P(w_j=y)\)</span></li>
+<li><strong>Complement rule</strong>: <span class="arithmatex">\(P(C) = 1 - P(C^c)\)</span> — much easier than counting directly</li>
+<li><strong>Binomial distribution</strong>: when counting exactly <span class="arithmatex">\(k\)</span> successes in <span class="arithmatex">\(n\)</span> independent trials with success probability <span class="arithmatex">\(p\)</span>:</li>
+</ul>
+<div class="arithmatex">\[P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}\]</div>
 
 
 
