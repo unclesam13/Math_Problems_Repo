@@ -78,6 +78,4 @@ plugins:
                     - '10. Advanced Methods': '4_Metody_probabilistyczne/advanced/10_advanced_methods.md'
                     - '11. Decision Theory': '4_Metody_probabilistyczne/advanced/11_decision_theory.md'
               - Animations:
-                - 'Lab 1': 'anim/4_Metody_probalistyczne/laboratory_1.html'
-                - 'Lab 2': 'anim/4_Metody_probalistyczne/laboratory_2.html'
-                - 'Lab 3': 'anim/4_Metody_probalistyczne/laboratory_3.html'
+                - 'Solution 1 - Task 1 - Coin Toss': 'anim/4_Metody_probabilistyczne/coin_toss.html'
