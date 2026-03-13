@@ -70,6 +70,7 @@ plugins:
                     - 'Solution 01 - Task 4 - Weekly Weather Observation': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_04.md'
                     - 'Solution 01 - Task 5 - Buffon Needle': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_05.md'
                     - 'Solution 01 - Task 6 - Events and Probabilities in Coin Tossing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_06.md'
+                    - 'Solution 01 - Task 7 - Events and Probabilities in Die Rolling': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_07.md'
                 - Advanced:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/advanced/01_events_and_probability.md'
                     - '2. Random Variables': '4_Metody_probabilistyczne/advanced/02_random_variables.md'
