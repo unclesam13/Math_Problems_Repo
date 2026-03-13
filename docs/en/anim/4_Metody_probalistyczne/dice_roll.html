@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dice Roll Simulator</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background: #0f0f14;
+    color: #e8e4d9;
+    min-height: 100vh;
+    padding: 24px 16px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #e05c5c;
+    margin-bottom: 20px;
+  }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    background: transparent;
+    border: 1.5px solid #e05c5c;
+    color: #e05c5c;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+  .btn:hover, .btn.active { background: #e05c5c; color: #0f0f14; }
+
+  /* DICE */
+  .dice-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    min-height: 90px;
+    align-items: center;
+  }
+
+  .die {
+    width: 72px; height: 72px;
+    background: #1e1e2a;
+    border: 2px solid #e05c5c;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 8px;
+    gap: 4px;
+    position: relative;
+  }
+  .die.rolling { animation: shake 0.5s ease-out; }
+
+  @keyframes shake {
+    0%   { transform: rotate(0deg) scale(0.9); }
+    20%  { transform: rotate(-15deg) scale(1.05); }
+    40%  { transform: rotate(15deg) scale(1.1); }
+    60%  { transform: rotate(-10deg) scale(1.05); }
+    80%  { transform: rotate(8deg) scale(1.02); }
+    100% { transform: rotate(0deg) scale(1); }
+  }
+
+  .dot {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: #e05c5c;
+    display: none;
+  }
+
+  /* dot layouts per face value */
+  .die[data-val="1"] .d-5 { display: block; }
+
+  .die[data-val="2"] .d-1 { display: block; }
+  .die[data-val="2"] .d-9 { display: block; }
+
+  .die[data-val="3"] .d-1 { display: block; }
+  .die[data-val="3"] .d-5 { display: block; }
+  .die[data-val="3"] .d-9 { display: block; }
+
+  .die[data-val="4"] .d-1,.die[data-val="4"] .d-3,
+  .die[data-val="4"] .d-7,.die[data-val="4"] .d-9 { display: block; }
+
+  .die[data-val="5"] .d-1,.die[data-val="5"] .d-3,.die[data-val="5"] .d-5,
+  .die[data-val="5"] .d-7,.die[data-val="5"] .d-9 { display: block; }
+
+  .die[data-val="6"] .d-1,.die[data-val="6"] .d-3,
+  .die[data-val="6"] .d-4,.die[data-val="6"] .d-6,
+  .die[data-val="6"] .d-7,.die[data-val="6"] .d-9 { display: block; }
+
+  .die-label {
+    text-align: center;
+    font-size: 0.65rem;
+    color: #666;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .die-wrap { display: flex; flex-direction: column; align-items: center; }
+
+  /* outcome + space */
+  .outcome-box {
+    background: #16161e;
+    border: 1px solid #2a2a3a;
+    padding: 12px 20px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .outcome-label { font-size: 0.62rem; color: #555; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 5px; }
+  .outcome-value { font-size: 1.05rem; color: #e8e4d9; letter-spacing: 0.12em; }
+  .outcome-sum { font-size: 0.75rem; color: #e05c5c; margin-top: 4px; }
+
+  .space-display {
+    background: #16161e;
+    border: 1px solid #2a2a3a;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+  }
+  .space-label { font-size: 0.62rem; color: #555; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .space-grid { display: flex; flex-wrap: wrap; gap: 5px; max-height: 100px; overflow-y: auto; }
+  .space-item {
+    font-size: 0.65rem; padding: 2px 6px;
+    border: 1px solid #2a2a3a; color: #666;
+    transition: all 0.25s;
+  }
+  .space-item.highlighted { border-color: #e05c5c; color: #e05c5c; background: rgba(224,92,92,0.08); }
+
+  /* distribution bar chart */
+  .dist-section {
+    background: #16161e;
+    border: 1px solid #2a2a3a;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+  }
+  .dist-label { font-size: 0.62rem; color: #555; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
+  .bar-row {
+    display: flex; align-items: flex-end; gap: 3px;
+    height: 60px; justify-content: center;
+  }
+  .bar-col { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .bar {
+    width: 22px;
+    background: #e05c5c;
+    transition: height 0.3s ease;
+    min-height: 1px;
+  }
+  .bar-key { font-size: 0.55rem; color: #555; }
+  .bar-pct { font-size: 0.5rem; color: #e05c5c; min-height: 10px; }
+
+  /* stats */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px;
+  }
+  .stat-box { background: #16161e; border: 1px solid #2a2a3a; padding: 8px; text-align: center; }
+  .stat-num { font-size: 1.1rem; font-weight: 700; color: #e05c5c; }
+  .stat-lbl { font-size: 0.58rem; color: #555; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+
+  .history {
+    background: #16161e; border: 1px solid #2a2a3a;
+    padding: 8px 12px; max-height: 60px; overflow-y: auto;
+    font-size: 0.68rem; color: #444; line-height: 1.9; word-break: break-all;
+  }
+  .history .val { color: #e05c5c; }
+</style>
+</head>
+<body>
+
+<h2>🎲 Dice Roll Simulator</h2>
+
+<div class="controls">
+  <button class="btn active" id="btn1" onclick="setMode(1)">1 Dice (Ω₁)</button>
+  <button class="btn" id="btn2" onclick="setMode(2)">2 Dice (Ω₂)</button>
+  <button class="btn" id="btn3" onclick="setMode(3)">3 Dice (Ω₃)</button>
+</div>
+
+<div class="dice-row" id="diceRow"></div>
+
+<div class="outcome-box">
+  <div class="outcome-label">Current Outcome</div>
+  <div class="outcome-value" id="currentOutcome">—</div>
+  <div class="outcome-sum" id="currentSum"></div>
+</div>
+
+<div class="space-display" id="spaceSection">
+  <div class="space-label">Sample Space Ω<span id="omegaIdx">1</span> — <span id="spaceSize"></span> outcomes, highlighted = current</div>
+  <div class="space-grid" id="spaceGrid"></div>
+</div>
+
+<div class="dist-section">
+  <div class="dist-label">Sum Distribution (empirical vs theoretical)</div>
+  <div class="bar-row" id="barRow"></div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num" id="totalRolls">0</div><div class="stat-lbl">Total Rolls</div></div>
+  <div class="stat-box"><div class="stat-num" id="avgSum">—</div><div class="stat-lbl">Avg Sum</div></div>
+  <div class="stat-box"><div class="stat-num" id="mostFreq">—</div><div class="stat-lbl">Most Frequent</div></div>
+</div>
+
+<div class="controls" style="margin-bottom:10px;">
+  <button class="btn" onclick="roll()">Roll Once</button>
+  <button class="btn" onclick="rollMany(100)">Roll ×100</button>
+  <button class="btn" onclick="rollMany(10000)">Roll ×10000</button>
+  <button class="btn" onclick="resetAll()">Reset</button>
+</div>
+
+<div class="history" id="history">Roll history will appear here...</div>
+
+<script>
+  let mode = 1;
+  let totalRolls = 0, sumTotal = 0;
+  let sumCounts = {};
+  let historyItems = [];
+  let lastOutcome = null;
+
+  // theoretical probabilities for sums
+  function theoreticalProbs(n) {
+    const min = n, max = 6*n;
+    const counts = {};
+    for (let s = min; s <= max; s++) counts[s] = 0;
+    function recurse(dice, current) {
+      if (dice === 0) { counts[current]++; return; }
+      for (let d = 1; d <= 6; d++) recurse(dice-1, current+d);
+    }
+    recurse(n, 0);
+    const total = Math.pow(6, n);
+    const probs = {};
+    for (let s = min; s <= max; s++) probs[s] = counts[s] / total;
+    return probs;
+  }
+
+  // sample space generator (only show for mode <= 2, mode 3 too large to display)
+  function generateSpace(n) {
+    if (n === 1) return [1,2,3,4,5,6].map(v => [v]);
+    if (n === 2) {
+      const sp = [];
+      for (let i=1;i<=6;i++) for (let j=1;j<=6;j++) sp.push([i,j]);
+      return sp;
+    }
+    return null; // too large to display
+  }
+
+  function makeDie(val) {
+    const wrap = document.createElement('div');
+    wrap.className = 'die-wrap';
+    const die = document.createElement('div');
+    die.className = 'die';
+    if (val) die.setAttribute('data-val', val);
+    // 9 dot positions
+    for (let i = 1; i <= 9; i++) {
+      const dot = document.createElement('div');
+      dot.className = `dot d-${i}`;
+      die.appendChild(dot);
+    }
+    const lbl = document.createElement('div');
+    lbl.className = 'die-label';
+    lbl.textContent = 'Die ' + (wrap._idx !== undefined ? wrap._idx : '');
+    wrap.appendChild(die);
+    wrap.appendChild(lbl);
+    return { wrap, die, lbl };
+  }
+
+  function setMode(n) {
+    mode = n;
+    document.querySelectorAll('.btn[id^=btn]').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn'+n).classList.add('active');
+    document.getElementById('omegaIdx').textContent = n;
+    resetAll(false);
+    renderDice([]);
+    renderSpace(null);
+    initBars();
+  }
+
+  function renderDice(vals) {
+    const row = document.getElementById('diceRow');
+    row.innerHTML = '';
+    for (let i = 0; i < mode; i++) {
+      const v = vals[i];
+      const { wrap, die, lbl } = makeDie(v);
+      lbl.textContent = 'Dice ' + (i+1);
+      row.appendChild(wrap);
+    }
+  }
+
+  function renderSpace(current) {
+    const grid = document.getElementById('spaceGrid');
+    const sizeEl = document.getElementById('spaceSize');
+    grid.innerHTML = '';
+    const size = Math.pow(6, mode);
+    sizeEl.textContent = size;
+    if (mode === 3) {
+      grid.innerHTML = '<span style="color:#555;font-size:0.65rem;">216 outcomes — too many to display, see bar chart below</span>';
+      return;
+    }
+    const space = generateSpace(mode);
+    space.forEach(item => {
+      const key = item.join(',');
+      const curKey = current ? current.join(',') : null;
+      const el = document.createElement('div');
+      el.className = 'space-item' + (key === curKey ? ' highlighted' : '');
+      el.textContent = mode === 1 ? item[0] : '('+item.join(',')+')';
+      grid.appendChild(el);
+    });
+  }
+
+  function initBars() {
+    const min = mode, max = 6*mode;
+    sumCounts = {};
+    for (let s = min; s <= max; s++) sumCounts[s] = 0;
+    renderBars();
+  }
+
+  function renderBars() {
+    const row = document.getElementById('barRow');
+    row.innerHTML = '';
+    const min = mode, max = 6*mode;
+    const theoretical = theoreticalProbs(mode);
+    const maxTheory = Math.max(...Object.values(theoretical));
+    const maxEmp = totalRolls > 0 ? Math.max(...Object.values(sumCounts)) / totalRolls : 0;
+    const maxVal = Math.max(maxTheory, maxEmp, 0.001);
+
+    for (let s = min; s <= max; s++) {
+      const col = document.createElement('div');
+      col.className = 'bar-col';
+      const empH = totalRolls > 0 ? (sumCounts[s]/totalRolls) / maxVal * 55 : 0;
+      const thH = theoretical[s] / maxVal * 55;
+
+      const pct = document.createElement('div');
+      pct.className = 'bar-pct';
+      pct.textContent = totalRolls > 0 ? (sumCounts[s]/totalRolls*100).toFixed(0)+'%' : '';
+
+      // stacked: empirical bar + theoretical outline
+      const barWrap = document.createElement('div');
+      barWrap.style.cssText = 'position:relative;display:flex;align-items:flex-end;height:55px;';
+
+      const barTh = document.createElement('div');
+      barTh.style.cssText = `position:absolute;bottom:0;left:0;width:22px;height:${thH}px;border:1px solid rgba(224,92,92,0.3);`;
+
+      const bar = document.createElement('div');
+      bar.className = 'bar';
+      bar.style.height = Math.max(empH, 1) + 'px';
+
+      barWrap.appendChild(barTh);
+      barWrap.appendChild(bar);
+
+      const key = document.createElement('div');
+      key.className = 'bar-key';
+      key.textContent = s;
+
+      col.appendChild(pct);
+      col.appendChild(barWrap);
+      col.appendChild(key);
+      row.appendChild(col);
+    }
+  }
+
+  function roll() {
+    const vals = [];
+    for (let i = 0; i < mode; i++) vals.push(Math.floor(Math.random()*6)+1);
+    const sum = vals.reduce((a,b)=>a+b,0);
+
+    // animate
+    renderDice(Array(mode).fill(null));
+    document.querySelectorAll('.die').forEach(d => {
+      d.classList.add('rolling');
+      setTimeout(()=>d.classList.remove('rolling'), 550);
+    });
+    setTimeout(()=>{
+      renderDice(vals);
+      renderSpace(vals);
+      document.getElementById('currentOutcome').textContent =
+        mode === 1 ? vals[0] : '(' + vals.join(', ') + ')';
+      document.getElementById('currentSum').textContent =
+        mode > 1 ? 'Sum = ' + sum : '';
+    }, 520);
+
+    totalRolls++;
+    sumTotal += sum;
+    sumCounts[sum]++;
+    updateStats();
+    addHistory(vals, sum);
+    renderBars();
+  }
+
+  function rollMany(n) {
+    let lastVals, lastSum;
+    for (let i = 0; i < n; i++) {
+      const vals = [];
+      for (let j = 0; j < mode; j++) vals.push(Math.floor(Math.random()*6)+1);
+      const sum = vals.reduce((a,b)=>a+b,0);
+      totalRolls++; sumTotal += sum; sumCounts[sum]++;
+      addHistory(vals, sum, true);
+      lastVals = vals; lastSum = sum;
+    }
+    renderDice(lastVals);
+    renderSpace(lastVals);
+    document.getElementById('currentOutcome').textContent =
+      mode === 1 ? lastVals[0] : '(' + lastVals.join(', ') + ')';
+    document.getElementById('currentSum').textContent =
+      mode > 1 ? 'Sum = ' + lastSum : '';
+    updateStats();
+    renderBars();
+    renderHistoryDisplay();
+  }
+
+  function updateStats() {
+    document.getElementById('totalRolls').textContent = totalRolls;
+    document.getElementById('avgSum').textContent =
+      totalRolls > 0 ? (sumTotal/totalRolls).toFixed(2) : '—';
+    if (totalRolls > 0) {
+      const mf = Object.entries(sumCounts).sort((a,b)=>b[1]-a[1])[0];
+      document.getElementById('mostFreq').textContent = 'sum=' + mf[0];
+    }
+  }
+
+  function addHistory(vals, sum, batch=false) {
+    historyItems.unshift(mode===1 ? vals[0] : vals.join(','));
+    if (historyItems.length > 300) historyItems.pop();
+    if (!batch) renderHistoryDisplay();
+  }
+
+  function renderHistoryDisplay() {
+    const h = document.getElementById('history');
+    h.innerHTML = historyItems.map(v =>
+      `<span class="val">${v}</span> `
+    ).join('');
+  }
+
+  function resetAll(rerender=true) {
+    totalRolls = 0; sumTotal = 0; historyItems = [];
+    initBars();
+    document.getElementById('totalRolls').textContent = '0';
+    document.getElementById('avgSum').textContent = '—';
+    document.getElementById('mostFreq').textContent = '—';
+    document.getElementById('currentOutcome').textContent = '—';
+    document.getElementById('currentSum').textContent = '';
+    document.getElementById('history').innerHTML = 'Roll history will appear here...';
+    if (rerender) { renderDice([]); renderSpace(null); }
+  }
+
+  setMode(1);
+</script>
+</body>
+</html>
