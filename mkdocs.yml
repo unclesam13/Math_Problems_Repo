@@ -64,6 +64,7 @@ plugins:
                     - '2. Combinatorics': '4_Metody_probabilistyczne/basic/02_combinatorics.md'
                     - '3. Probability Distributions': '4_Metody_probabilistyczne/basic/03_probability_distributions.md'
                 - 'My Solutions':
+                  - 'Task 1': 
                     - 'Solution 01 - Task 1 - Coin Tossing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_01.md'
                     - 'Solution 01 - Task 2 - Dice Roll': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_02.md'
                     - 'Solution 01 - Task 3 - Card Draw': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_03.md'
