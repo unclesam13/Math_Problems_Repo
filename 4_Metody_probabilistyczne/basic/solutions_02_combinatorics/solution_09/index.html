@@ -25,7 +25,7 @@
     
     
       
-        <title>Task 9 - Combinatorics - Math Problems</title>
+        <title>Task 9 - Digit Restrictions - Math Problems</title>
       
     
     
@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#task-9-digit-restrictions" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Task 9 - Combinatorics
+              Task 9 - Digit Restrictions
             
           </span>
         </div>
@@ -935,7 +940,7 @@
   <span class="md-ellipsis">
     
   
-    Task 1 - Combinatorics
+    Task 1 - Recognizing Counting Methods
   
 
     
@@ -963,7 +968,7 @@
   <span class="md-ellipsis">
     
   
-    Task 2 - Combinatorics
+    Task 2 - Permutations
   
 
     
@@ -991,7 +996,7 @@
   <span class="md-ellipsis">
     
   
-    Task 3 - Combinatorics
+    Task 3 - Permutations with Repeated Elements
   
 
     
@@ -1019,7 +1024,7 @@
   <span class="md-ellipsis">
     
   
-    Task 4 - Combinatorics
+    Task 4 - Circular Permutations
   
 
     
@@ -1047,7 +1052,7 @@
   <span class="md-ellipsis">
     
   
-    Task 5 - Combinatorics
+    Task 5 - Combinations
   
 
     
@@ -1075,7 +1080,7 @@
   <span class="md-ellipsis">
     
   
-    Task 6 - Combinatorics
+    Task 6 - Combinations in Card Problems
   
 
     
@@ -1103,7 +1108,7 @@
   <span class="md-ellipsis">
     
   
-    Task 7 - Combinatorics
+    Task 7 - k-Permutations
   
 
     
@@ -1131,7 +1136,7 @@
   <span class="md-ellipsis">
     
   
-    Task 8 - Combinatorics
+    Task 8 - Sequences with Repetition
   
 
     
@@ -1158,6 +1163,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1166,7 +1173,7 @@
   <span class="md-ellipsis">
     
   
-    Task 9 - Combinatorics
+    Task 9 - Digit Restrictions
   
 
     
@@ -1195,7 +1202,91 @@
   <span class="md-ellipsis">
     
   
-    Task 10 - Combinatorics
+    Task 10 - Urn Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 11 - Modeling Outcomes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 12 - Mixed Counting Problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes_solutions_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes - Combinatorics
   
 
     
@@ -1668,7 +1759,7 @@
   <span class="md-ellipsis">
     
   
-    Task 1
+    Solution 1 - Events & Probability
   
 
     
@@ -1684,7 +1775,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Task 1
+    Solution 1 - Events & Probability
   
 
           </label>
@@ -1704,7 +1795,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 1 - Coin Toss
+    Task 1 - Coin Toss
   
 
     
@@ -1732,7 +1823,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 2 - Dice Roll
+    Task 2 - Dice Roll
   
 
     
@@ -1760,7 +1851,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 3 - Card Draw
+    Task 3 - Card Draw
   
 
     
@@ -1814,6 +1905,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1830,9 +1923,24 @@
 
 
 
-  <h1>Task 9 - Combinatorics</h1>
-
-
+<h1 id="task-9-digit-restrictions">Task 9 — Digit Restrictions</h1>
+<p><strong>1. How many 5-digit numbers exist?</strong></p>
+<p>First digit: 1–9 (cannot be 0) → 9 choices. Remaining 4 digits: 0–9 → 10 choices each.</p>
+<div class="arithmatex">\[9 \times 10^4 = 90{,}000\]</div>
+<blockquote>
+<p><strong>Note:</strong> 5-digit numbers range from 10000 to 99999 — exactly 90,000 numbers. ✓</p>
+</blockquote>
+<p><strong>2. How many are even?</strong></p>
+<p>Last digit must be even: <span class="arithmatex">\(\{0,2,4,6,8\}\)</span> — 5 choices. First digit: 1–9 → 9 choices. Middle 3 digits: 10 choices each.</p>
+<div class="arithmatex">\[9 \times 10 \times 10 \times 10 \times 5 = 45{,}000\]</div>
+<p><strong>3. How many contain no repeated digits?</strong></p>
+<p>First digit: 9 choices (1–9). 
+Second: 9 choices (0–9 minus first digit).
+Third: 8 choices. Fourth: 7. Fifth: 6.</p>
+<div class="arithmatex">\[9 \times 9 \times 8 \times 7 \times 6 = 27{,}216\]</div>
+<p><strong>4. How many contain at least one repeated digit?</strong></p>
+<p>Complement of (3):</p>
+<p>$<span class="arithmatex">\(90{,}000 - 27{,}216 = 62{,}784\)</span>$</p>
 
 
 

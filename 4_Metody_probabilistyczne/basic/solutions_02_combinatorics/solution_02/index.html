@@ -25,7 +25,7 @@
     
     
       
-        <title>Task 2 - Combinatorics - Math Problems</title>
+        <title>Task 2 - Permutations - Math Problems</title>
       
     
     
@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#task-2-permutations" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Task 2 - Combinatorics
+              Task 2 - Permutations
             
           </span>
         </div>
@@ -935,7 +940,7 @@
   <span class="md-ellipsis">
     
   
-    Task 1 - Combinatorics
+    Task 1 - Recognizing Counting Methods
   
 
     
@@ -962,6 +967,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -970,7 +977,7 @@
   <span class="md-ellipsis">
     
   
-    Task 2 - Combinatorics
+    Task 2 - Permutations
   
 
     
@@ -999,7 +1006,7 @@
   <span class="md-ellipsis">
     
   
-    Task 3 - Combinatorics
+    Task 3 - Permutations with Repeated Elements
   
 
     
@@ -1027,7 +1034,7 @@
   <span class="md-ellipsis">
     
   
-    Task 4 - Combinatorics
+    Task 4 - Circular Permutations
   
 
     
@@ -1055,7 +1062,7 @@
   <span class="md-ellipsis">
     
   
-    Task 5 - Combinatorics
+    Task 5 - Combinations
   
 
     
@@ -1083,7 +1090,7 @@
   <span class="md-ellipsis">
     
   
-    Task 6 - Combinatorics
+    Task 6 - Combinations in Card Problems
   
 
     
@@ -1111,7 +1118,7 @@
   <span class="md-ellipsis">
     
   
-    Task 7 - Combinatorics
+    Task 7 - k-Permutations
   
 
     
@@ -1139,7 +1146,7 @@
   <span class="md-ellipsis">
     
   
-    Task 8 - Combinatorics
+    Task 8 - Sequences with Repetition
   
 
     
@@ -1167,7 +1174,7 @@
   <span class="md-ellipsis">
     
   
-    Task 9 - Combinatorics
+    Task 9 - Digit Restrictions
   
 
     
@@ -1195,7 +1202,91 @@
   <span class="md-ellipsis">
     
   
-    Task 10 - Combinatorics
+    Task 10 - Urn Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 11 - Modeling Outcomes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 12 - Mixed Counting Problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes_solutions_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes - Combinatorics
   
 
     
@@ -1668,7 +1759,7 @@
   <span class="md-ellipsis">
     
   
-    Task 1
+    Solution 1 - Events & Probability
   
 
     
@@ -1684,7 +1775,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Task 1
+    Solution 1 - Events & Probability
   
 
           </label>
@@ -1704,7 +1795,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 1 - Coin Toss
+    Task 1 - Coin Toss
   
 
     
@@ -1732,7 +1823,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 2 - Dice Roll
+    Task 2 - Dice Roll
   
 
     
@@ -1760,7 +1851,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 3 - Card Draw
+    Task 3 - Card Draw
   
 
     
@@ -1814,6 +1905,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1830,9 +1923,19 @@
 
 
 
-  <h1>Task 2 - Combinatorics</h1>
-
-
+<h1 id="task-2-permutations">Task 2 — Permutations</h1>
+<p><strong>1. Arranging 8 different books on a shelf</strong></p>
+<p>All 8 distinct books, order matters, linear arrangement:</p>
+<div class="arithmatex">\[P_8 = 8! = 40{,}320\]</div>
+<p><strong>2. 8 people in a row - two particular people MUST sit together</strong></p>
+<p>Treat the pair as a single "super-person". Now we arrange 7 units:</p>
+<div class="arithmatex">\[7! \text{ arrangements of units} \times 2! \text{ arrangements within the pair} = 7! \times 2 = 5040 \times 2 = 10{,}080\]</div>
+<p><strong>3. 8 people in a row - two particular people must NOT sit together</strong></p>
+<p>Use the complement:</p>
+<div class="arithmatex">\[\text{Total} - \text{together} = 8! - 7! \times 2! = 40{,}320 - 10{,}080 = 30{,}240\]</div>
+<p><strong>4. 10 questions - first question is fixed</strong></p>
+<p>The first position is determined. The remaining 9 questions can be ordered freely:</p>
+<div class="arithmatex">\[9! = 362{,}880\]</div>
 
 
 

@@ -25,7 +25,7 @@
     
     
       
-        <title>Task 3 - Combinatorics - Math Problems</title>
+        <title>Task 3 - Permutations with Repeated Elements - Math Problems</title>
       
     
     
@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#task-3-permutations-with-repeated-elements" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Task 3 - Combinatorics
+              Task 3 - Permutations with Repeated Elements
             
           </span>
         </div>
@@ -935,7 +940,7 @@
   <span class="md-ellipsis">
     
   
-    Task 1 - Combinatorics
+    Task 1 - Recognizing Counting Methods
   
 
     
@@ -963,7 +968,7 @@
   <span class="md-ellipsis">
     
   
-    Task 2 - Combinatorics
+    Task 2 - Permutations
   
 
     
@@ -990,6 +995,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -998,7 +1005,7 @@
   <span class="md-ellipsis">
     
   
-    Task 3 - Combinatorics
+    Task 3 - Permutations with Repeated Elements
   
 
     
@@ -1027,7 +1034,7 @@
   <span class="md-ellipsis">
     
   
-    Task 4 - Combinatorics
+    Task 4 - Circular Permutations
   
 
     
@@ -1055,7 +1062,7 @@
   <span class="md-ellipsis">
     
   
-    Task 5 - Combinatorics
+    Task 5 - Combinations
   
 
     
@@ -1083,7 +1090,7 @@
   <span class="md-ellipsis">
     
   
-    Task 6 - Combinatorics
+    Task 6 - Combinations in Card Problems
   
 
     
@@ -1111,7 +1118,7 @@
   <span class="md-ellipsis">
     
   
-    Task 7 - Combinatorics
+    Task 7 - k-Permutations
   
 
     
@@ -1139,7 +1146,7 @@
   <span class="md-ellipsis">
     
   
-    Task 8 - Combinatorics
+    Task 8 - Sequences with Repetition
   
 
     
@@ -1167,7 +1174,7 @@
   <span class="md-ellipsis">
     
   
-    Task 9 - Combinatorics
+    Task 9 - Digit Restrictions
   
 
     
@@ -1195,7 +1202,91 @@
   <span class="md-ellipsis">
     
   
-    Task 10 - Combinatorics
+    Task 10 - Urn Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 11 - Modeling Outcomes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 12 - Mixed Counting Problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes_solutions_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes - Combinatorics
   
 
     
@@ -1668,7 +1759,7 @@
   <span class="md-ellipsis">
     
   
-    Task 1
+    Solution 1 - Events & Probability
   
 
     
@@ -1684,7 +1775,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Task 1
+    Solution 1 - Events & Probability
   
 
           </label>
@@ -1704,7 +1795,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 1 - Coin Toss
+    Task 1 - Coin Toss
   
 
     
@@ -1732,7 +1823,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 2 - Dice Roll
+    Task 2 - Dice Roll
   
 
     
@@ -1760,7 +1851,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 3 - Card Draw
+    Task 3 - Card Draw
   
 
     
@@ -1814,6 +1905,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1830,9 +1923,19 @@
 
 
 
-  <h1>Task 3 - Combinatorics</h1>
-
-
+<h1 id="task-3-permutations-with-repeated-elements">Task 3 — Permutations with Repeated Elements</h1>
+<p><strong>1. Distinct arrangements of MISSISSIPPI</strong></p>
+<p>Count the letters: M=1, I=4, S=4, P=2. Total letters: <span class="arithmatex">\(1+4+4+2 = 11\)</span>.</p>
+<div class="arithmatex">\[\frac{11!}{1!\,4!\,4!\,2!} = \frac{39{,}916{,}800}{1 \times 24 \times 24 \times 2} = \frac{39{,}916{,}800}{1152} = 34{,}650\]</div>
+<p><strong>2. Distinct arrangements of STATISTICS</strong></p>
+<p>Count the letters: S=3, T=3, A=1, I=2, C=1. Total: <span class="arithmatex">\(3+3+1+2+1 = 10\)</span>.</p>
+<div class="arithmatex">\[\frac{10!}{3!\,3!\,1!\,2!\,1!} = \frac{3{,}628{,}800}{6 \times 6 \times 1 \times 2 \times 1} = \frac{3{,}628{,}800}{72} = 50{,}400\]</div>
+<p><strong>3. Arrangements of STATISTICS starting with S</strong></p>
+<p>Fix S in position 1. Remaining letters: S=2, T=3, A=1, I=2, C=1 (9 letters left).</p>
+<div class="arithmatex">\[\frac{9!}{2!\,3!\,1!\,2!\,1!} = \frac{362{,}880}{2 \times 6 \times 1 \times 2 \times 1} = \frac{362{,}880}{24} = 16{,}800\]</div>
+<blockquote>
+<p><strong>Sanity check:</strong> <span class="arithmatex">\(16{,}800 / 50{,}400 = 1/3\)</span>. Since there are 3 S's among 10 letters, by symmetry exactly <span class="arithmatex">\(1/3\)</span> of all arrangements start with S. ✓</p>
+</blockquote>
 
 
 

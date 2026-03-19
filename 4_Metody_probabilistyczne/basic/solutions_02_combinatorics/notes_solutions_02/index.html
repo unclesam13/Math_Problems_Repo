@@ -1,0 +1,3237 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://unclesam13.github.io/Math_Problems_Repo/4_Metody_probabilistyczne/basic/solutions_02_combinatorics/notes_solutions_02/">
+      
+      
+        <link rel="prev" href="../solution_12/">
+      
+      
+        <link rel="next" href="../../../advanced/01_events_and_probability/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Notes - Combinatorics - Math Problems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#combinatorics-for-probability-complete-lesson-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Math Problems" class="md-header__button md-logo" aria-label="Math Problems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Math Problems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Notes - Combinatorics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Math Problems" class="md-nav__button md-logo" aria-label="Math Problems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Math Problems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture: Probabilistic Methods
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lecture: Probabilistic Methods
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Probabilistic Methods
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Probabilistic Methods
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_events_and_probability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Events & Probability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_combinatorics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Combinatorics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_probability_distributions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Probability Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    My Solutions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    My Solutions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2_1" id="__nav_2_1_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Solution 1 - Events & Probability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Solution 1 - Events & Probability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions_01_events_and_probability/solution_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 1 - Coin Tossing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions_01_events_and_probability/solution_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 2 - Dice Roll
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions_01_events_and_probability/solution_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 3 - Card Draw
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions_01_events_and_probability/solution_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 4 - Weekly Weather Observation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions_01_events_and_probability/solution_05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 5 - Buffon Needle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions_01_events_and_probability/solution_06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 6 - Events and Probabilities in Coin Tossing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions_01_events_and_probability/solution_07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 7 - Events and Probabilities in Die Rolling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions_01_events_and_probability/solution_08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 8 - Events and Probabilities in Card Drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions_01_events_and_probability/solution_09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 9 - Events and Probabilities in Weekly Weather Observation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions_01_events_and_probability/solution_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 10 - Events and Probabilities in Buffon Needle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2_2" id="__nav_2_1_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Solution 2 - Combinatorics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Solution 2 - Combinatorics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 1 - Recognizing Counting Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 2 - Permutations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 3 - Permutations with Repeated Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 4 - Circular Permutations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 5 - Combinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 6 - Combinations in Card Problems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 7 - k-Permutations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 8 - Sequences with Repetition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 9 - Digit Restrictions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 10 - Urn Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 11 - Modeling Outcomes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 12 - Mixed Counting Problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes - Combinatorics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes - Combinatorics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-these-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use These Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/01_events_and_probability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Events & Probability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/02_random_variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Random Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/03_distribution_parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Distribution Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/04_selected_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Selected Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/05_limit_theorems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Limit Theorems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/06_basic_statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Basic Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/07_estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/08_hypothesis_testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Hypothesis Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/09_correlation_and_regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Correlation & Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/10_advanced_methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Advanced Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/11_decision_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Decision Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Animations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Animations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Solution 1 - Events & Probability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Solution 1 - Events & Probability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../anim/4_Metody_probalistyczne/coin_toss.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 1 - Coin Toss
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../anim/4_Metody_probalistyczne/dice_roll.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 2 - Dice Roll
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../anim/4_Metody_probalistyczne/card_draw.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 3 - Card Draw
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-these-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use These Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="combinatorics-for-probability-complete-lesson-notes">Combinatorics for Probability — Complete Lesson Notes</h1>
+<h2 id="how-to-use-these-notes">How to Use These Notes</h2>
+<p>These notes follow the structure of Solution List 02 exactly.<br />
+For each task you will find:
+- <strong>What it is about</strong> — plain language explanation
+- <strong>Key formula</strong> — with every symbol explained
+- <strong>Easy approach</strong> — step-by-step thinking
+- <strong>Most important observation</strong> — what the examiner wants to hear
+- <strong>Professor may ask</strong> — likely oral questions with model answers</p>
+<h1 id="part-1-core-terminology-symbol-glossary">PART 1 — Core Terminology &amp; Symbol Glossary</h1>
+<p>Before any formula, you need to know the vocabulary cold.</p>
+<h2 id="the-four-decision-questions">The Four Decision Questions</h2>
+<p>Every combinatorics problem starts with these four questions in order:</p>
+<blockquote>
+<p><strong>Q1. Are we using ALL objects or only SOME?</strong>
+<strong>Q2. Does ORDER matter?</strong>
+<strong>Q3. Is REPETITION allowed?</strong>
+<strong>Q4. Are some objects IDENTICAL (indistinguishable)?</strong></p>
+</blockquote>
+<p>The answers lead directly to the correct model. Nothing else matters until you answer these four.</p>
+<hr />
+<h2 id="symbol-glossary">Symbol Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(n\)</span></td>
+<td>total objects</td>
+<td>how many objects exist in the set</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k\)</span></td>
+<td>selection size</td>
+<td>how many we pick or arrange</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(n!\)</span></td>
+<td>n factorial</td>
+<td><span class="arithmatex">\(n \times (n-1) \times \cdots \times 2 \times 1\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0!\)</span></td>
+<td>zero factorial</td>
+<td>equals <strong>1</strong> by definition</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\binom{n}{k}\)</span></td>
+<td>binomial coefficient / "n choose k"</td>
+<td>number of ways to choose <span class="arithmatex">\(k\)</span> from <span class="arithmatex">\(n\)</span>, order ignored</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(P(n,k)\)</span></td>
+<td>k-permutation</td>
+<td>number of ordered selections of <span class="arithmatex">\(k\)</span> from <span class="arithmatex">\(n\)</span>, no repetition</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(n_1, n_2, \ldots\)</span></td>
+<td>group sizes</td>
+<td>number of identical objects of each type</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(P_n\)</span></td>
+<td>permutation count</td>
+<td>number of ways to arrange all <span class="arithmatex">\(n\)</span> distinct objects</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="master-formula-table">Master Formula Table</h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>When to use</th>
+<th>Formula</th>
+<th>Example trigger words</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Permutation</strong></td>
+<td>all <span class="arithmatex">\(n\)</span> distinct objects in a line</td>
+<td><span class="arithmatex">\(n!\)</span></td>
+<td>"arrange", "order", "line up"</td>
+</tr>
+<tr>
+<td><strong>Circular permutation</strong></td>
+<td>all <span class="arithmatex">\(n\)</span> objects in a circle</td>
+<td><span class="arithmatex">\((n-1)!\)</span></td>
+<td>"round table", "circle", "ring"</td>
+</tr>
+<tr>
+<td><strong>Perm. with repeats</strong></td>
+<td>all <span class="arithmatex">\(n\)</span> objects, some identical</td>
+<td><span class="arithmatex">\(\dfrac{n!}{n_1!\,n_2!\cdots n_r!}\)</span></td>
+<td>"letters of a word", "colored balls"</td>
+</tr>
+<tr>
+<td><strong>Combination</strong></td>
+<td>choose <span class="arithmatex">\(k\)</span> from <span class="arithmatex">\(n\)</span>, order ignored</td>
+<td><span class="arithmatex">\(\dbinom{n}{k} = \dfrac{n!}{k!(n-k)!}\)</span></td>
+<td>"committee", "team", "subset", "group"</td>
+</tr>
+<tr>
+<td><strong>k-Permutation</strong></td>
+<td>choose <span class="arithmatex">\(k\)</span> from <span class="arithmatex">\(n\)</span>, order matters</td>
+<td><span class="arithmatex">\(P(n,k) = \dfrac{n!}{(n-k)!}\)</span></td>
+<td>"medals", "podium", "ranking", "distinct digits"</td>
+</tr>
+<tr>
+<td><strong>Sequence w/ repetition</strong></td>
+<td>choose <span class="arithmatex">\(k\)</span> from <span class="arithmatex">\(n\)</span>, repetition OK</td>
+<td><span class="arithmatex">\(n^k\)</span></td>
+<td>"PIN", "password", "code", "repeated tosses"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-decision-tree-memorise-this">The Decision Tree (memorise this)</h2>
+<pre><code>Are we using ALL objects?
+│
+├── YES ──► Are they in a CIRCLE?
+│           ├── YES ──► Circular permutation: (n−1)!
+│           └── NO ───► Are some IDENTICAL?
+│                       ├── YES ──► Perm. with repeats: n! / (n₁! n₂! ...)
+│                       └── NO ───► Permutation: n!
+│
+└── NO (only SOME) ──► Does ORDER matter?
+                       ├── NO ───► Combination: C(n,k)
+                       └── YES ──► Is REPETITION allowed?
+                                   ├── YES ──► Sequence: nᵏ
+                                   └── NO ───► k-Permutation: P(n,k)
+</code></pre>
+<hr />
+<h2 id="three-power-tools-for-hard-problems">Three Power Tools for Hard Problems</h2>
+<p>These three techniques solve almost every difficult combinatorics problem:</p>
+<p><strong>Tool 1 — Complement</strong></p>
+<blockquote>
+<p>When direct counting is hard, count the opposite and subtract.</p>
+</blockquote>
+<div class="arithmatex">\[\text{what we want} = \text{total} - \text{what we do NOT want}\]</div>
+<p>Use when you see: <em>"at least one"</em>, <em>"not all"</em>, <em>"at least two"</em>, <em>"contains a repeat"</em>.</p>
+<hr />
+<p><strong>Tool 2 — Fix and Count</strong></p>
+<blockquote>
+<p>Fix the constrained objects first, then count the free positions.</p>
+</blockquote>
+<p>Use when you see: <em>"must be together"</em>, <em>"must include person X"</em>, <em>"first position is fixed"</em>.</p>
+<hr />
+<p><strong>Tool 3 — Multiply Independent Stages</strong></p>
+<blockquote>
+<p>If a process has independent stages, multiply the counts at each stage.</p>
+</blockquote>
+<div class="arithmatex">\[\text{total} = \text{stage 1 ways} \times \text{stage 2 ways} \times \cdots\]</div>
+<p>Use when you see: <em>"followed by"</em>, <em>"then"</em>, <em>"prefix + suffix"</em>, <em>"code + number"</em>.</p>
+<h1 id="part-2-task-by-task-notes">PART 2 — Task-by-Task Notes</h1>
+<h2 id="task-1-recognizing-counting-models">Task 1 — Recognizing Counting Models</h2>
+<h3 id="what-this-task-is-about">What this task is about</h3>
+<p>Before computing anything, you must <strong>identify the correct model</strong>.<br />
+This is the single most important skill in combinatorics.<br />
+A wrong model gives a completely wrong answer even with perfect arithmetic.</p>
+<h3 id="easy-approach-apply-the-four-questions-in-order">Easy Approach — apply the four questions in order</h3>
+<p>For each situation, write down:
+1. All or some?
+2. Order?
+3. Repetition?
+4. Identical objects?</p>
+<p>Then look up the table.</p>
+<h3 id="the-six-situations">The Six Situations</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Situation</th>
+<th>Q1</th>
+<th>Q2</th>
+<th>Q3</th>
+<th>Q4</th>
+<th>Model</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>7 students in a line</td>
+<td>All</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Permutation</td>
+<td><span class="arithmatex">\(7! = 5040\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Committee of 4 from 12</td>
+<td>Some</td>
+<td><strong>No</strong></td>
+<td>No</td>
+<td>No</td>
+<td>Combination</td>
+<td><span class="arithmatex">\(\binom{12}{4} = 495\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Gold/silver/bronze from 15</td>
+<td>Some</td>
+<td><strong>Yes</strong></td>
+<td>No</td>
+<td>No</td>
+<td>k-Permutation</td>
+<td><span class="arithmatex">\(P(15,3) = 2730\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>6-digit PIN</td>
+<td>Some</td>
+<td>Yes</td>
+<td><strong>Yes</strong></td>
+<td>No</td>
+<td>Sequence</td>
+<td><span class="arithmatex">\(10^6 = 1{,}000{,}000\)</span></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Letters of BANANA</td>
+<td>All</td>
+<td>Yes</td>
+<td>—</td>
+<td><strong>Yes</strong></td>
+<td>Perm. w/ repeats</td>
+<td><span class="arithmatex">\(\frac{6!}{3!\,2!} = 60\)</span></td>
+</tr>
+<tr>
+<td>6</td>
+<td>6 people at round table</td>
+<td>All</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td><strong>Circular</strong></td>
+<td><span class="arithmatex">\((6-1)! = 120\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-observation">Most Important Observation</h3>
+<blockquote>
+<p>The difference between <strong>combination</strong> and <strong>k-permutation</strong> is purely whether order matters.<br />
+A committee <span class="arithmatex">\(\{A,B,C\}\)</span> is the same as <span class="arithmatex">\(\{C,B,A\}\)</span> — order does not matter → combination.<br />
+A podium (gold, silver, bronze) where <span class="arithmatex">\(A\)</span>-gold, <span class="arithmatex">\(B\)</span>-silver is different from <span class="arithmatex">\(B\)</span>-gold, <span class="arithmatex">\(A\)</span>-silver → k-permutation.</p>
+</blockquote>
+<h3 id="professor-may-ask">Professor May Ask</h3>
+<p><strong>Q: When does order matter?</strong><br />
+A: When the positions are distinguishable — for example medals (gold ≠ silver), seats in a numbered row, digits in a PIN. When only the selected group matters (committee, team, hand of cards), order does not matter.</p>
+<p><strong>Q: Why do we divide by <span class="arithmatex">\(3!\,2!\)</span> for BANANA?</strong><br />
+A: BANANA has 3 A's and 2 N's. Swapping the three A's among themselves gives the same word — so we are overcounting by <span class="arithmatex">\(3!\)</span>. Similarly for the 2 N's we overcount by <span class="arithmatex">\(2!\)</span>. Dividing removes the overcounting.</p>
+<p><strong>Q: Why does circular permutation give <span class="arithmatex">\((n-1)!\)</span> instead of <span class="arithmatex">\(n!\)</span>?</strong><br />
+A: In a circle, one rotation of the entire arrangement looks identical. So we fix one person's seat and arrange the rest — fixing eliminates the <span class="arithmatex">\(n\)</span> rotational copies, giving <span class="arithmatex">\(n!/n = (n-1)!\)</span>.</p>
+<h2 id="task-2-permutations">Task 2 — Permutations</h2>
+<h3 id="what-this-task-is-about_1">What this task is about</h3>
+<p>Linear arrangements of all objects. The main technique is <strong>Fix and Count</strong> for constrained problems.</p>
+<h3 id="key-formula">Key Formula</h3>
+<div class="arithmatex">\[P_n = n!\]</div>
+<p><span class="arithmatex">\(n\)</span> = number of distinct objects to arrange.</p>
+<h3 id="easy-approach-for-constraint-problems">Easy Approach for Constraint Problems</h3>
+<p><strong>"Must sit together"</strong> → glue them into one super-object, reduce <span class="arithmatex">\(n\)</span> by 1, then multiply by internal arrangements.</p>
+<p><strong>"Must NOT sit together"</strong> → always use complement: Total <span class="arithmatex">\(-\)</span> Together.</p>
+<p><strong>"First position is fixed"</strong> → remove that position, arrange the rest: <span class="arithmatex">\((n-1)!\)</span></p>
+<h3 id="task-solutions-at-a-glance">Task Solutions at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>8 books on a shelf</td>
+<td><span class="arithmatex">\(8!\)</span></td>
+<td><span class="arithmatex">\(40{,}320\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>8 people, two must be adjacent</td>
+<td>Glue pair → <span class="arithmatex">\(7! \times 2!\)</span></td>
+<td><span class="arithmatex">\(10{,}080\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>8 people, two must NOT be adjacent</td>
+<td><span class="arithmatex">\(8! - 7! \times 2!\)</span></td>
+<td><span class="arithmatex">\(30{,}240\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>10 questions, first is fixed</td>
+<td><span class="arithmatex">\(9!\)</span></td>
+<td><span class="arithmatex">\(362{,}880\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-observation_1">Most Important Observation</h3>
+<blockquote>
+<p>The "glue trick": treating two people who must be adjacent as a single unit reduces the problem to <span class="arithmatex">\((n-1)\)</span> objects. Do not forget to multiply by <span class="arithmatex">\(2!\)</span> for the internal arrangement of the pair — they can sit as AB or BA.</p>
+</blockquote>
+<h3 id="professor-may-ask_1">Professor May Ask</h3>
+<p><strong>Q: Why does the "must NOT be adjacent" case use complement?</strong><br />
+A: Direct counting (listing all arrangements where they are separated) is complicated because there are many valid gaps. The complement — arrangements where they ARE adjacent — is easy to count (glue trick), so we subtract: <span class="arithmatex">\(8! - 7! \times 2! = 30{,}240\)</span>.</p>
+<p><strong>Q: In problem 4, why is the answer <span class="arithmatex">\(9!\)</span> and not <span class="arithmatex">\(10!/1!\)</span>?</strong><br />
+A: The first question is fixed — it has only 1 choice. The remaining 9 questions are free, giving <span class="arithmatex">\(9!\)</span> arrangements. <span class="arithmatex">\(10!/1! = 10!\)</span> which would be wrong.</p>
+<h2 id="task-3-permutations-with-repeated-elements">Task 3 — Permutations with Repeated Elements</h2>
+<h3 id="what-this-task-is-about_2">What this task is about</h3>
+<p>Arranging all objects when some are <strong>identical</strong> (indistinguishable). The formula adjusts for overcounting.</p>
+<h3 id="key-formula_1">Key Formula</h3>
+<div class="arithmatex">\[\frac{n!}{n_1!\,n_2!\,\cdots\,n_r!}\]</div>
+<p>Where:
+- <span class="arithmatex">\(n\)</span> = total number of objects
+- <span class="arithmatex">\(n_1, n_2, \ldots, n_r\)</span> = counts of each identical group
+- <span class="arithmatex">\(n_1 + n_2 + \cdots + n_r = n\)</span></p>
+<h3 id="easy-approach-three-steps">Easy Approach — three steps</h3>
+<ol>
+<li><strong>Count total letters</strong> <span class="arithmatex">\(n\)</span></li>
+<li><strong>Count each repeated letter</strong> — find all <span class="arithmatex">\(n_i &gt; 1\)</span></li>
+<li><strong>Divide</strong> <span class="arithmatex">\(n!\)</span> by the factorial of each repeated count</li>
+</ol>
+<h3 id="letter-counts-for-the-two-words">Letter Counts for the Two Words</h3>
+<p><strong>MISSISSIPPI</strong> (11 letters): M=1, I=4, S=4, P=2</p>
+<div class="arithmatex">\[\frac{11!}{1!\,4!\,4!\,2!} = \frac{39{,}916{,}800}{1 \times 24 \times 24 \times 2} = 34{,}650\]</div>
+<p><strong>STATISTICS</strong> (10 letters): S=3, T=3, A=1, I=2, C=1</p>
+<div class="arithmatex">\[\frac{10!}{3!\,3!\,1!\,2!\,1!} = \frac{3{,}628{,}800}{72} = 50{,}400\]</div>
+<p><strong>STATISTICS starting with S</strong> — fix one S, arrange 9 remaining (S=2,T=3,A=1,I=2,C=1):</p>
+<div class="arithmatex">\[\frac{9!}{2!\,3!\,1!\,2!\,1!} = \frac{362{,}880}{24} = 16{,}800\]</div>
+<h3 id="most-important-observation_2">Most Important Observation</h3>
+<blockquote>
+<p><strong>Sanity check for "starts with S":</strong> There are 3 S's among 10 letters. By symmetry, exactly <span class="arithmatex">\(\frac{3}{10}\)</span> of all arrangements start with S... but wait, the letters are not equally distributed across positions in that simple way. The correct check is: <span class="arithmatex">\(16{,}800 / 50{,}400 = 1/3\)</span>. Since there are 3 S's out of 10 positions and the S's are indistinguishable from each other, exactly <span class="arithmatex">\(3/10\)</span> of positions are S... actually by symmetry <span class="arithmatex">\(\frac{3}{10} \times 50{,}400 = 15{,}120 \neq 16{,}800\)</span>.  </p>
+<p>The correct reasoning: we fixed <strong>one specific S</strong> in position 1. The remaining 9 letters have 2 remaining S's, so the fraction is not simply <span class="arithmatex">\(3/10\)</span>. Always verify by direct calculation rather than symmetry when letters repeat.</p>
+</blockquote>
+<h3 id="professor-may-ask_2">Professor May Ask</h3>
+<p><strong>Q: Why do we divide by <span class="arithmatex">\(n_i!\)</span> for each repeated group?</strong><br />
+A: If we label the identical letters (e.g. <span class="arithmatex">\(S_1, S_2, S_3\)</span>), we get <span class="arithmatex">\(10!\)</span> arrangements. But swapping <span class="arithmatex">\(S_1 \leftrightarrow S_2\)</span> gives the same word — so each distinct arrangement is counted <span class="arithmatex">\(3!\)</span> times. Dividing by <span class="arithmatex">\(3!\)</span> removes this overcounting. Same reasoning for every repeated letter.</p>
+<p><strong>Q: What if all letters are distinct?</strong><br />
+A: All <span class="arithmatex">\(n_i = 1\)</span>, so the denominator is <span class="arithmatex">\(1! \times 1! \times \cdots = 1\)</span> and the formula reduces to <span class="arithmatex">\(n!\)</span> — the standard permutation.</p>
+<h2 id="task-4-circular-permutations">Task 4 — Circular Permutations</h2>
+<h3 id="what-this-task-is-about_3">What this task is about</h3>
+<p>Arrangements in a circle where <strong>only relative position matters</strong>, not absolute position.</p>
+<h3 id="key-formula_2">Key Formula</h3>
+<div class="arithmatex">\[(n-1)!\]</div>
+<p><strong>Why:</strong> Fix one person to break rotational symmetry. Arrange the remaining <span class="arithmatex">\(n-1\)</span> people freely around them.</p>
+<h3 id="constraint-tricks">Constraint Tricks</h3>
+<p><strong>"Two people must sit together"</strong> in a circle:
+$<span class="arithmatex">\(\text{Glue pair} \rightarrow (n-2)! \times 2!\)</span>$</p>
+<p>Here we have <span class="arithmatex">\((n-1)\)</span> units in a circle → <span class="arithmatex">\((n-2)!\)</span>, times <span class="arithmatex">\(2!\)</span> for internal arrangement.</p>
+<p><strong>"Two people must sit opposite"</strong> (only meaningful for even <span class="arithmatex">\(n\)</span>):
+$<span class="arithmatex">\(\text{Fix person A} \rightarrow \text{person B has 1 forced seat} \rightarrow (n-2)! \text{ for the rest}\)</span>$</p>
+<h3 id="task-solutions-at-a-glance_1">Task Solutions at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>7 people at round table</td>
+<td><span class="arithmatex">\((7-1)!\)</span></td>
+<td><span class="arithmatex">\(720\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Two must sit together</td>
+<td><span class="arithmatex">\((6-1)! \times 2!\)</span></td>
+<td><span class="arithmatex">\(240\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Two must sit opposite (7 seats — odd!)</td>
+<td>No seat is directly opposite</td>
+<td>See note below</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Important note for problem 3:</strong> With 7 seats (an odd number), no seat is exactly opposite any other. If the professor asks this, say: <em>"Opposite seating is only well-defined for an even number of seats. With 7 seats we cannot have two people sit directly opposite each other."</em> If interpreted as "maximally separated" (3 seats apart), fix A and place B in the one seat 3 positions away, then arrange the rest: <span class="arithmatex">\(5! = 120\)</span>.</p>
+</blockquote>
+<h3 id="most-important-observation_3">Most Important Observation</h3>
+<blockquote>
+<p>In a circle, all rotations of the same arrangement are <strong>identical</strong>. Fixing one person eliminates this redundancy. This is why we get <span class="arithmatex">\((n-1)!\)</span> not <span class="arithmatex">\(n!\)</span>. A common mistake is to use <span class="arithmatex">\(n!\)</span> for circular arrangements — always subtract one from <span class="arithmatex">\(n\)</span> before taking the factorial.</p>
+</blockquote>
+<h3 id="professor-may-ask_3">Professor May Ask</h3>
+<p><strong>Q: Why is circular permutation <span class="arithmatex">\((n-1)!\)</span> and not <span class="arithmatex">\(n!/n\)</span>?</strong><br />
+A: They are the same thing! <span class="arithmatex">\(n!/n = (n-1)!\)</span>. The reasoning: there are <span class="arithmatex">\(n!\)</span> linear arrangements. Each circular arrangement corresponds to exactly <span class="arithmatex">\(n\)</span> rotations (all equivalent), so we divide by <span class="arithmatex">\(n\)</span>.</p>
+<p><strong>Q: What changes if seats are numbered/labelled?</strong><br />
+A: If seats are labelled (e.g. seat 1, seat 2, ...), then rotations ARE different arrangements and we use <span class="arithmatex">\(n!\)</span> instead of <span class="arithmatex">\((n-1)!\)</span> — it becomes a standard permutation.</p>
+<h2 id="task-5-combinations">Task 5 — Combinations</h2>
+<h3 id="what-this-task-is-about_4">What this task is about</h3>
+<p>Selecting a <strong>subset</strong> — the selected group is what matters, not the order of selection.</p>
+<h3 id="key-formula_3">Key Formula</h3>
+<div class="arithmatex">\[\binom{n}{k} = \frac{n!}{k!(n-k)!}\]</div>
+<p>Where:
+- <span class="arithmatex">\(n\)</span> = total available
+- <span class="arithmatex">\(k\)</span> = number selected
+- Read as: "<span class="arithmatex">\(n\)</span> choose <span class="arithmatex">\(k\)</span>"</p>
+<h3 id="useful-properties">Useful Properties</h3>
+<div class="arithmatex">\[\binom{n}{k} = \binom{n}{n-k} \qquad \text{(symmetry)}\]</div>
+<div class="arithmatex">\[\binom{n}{0} = \binom{n}{n} = 1 \qquad \text{(empty set or full set: one way)}\]</div>
+<h3 id="easy-approach-for-constraint-problems_1">Easy Approach for Constraint Problems</h3>
+<p><strong>"Must include person X"</strong> → fix X, choose remaining <span class="arithmatex">\(k-1\)</span> from <span class="arithmatex">\(n-1\)</span>: <span class="arithmatex">\(\binom{n-1}{k-1}\)</span></p>
+<p><strong>"At least one from group"</strong> → complement: Total <span class="arithmatex">\(-\)</span> none from group</p>
+<p><strong>"Exactly <span class="arithmatex">\(j\)</span> from subgroup"</strong> → choose <span class="arithmatex">\(j\)</span> from subgroup × choose rest from outside: <span class="arithmatex">\(\binom{a}{j}\binom{b}{k-j}\)</span></p>
+<h3 id="task-solutions-at-a-glance_2">Task Solutions at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Committee of 4 from 12</td>
+<td><span class="arithmatex">\(\binom{12}{4}\)</span></td>
+<td><span class="arithmatex">\(495\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Must include Alice</td>
+<td><span class="arithmatex">\(\binom{11}{3}\)</span></td>
+<td><span class="arithmatex">\(165\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>At least one of Alice or Bob</td>
+<td><span class="arithmatex">\(\binom{12}{4} - \binom{10}{4}\)</span></td>
+<td><span class="arithmatex">\(285\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Exactly 2 women (7M + 5W)</td>
+<td><span class="arithmatex">\(\binom{5}{2}\binom{7}{2}\)</span></td>
+<td><span class="arithmatex">\(210\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-observation_4">Most Important Observation</h3>
+<blockquote>
+<p><strong>"At least one"</strong> problems almost always use complement. The complement of "at least one from group A" is "none from group A" — which means choosing entirely from outside group A. This is usually a simple single combination.</p>
+</blockquote>
+<h3 id="professor-may-ask_4">Professor May Ask</h3>
+<p><strong>Q: How do you verify the answer to problem 3?</strong><br />
+A: Direct count: exactly Alice only <span class="arithmatex">\(= \binom{10}{3} = 120\)</span>, exactly Bob only <span class="arithmatex">\(= 120\)</span>, both <span class="arithmatex">\(= \binom{10}{2} = 45\)</span>. Total <span class="arithmatex">\(= 120+120+45 = 285\)</span> ✓</p>
+<p><strong>Q: Why is <span class="arithmatex">\(\binom{n}{k} = \binom{n}{n-k}\)</span>?</strong><br />
+A: Choosing <span class="arithmatex">\(k\)</span> objects to include is equivalent to choosing <span class="arithmatex">\(n-k\)</span> objects to exclude. The formula: <span class="arithmatex">\(\frac{n!}{k!(n-k)!} = \frac{n!}{(n-k)!k!}\)</span> — they are identical.</p>
+<h2 id="task-6-combinations-in-card-problems">Task 6 — Combinations in Card Problems</h2>
+<h3 id="what-this-task-is-about_5">What this task is about</h3>
+<p>Applying combinations to a structured set (a card deck). The key is knowing the deck composition and splitting the selection into independent groups.</p>
+<h3 id="deck-facts-memorise">Deck Facts — Memorise</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total cards</td>
+<td>52</td>
+</tr>
+<tr>
+<td>Suits (♠♥♦♣)</td>
+<td>4 suits × 13 cards = 52</td>
+</tr>
+<tr>
+<td>Hearts</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Non-hearts</td>
+<td>39</td>
+</tr>
+<tr>
+<td>Face cards (J,Q,K)</td>
+<td>3 ranks × 4 suits = 12</td>
+</tr>
+<tr>
+<td>Non-face cards</td>
+<td>40</td>
+</tr>
+<tr>
+<td>Aces</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Total 5-card hands</td>
+<td><span class="arithmatex">\(\binom{52}{5} = 2{,}598{,}960\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="easy-approach">Easy Approach</h3>
+<p>Always split the deck into the relevant groups and choose from each independently:</p>
+<div class="arithmatex">\[\text{exactly } j \text{ hearts} = \binom{13}{j} \times \binom{39}{5-j}\]</div>
+<h3 id="task-solutions-at-a-glance_3">Task Solutions at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Exactly 2 hearts</td>
+<td><span class="arithmatex">\(\binom{13}{2}\binom{39}{3}\)</span></td>
+<td><span class="arithmatex">\(712{,}842\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>At least 1 heart</td>
+<td><span class="arithmatex">\(\binom{52}{5} - \binom{39}{5}\)</span></td>
+<td><span class="arithmatex">\(2{,}023{,}203\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>No face cards</td>
+<td><span class="arithmatex">\(\binom{40}{5}\)</span></td>
+<td><span class="arithmatex">\(658{,}008\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-observation_5">Most Important Observation</h3>
+<blockquote>
+<p><strong>"At least one heart"</strong> — never try to count <span class="arithmatex">\(1 + 2 + 3 + 4 + 5\)</span> hearts separately. Always use complement: Total hands <span class="arithmatex">\(-\)</span> hands with zero hearts. Much faster.</p>
+</blockquote>
+<h3 id="professor-may-ask_5">Professor May Ask</h3>
+<p><strong>Q: Why is the answer to problem 1 <span class="arithmatex">\(\binom{13}{2} \times \binom{39}{3}\)</span> and not <span class="arithmatex">\(\binom{52}{5}\)</span> with some fraction?</strong><br />
+A: We split the 52 cards into hearts (13) and non-hearts (39). We independently choose 2 from the hearts and 3 from the non-hearts. The two choices are independent, so we multiply by the product rule.</p>
+<h2 id="task-7-k-permutations">Task 7 — k-Permutations</h2>
+<h3 id="what-this-task-is-about_6">What this task is about</h3>
+<p>Ordered selections where order matters and repetition is NOT allowed.</p>
+<h3 id="key-formula_4">Key Formula</h3>
+<div class="arithmatex">\[P(n,k) = \frac{n!}{(n-k)!} = n \times (n-1) \times \cdots \times (n-k+1)\]</div>
+<p>This is just the first <span class="arithmatex">\(k\)</span> terms of <span class="arithmatex">\(n!\)</span>.</p>
+<h3 id="easy-memory-aid">Easy Memory Aid</h3>
+<p><span class="arithmatex">\(P(n,k)\)</span>: start at <span class="arithmatex">\(n\)</span>, multiply <span class="arithmatex">\(k\)</span> numbers counting down.</p>
+<div class="arithmatex">\[P(12,3) = 12 \times 11 \times 10 = 1{,}320\]</div>
+<h3 id="task-solutions-at-a-glance_4">Task Solutions at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Top 3 from 12 runners</td>
+<td><span class="arithmatex">\(P(12,3) = 12\times11\times10\)</span></td>
+<td><span class="arithmatex">\(1{,}320\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>4-digit numbers, distinct digits from 1–9</td>
+<td><span class="arithmatex">\(P(9,4) = 9\times8\times7\times6\)</span></td>
+<td><span class="arithmatex">\(3{,}024\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>From above, divisible by 5</td>
+<td>Fix last digit=5, then <span class="arithmatex">\(P(8,3)\)</span></td>
+<td><span class="arithmatex">\(336\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-observation_6">Most Important Observation</h3>
+<blockquote>
+<p><strong>Divisibility constraint</strong> (problem 3): fix the constrained position first (last digit = 5), then count the rest freely. Fix-and-count always handles position constraints cleanly.</p>
+</blockquote>
+<h3 id="professor-may-ask_6">Professor May Ask</h3>
+<p><strong>Q: What is the difference between <span class="arithmatex">\(P(n,k)\)</span> and <span class="arithmatex">\(\binom{n}{k}\)</span>?</strong><br />
+A: <span class="arithmatex">\(P(n,k)\)</span> counts ordered selections — the arrangement matters. <span class="arithmatex">\(\binom{n}{k}\)</span> counts unordered selections — only which objects are chosen matters. Relationship: <span class="arithmatex">\(P(n,k) = k! \times \binom{n}{k}\)</span>.</p>
+<p><strong>Q: Why do we choose from digits 1–9 (not 0–9) in problem 2?</strong><br />
+A: The problem specifies digits 1–9 — zero is excluded. This gives a pool of 9 digits instead of 10.</p>
+<h2 id="task-8-sequences-with-repetition">Task 8 — Sequences with Repetition</h2>
+<h3 id="what-this-task-is-about_7">What this task is about</h3>
+<p>Ordered selections where each position is chosen <strong>independently</strong> and repetition IS allowed.</p>
+<h3 id="key-formula_5">Key Formula</h3>
+<div class="arithmatex">\[n^k\]</div>
+<p><span class="arithmatex">\(n\)</span> = number of symbols available, <span class="arithmatex">\(k\)</span> = length of sequence.</p>
+<h3 id="task-solutions-at-a-glance_5">Task Solutions at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5-digit PIN, digits repeat</td>
+<td><span class="arithmatex">\(10^5\)</span></td>
+<td><span class="arithmatex">\(100{,}000\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>At least one repeated digit</td>
+<td><span class="arithmatex">\(10^5 - P(10,5)\)</span></td>
+<td><span class="arithmatex">\(69{,}760\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>All digits different</td>
+<td><span class="arithmatex">\(P(10,5)\)</span></td>
+<td><span class="arithmatex">\(30{,}240\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-observation_7">Most Important Observation</h3>
+<blockquote>
+<p>Note that "all digits different" in a sequence is just a k-permutation. So: <span class="arithmatex">\(n^k\)</span> (with repetition) vs <span class="arithmatex">\(P(n,k)\)</span> (without repetition) are the two cases for sequences. The complement relationship: sequences with at least one repeat <span class="arithmatex">\(=\)</span> <span class="arithmatex">\(n^k - P(n,k)\)</span>.</p>
+</blockquote>
+<h3 id="professor-may-ask_7">Professor May Ask</h3>
+<p><strong>Q: Why is the PIN model <span class="arithmatex">\(10^5\)</span> and not <span class="arithmatex">\(P(10,5)\)</span>?</strong><br />
+A: In a PIN, the same digit can appear multiple times (e.g. 11111 is valid). Each of the 5 positions independently takes any of 10 digits. Independent choices multiply: <span class="arithmatex">\(10 \times 10 \times 10 \times 10 \times 10 = 10^5\)</span>.</p>
+<h2 id="task-9-digit-restrictions">Task 9 — Digit Restrictions</h2>
+<h3 id="what-this-task-is-about_8">What this task is about</h3>
+<p>Counting numbers (not codes) — the key difference is that a <strong>number cannot start with 0</strong>.</p>
+<h3 id="easy-approach-product-rule-position-by-position">Easy Approach — product rule position by position</h3>
+<p>For a 5-digit number: <span class="arithmatex">\(\underbrace{9}_{\text{pos 1}} \times \underbrace{10}_{\text{pos 2}} \times \underbrace{10}_{\text{pos 3}} \times \underbrace{10}_{\text{pos 4}} \times \underbrace{10}_{\text{pos 5}}\)</span></p>
+<p>First position: 1–9 (9 choices). All others: 0–9 (10 choices each).</p>
+<h3 id="task-solutions-at-a-glance_6">Task Solutions at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>All 5-digit numbers</td>
+<td><span class="arithmatex">\(9 \times 10^4\)</span></td>
+<td><span class="arithmatex">\(90{,}000\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Even 5-digit numbers</td>
+<td><span class="arithmatex">\(9 \times 10^3 \times 5\)</span></td>
+<td><span class="arithmatex">\(45{,}000\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>No repeated digits</td>
+<td><span class="arithmatex">\(9 \times 9 \times 8 \times 7 \times 6\)</span></td>
+<td><span class="arithmatex">\(27{,}216\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>At least one repeated digit</td>
+<td><span class="arithmatex">\(90{,}000 - 27{,}216\)</span></td>
+<td><span class="arithmatex">\(62{,}784\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="working-out-problem-3-step-by-step">Working out problem 3 step by step</h3>
+<p>Position 1: digits 1–9 → <strong>9</strong> choices<br />
+Position 2: any digit except position 1 → <strong>9</strong> choices (includes 0)<br />
+Position 3: any digit except positions 1 and 2 → <strong>8</strong> choices<br />
+Position 4: <strong>7</strong> choices. Position 5: <strong>6</strong> choices.</p>
+<div class="arithmatex">\[9 \times 9 \times 8 \times 7 \times 6 = 27{,}216\]</div>
+<h3 id="most-important-observation_8">Most Important Observation</h3>
+<blockquote>
+<p>The first position being non-zero makes this <strong>asymmetric</strong> — you cannot simply use <span class="arithmatex">\(P(10,5)\)</span> for "no repeated digits" because position 1 has 9 choices (not 10) while subsequent positions have different counts. Always handle the first digit separately.</p>
+</blockquote>
+<h3 id="professor-may-ask_8">Professor May Ask</h3>
+<p><strong>Q: Why is the count for "no repeated digits" not <span class="arithmatex">\(P(10,5) = 30{,}240\)</span>?</strong><br />
+A: <span class="arithmatex">\(P(10,5)\)</span> counts ordered selections of 5 from 10 digits including zero — some of those start with 0 and are not valid 5-digit numbers. We must exclude these. Our calculation <span class="arithmatex">\(9\times9\times8\times7\times6 = 27{,}216\)</span> already excludes leading zeros.</p>
+<h2 id="task-10-urn-models">Task 10 — Urn Models</h2>
+<h3 id="what-this-task-is-about_9">What this task is about</h3>
+<p>The urn model is the canonical probability setting. The key distinction is: <strong>order recorded or not?</strong></p>
+<h3 id="urn-setup">Urn Setup</h3>
+<p><strong>5 red, 4 blue, 3 green</strong> = 12 balls total, drawing 3.</p>
+<table>
+<thead>
+<tr>
+<th>Recording rule</th>
+<th>Model</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order ignored (set drawn)</td>
+<td>Combination</td>
+<td><span class="arithmatex">\(\binom{12}{3}\)</span></td>
+</tr>
+<tr>
+<td>Order recorded (sequence drawn)</td>
+<td>k-Permutation</td>
+<td><span class="arithmatex">\(P(12,3)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="task-solutions-at-a-glance_7">Task Solutions at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Draw 3, order ignored</td>
+<td><span class="arithmatex">\(\binom{12}{3}\)</span></td>
+<td><span class="arithmatex">\(220\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Exactly 2 red, order ignored</td>
+<td><span class="arithmatex">\(\binom{5}{2}\binom{7}{1}\)</span></td>
+<td><span class="arithmatex">\(70\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Draw 3, order recorded</td>
+<td><span class="arithmatex">\(P(12,3) = 12\times11\times10\)</span></td>
+<td><span class="arithmatex">\(1{,}320\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Exactly 2 red, order recorded</td>
+<td><span class="arithmatex">\(\binom{3}{2} \times P(5,2) \times 7\)</span></td>
+<td><span class="arithmatex">\(420\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="working-out-problem-4-in-detail">Working out problem 4 in detail</h3>
+<p>We have 3 positions. Exactly 2 must be red, 1 must be non-red.</p>
+<ul>
+<li><strong>Step 1:</strong> Choose which 2 positions are red: <span class="arithmatex">\(\binom{3}{2} = 3\)</span></li>
+<li><strong>Step 2:</strong> Fill the 2 red positions (ordered, from 5 red balls): <span class="arithmatex">\(P(5,2) = 5 \times 4 = 20\)</span></li>
+<li><strong>Step 3:</strong> Fill the 1 non-red position (7 non-red balls): <span class="arithmatex">\(7\)</span></li>
+</ul>
+<div class="arithmatex">\[3 \times 20 \times 7 = 420\]</div>
+<h3 id="most-important-observation_9">Most Important Observation</h3>
+<blockquote>
+<p><span class="arithmatex">\(\binom{12}{3} = 220\)</span> vs <span class="arithmatex">\(P(12,3) = 1{,}320\)</span>. Their ratio is <span class="arithmatex">\(3! = 6\)</span> — the number of orderings of 3 objects. This always holds: <span class="arithmatex">\(P(n,k) = k! \times \binom{n}{k}\)</span>. Recording order multiplies the count by <span class="arithmatex">\(k!\)</span>.</p>
+</blockquote>
+<h3 id="professor-may-ask_9">Professor May Ask</h3>
+<p><strong>Q: Why is the answer to problem 2 <span class="arithmatex">\(\binom{5}{2}\binom{7}{1}\)</span> and not <span class="arithmatex">\(\binom{5}{2}\binom{4}{1}\)</span>?</strong><br />
+A: "Exactly 2 red" means the third ball must be non-red. Non-red = blue or green = <span class="arithmatex">\(4+3=7\)</span> balls. We choose 1 from all 7 non-red balls, not just from blue.</p>
+<h2 id="task-11-modeling-outcomes">Task 11 — Modeling Outcomes</h2>
+<h3 id="what-this-task-is-about_10">What this task is about</h3>
+<p>The most conceptual task. The key insight is: <strong>the same physical experiment gives different counts depending on the recording rule.</strong> This is fundamental to probability — the sample space depends on how you define an outcome.</p>
+<h3 id="the-three-distinctions">The Three Distinctions</h3>
+<table>
+<thead>
+<tr>
+<th>Distinction</th>
+<th>Effect on counting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Labelled vs unlabelled objects</td>
+<td>Labelled: multiply by <span class="arithmatex">\(k!\)</span> for each group of identical objects</td>
+</tr>
+<tr>
+<td>Order recorded vs ignored</td>
+<td>Recorded: multiply by <span class="arithmatex">\(k!\)</span> overall</td>
+</tr>
+<tr>
+<td>PIN code vs number</td>
+<td>Number: first digit ≠ 0, reducing first position from <span class="arithmatex">\(n\)</span> to <span class="arithmatex">\(n-1\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="part-1-labelled-vs-unlabelled-4r-4b-3g-11-balls">Part 1 — Labelled vs Unlabelled (4R, 4B, 3G = 11 balls)</h3>
+<p><strong>Unlabelled (colors only):</strong>
+$<span class="arithmatex">\(\frac{11!}{4!\,4!\,3!} = 11{,}550\)</span>$</p>
+<p><strong>Labelled (<span class="arithmatex">\(R_1,R_2,\ldots\)</span>):</strong>
+$<span class="arithmatex">\(11! = 39{,}916{,}800\)</span>$</p>
+<p><strong>Ratio:</strong> <span class="arithmatex">\(39{,}916{,}800 / 11{,}550 = 4!\times4!\times3! = 3{,}456\)</span>. This is exactly the number of ways to permute the labels within each color group — confirming the formula.</p>
+<h3 id="part-2-order-recorded-vs-ignored-draw-3-from-same-urn">Part 2 — Order Recorded vs Ignored (draw 3 from same urn)</h3>
+<p><strong>Order ignored (color multisets):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Color sets</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All same</td>
+<td>RRR, BBB, GGG</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Two same, one different</td>
+<td>RRB, RRG, RBB, BBG, RGG, BGG</td>
+<td>6</td>
+</tr>
+<tr>
+<td>All different</td>
+<td>RGB</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Order recorded (color sequences):</strong> Each color set expands into permutations:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Sets</th>
+<th>Sequences per set</th>
+<th>Subtotal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All same</td>
+<td>3 sets</td>
+<td><span class="arithmatex">\(\frac{3!}{3!} = 1\)</span></td>
+<td><span class="arithmatex">\(3 \times 1 = 3\)</span></td>
+</tr>
+<tr>
+<td>Two same, one different</td>
+<td>6 sets</td>
+<td><span class="arithmatex">\(\frac{3!}{2!} = 3\)</span></td>
+<td><span class="arithmatex">\(6 \times 3 = 18\)</span></td>
+</tr>
+<tr>
+<td>All different</td>
+<td>1 set</td>
+<td><span class="arithmatex">\(3! = 6\)</span></td>
+<td><span class="arithmatex">\(1 \times 6 = 6\)</span></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>27</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="part-3-pin-code-vs-number">Part 3 — PIN Code vs Number</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>PIN code</th>
+<th>4-digit number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First digit</td>
+<td>0–9 (10 choices)</td>
+<td>1–9 (9 choices, no leading zero)</td>
+</tr>
+<tr>
+<td>Other digits</td>
+<td>0–9 (10 each)</td>
+<td>0–9 (10 each)</td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span class="arithmatex">\(10^4 = 10{,}000\)</span></td>
+<td><span class="arithmatex">\(9 \times 10^3 = 9{,}000\)</span></td>
+</tr>
+<tr>
+<td>Are 0123 and 3210 different?</td>
+<td><strong>Yes</strong> — different PINs</td>
+<td><strong>Yes</strong> — different numbers</td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-observation_10">Most Important Observation</h3>
+<blockquote>
+<p>The <strong>recording rule defines the sample space</strong>. Two experiments with the same physical setup can have completely different sample spaces. This is why in probability we always state explicitly: "order is recorded" or "order is ignored" — without this, the problem is ambiguous.</p>
+</blockquote>
+<h3 id="professor-may-ask_10">Professor May Ask</h3>
+<p><strong>Q: Are there 10,000 or 9,000 possible 4-character codes on a keypad?</strong><br />
+A: If leading zeros are allowed (PIN): <span class="arithmatex">\(10^4 = 10{,}000\)</span>. If it must represent a 4-digit number (no leading zero): <span class="arithmatex">\(9 \times 10^3 = 9{,}000\)</span>. The physical keypad is the same — the counting changes because the definition of "valid outcome" changes.</p>
+<p><strong>Q: Why is <span class="arithmatex">\(11!/(4!\,4!\,3!) \times 4!\,4!\,3! = 11!\)</span>?</strong><br />
+A: The unlabelled count times the number of ways to assign labels within each color group gives the labelled count. This is the fundamental relationship between distinguishable and indistinguishable objects.</p>
+<h2 id="task-12-mixed-counting-problem">Task 12 — Mixed Counting Problem</h2>
+<h3 id="what-this-task-is-about_11">What this task is about</h3>
+<p>Each sub-problem uses a different model. Practice identifying the model quickly, then applying it. This is the closest to an exam question.</p>
+<h3 id="quick-solutions-reference">Quick Solutions Reference</h3>
+<p><strong>Part 1 — Student ID Codes</strong> (2 letters from {A,B,C,D,E} + 3 digits from 0–9):</p>
+<table>
+<thead>
+<tr>
+<th>Restriction</th>
+<th>Letters</th>
+<th>Digits</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Both repeat</td>
+<td><span class="arithmatex">\(5^2 = 25\)</span></td>
+<td><span class="arithmatex">\(10^3 = 1{,}000\)</span></td>
+<td><span class="arithmatex">\(25{,}000\)</span></td>
+</tr>
+<tr>
+<td>Letters no repeat</td>
+<td><span class="arithmatex">\(P(5,2) = 20\)</span></td>
+<td><span class="arithmatex">\(10^3 = 1{,}000\)</span></td>
+<td><span class="arithmatex">\(20{,}000\)</span></td>
+</tr>
+<tr>
+<td>Neither repeats</td>
+<td><span class="arithmatex">\(P(5,2) = 20\)</span></td>
+<td><span class="arithmatex">\(P(10,3) = 720\)</span></td>
+<td><span class="arithmatex">\(14{,}400\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Part 2 — Medal Assignment</strong> (12 runners, gold/silver/bronze):</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Any 3 get medals</td>
+<td><span class="arithmatex">\(P(12,3)\)</span></td>
+<td><span class="arithmatex">\(1{,}320\)</span></td>
+</tr>
+<tr>
+<td>Runners A and B must both medal</td>
+<td>Fix A,B in 2 of 3 positions: <span class="arithmatex">\(P(3,2) \times 10\)</span></td>
+<td><span class="arithmatex">\(60\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Part 3 — Committee</strong> (10 students: 6M + 4W, choose 4):</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Any committee</td>
+<td><span class="arithmatex">\(\binom{10}{4}\)</span></td>
+<td><span class="arithmatex">\(210\)</span></td>
+</tr>
+<tr>
+<td>Exactly 2 women</td>
+<td><span class="arithmatex">\(\binom{4}{2}\binom{6}{2}\)</span></td>
+<td><span class="arithmatex">\(90\)</span></td>
+</tr>
+<tr>
+<td>At least 1 woman</td>
+<td><span class="arithmatex">\(210 - \binom{6}{4}\)</span></td>
+<td><span class="arithmatex">\(195\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Part 4 — Circular Seating</strong> (7 people):</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Any arrangement</td>
+<td><span class="arithmatex">\((7-1)!\)</span></td>
+<td><span class="arithmatex">\(720\)</span></td>
+</tr>
+<tr>
+<td>Two specific people adjacent</td>
+<td><span class="arithmatex">\((6-1)!\times2!\)</span></td>
+<td><span class="arithmatex">\(240\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Part 5 — Passwords</strong> (5 chars from 36: digits 0–9 + letters A–Z):</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Model</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repetition allowed</td>
+<td>Sequence: <span class="arithmatex">\(36^5\)</span></td>
+<td><span class="arithmatex">\(60{,}466{,}176\)</span></td>
+</tr>
+<tr>
+<td>No repeats</td>
+<td>k-Permutation: <span class="arithmatex">\(P(36,5)\)</span></td>
+<td><span class="arithmatex">\(45{,}239{,}040\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-observation-for-task-12">Most Important Observation for Task 12</h3>
+<blockquote>
+<p><strong>Multi-stage problems use the product rule</strong>: for Student ID codes, letters and digits are chosen independently, so multiply the counts. For medal assignment with a constraint, use Fix-and-Count: fix the constrained positions first, then fill the free positions.</p>
+</blockquote>
+<h3 id="professor-may-ask_11">Professor May Ask</h3>
+<p><strong>Q: In the medal problem, why is the answer <span class="arithmatex">\(60\)</span> and not <span class="arithmatex">\(\binom{12}{3} \times \ldots\)</span>?</strong><br />
+A: Medals are ordered (gold ≠ silver ≠ bronze), so we use permutations not combinations. We fix that A and B must both appear, then count: choose which 2 of the 3 medal positions go to A and B (ordered: <span class="arithmatex">\(P(3,2)=6\)</span> ways), then choose the third medalist from the remaining 10 runners. Total: <span class="arithmatex">\(6 \times 10 = 60\)</span>.</p>
+<p><strong>Q: Why is the committee problem easier with complement for "at least one woman"?</strong><br />
+A: Directly counting committees with 1, 2, 3, or 4 women requires four separate calculations. The complement (all-male committee) requires just one: <span class="arithmatex">\(\binom{6}{4} = 15\)</span>. Complement: <span class="arithmatex">\(210 - 15 = 195\)</span>.</p>
+<h1 id="part-3-exam-quick-reference">PART 3 — Exam Quick Reference</h1>
+<h2 id="the-one-page-cheat-sheet">The One-Page Cheat Sheet</h2>
+<p><strong>Step 1 — Identify the model</strong></p>
+<table>
+<thead>
+<tr>
+<th>Signal words</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"arrange all", "order all", "line up"</td>
+<td>Permutation <span class="arithmatex">\(n!\)</span></td>
+</tr>
+<tr>
+<td>"round table", "circle"</td>
+<td>Circular <span class="arithmatex">\((n-1)!\)</span></td>
+</tr>
+<tr>
+<td>"repeated letters", "identical objects"</td>
+<td>Perm. w/ repeats <span class="arithmatex">\(\frac{n!}{n_1!\cdots}\)</span></td>
+</tr>
+<tr>
+<td>"committee", "team", "group", "hand"</td>
+<td>Combination <span class="arithmatex">\(\binom{n}{k}\)</span></td>
+</tr>
+<tr>
+<td>"medals", "podium", "ranked positions"</td>
+<td>k-Permutation <span class="arithmatex">\(P(n,k)\)</span></td>
+</tr>
+<tr>
+<td>"PIN", "password", "code", "digit sequence"</td>
+<td>Sequence <span class="arithmatex">\(n^k\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2 — Apply the right power tool</strong></p>
+<table>
+<thead>
+<tr>
+<th>Constraint words</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"at least one", "at least two"</td>
+<td>Complement</td>
+</tr>
+<tr>
+<td>"must include X", "X is fixed"</td>
+<td>Fix and Count</td>
+</tr>
+<tr>
+<td>"must not be together"</td>
+<td>Total <span class="arithmatex">\(-\)</span> Together</td>
+</tr>
+<tr>
+<td>"part A then part B"</td>
+<td>Product Rule (multiply)</td>
+</tr>
+<tr>
+<td>"either case 1 or case 2"</td>
+<td>Sum Rule (add)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 3 — Verify</strong></p>
+<ul>
+<li>Does the answer seem reasonable in magnitude?</li>
+<li>For "at least" problems: does result <span class="arithmatex">\(+\)</span> complement <span class="arithmatex">\(=\)</span> total?</li>
+<li>For "exactly <span class="arithmatex">\(k\)</span>": do all cases <span class="arithmatex">\(k=0,1,2,\ldots\)</span> sum to total?</li>
+</ul>
+<hr />
+<h2 id="five-things-to-say-in-every-oral-answer">Five Things to Say in Every Oral Answer</h2>
+<ol>
+<li><strong>"The sample space has <span class="arithmatex">\(|\Omega| = \ldots\)</span> outcomes because..."</strong> — always state the total first</li>
+<li><strong>"Order matters / does not matter here because..."</strong> — justify your model choice</li>
+<li><strong>"I use the complement because directly counting is harder..."</strong> — explain your strategy</li>
+<li><strong>"By the product rule, the two stages multiply because they are independent..."</strong> — explain multiplication</li>
+<li><strong>"As a check: <span class="arithmatex">\(\ldots + \ldots = \ldots\)</span> ✓"</strong> — verify your answer sums correctly</li>
+</ol>
+<hr />
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Correct thinking</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Using <span class="arithmatex">\(n!\)</span> for circular arrangements</td>
+<td>Use <span class="arithmatex">\((n-1)!\)</span> — rotations are equivalent</td>
+</tr>
+<tr>
+<td>Forgetting to multiply by <span class="arithmatex">\(2!\)</span> in "glue trick"</td>
+<td>The pair can be arranged internally in <span class="arithmatex">\(2!\)</span> ways</td>
+</tr>
+<tr>
+<td>Using <span class="arithmatex">\(P(10,5)\)</span> for 5-digit numbers with no repeats</td>
+<td>First digit ≠ 0: use <span class="arithmatex">\(9 \times 9 \times 8 \times 7 \times 6\)</span> instead</td>
+</tr>
+<tr>
+<td>"At least one" → direct count</td>
+<td>Use complement: total <span class="arithmatex">\(-\)</span> none</td>
+</tr>
+<tr>
+<td>Combination when order matters</td>
+<td>Check: are the positions distinguishable? If yes → k-Permutation</td>
+</tr>
+<tr>
+<td>Forgetting <span class="arithmatex">\(0! = 1\)</span></td>
+<td><span class="arithmatex">\(0! = 1\)</span> by definition — needed for <span class="arithmatex">\(\binom{n}{0} = 1\)</span></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

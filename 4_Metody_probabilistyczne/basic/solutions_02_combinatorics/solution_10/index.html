@@ -14,7 +14,7 @@
         <link rel="prev" href="../solution_09/">
       
       
-        <link rel="next" href="../../../advanced/01_events_and_probability/">
+        <link rel="next" href="../solution_11/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Task 10 - Combinatorics - Math Problems</title>
+        <title>Task 10 - Urn Models - Math Problems</title>
       
     
     
@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#task-10-urn-models" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Task 10 - Combinatorics
+              Task 10 - Urn Models
             
           </span>
         </div>
@@ -935,7 +940,7 @@
   <span class="md-ellipsis">
     
   
-    Task 1 - Combinatorics
+    Task 1 - Recognizing Counting Methods
   
 
     
@@ -963,7 +968,7 @@
   <span class="md-ellipsis">
     
   
-    Task 2 - Combinatorics
+    Task 2 - Permutations
   
 
     
@@ -991,7 +996,7 @@
   <span class="md-ellipsis">
     
   
-    Task 3 - Combinatorics
+    Task 3 - Permutations with Repeated Elements
   
 
     
@@ -1019,7 +1024,7 @@
   <span class="md-ellipsis">
     
   
-    Task 4 - Combinatorics
+    Task 4 - Circular Permutations
   
 
     
@@ -1047,7 +1052,7 @@
   <span class="md-ellipsis">
     
   
-    Task 5 - Combinatorics
+    Task 5 - Combinations
   
 
     
@@ -1075,7 +1080,7 @@
   <span class="md-ellipsis">
     
   
-    Task 6 - Combinatorics
+    Task 6 - Combinations in Card Problems
   
 
     
@@ -1103,7 +1108,7 @@
   <span class="md-ellipsis">
     
   
-    Task 7 - Combinatorics
+    Task 7 - k-Permutations
   
 
     
@@ -1131,7 +1136,7 @@
   <span class="md-ellipsis">
     
   
-    Task 8 - Combinatorics
+    Task 8 - Sequences with Repetition
   
 
     
@@ -1159,7 +1164,7 @@
   <span class="md-ellipsis">
     
   
-    Task 9 - Combinatorics
+    Task 9 - Digit Restrictions
   
 
     
@@ -1186,6 +1191,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1194,7 +1201,7 @@
   <span class="md-ellipsis">
     
   
-    Task 10 - Combinatorics
+    Task 10 - Urn Models
   
 
     
@@ -1204,6 +1211,90 @@
 
       </a>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 11 - Modeling Outcomes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 12 - Mixed Counting Problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes_solutions_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes - Combinatorics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1668,7 +1759,7 @@
   <span class="md-ellipsis">
     
   
-    Task 1
+    Solution 1 - Events & Probability
   
 
     
@@ -1684,7 +1775,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Task 1
+    Solution 1 - Events & Probability
   
 
           </label>
@@ -1704,7 +1795,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 1 - Coin Toss
+    Task 1 - Coin Toss
   
 
     
@@ -1732,7 +1823,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 2 - Dice Roll
+    Task 2 - Dice Roll
   
 
     
@@ -1760,7 +1851,7 @@
   <span class="md-ellipsis">
     
   
-    Solution 1 - Task 3 - Card Draw
+    Task 3 - Card Draw
   
 
     
@@ -1814,6 +1905,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1830,9 +1923,25 @@
 
 
 
-  <h1>Task 10 - Combinatorics</h1>
-
-
+<h1 id="task-10-urn-models">Task 10 — Urn Models</h1>
+<p>Urn: <strong>5 red</strong>, <strong>4 blue</strong>, <strong>3 green</strong> = 12 balls total.</p>
+<p><strong>1. Three balls drawn without replacement, order ignored</strong></p>
+<p>This is a combination — choosing a set of 3 from 12:</p>
+<div class="arithmatex">\[\binom{12}{3} = \frac{12 \times 11 \times 10}{6} = 220\]</div>
+<p><strong>2. Samples containing exactly 2 red balls</strong></p>
+<p>Choose 2 red from 5, then 1 non-red from remaining 7:</p>
+<div class="arithmatex">\[\binom{5}{2} \times \binom{7}{1} = 10 \times 7 = 70\]</div>
+<p><strong>3. Three balls drawn, order of colors recorded</strong></p>
+<p>This is a sequence (ordered selection) without replacement. Order matters, no repetition:</p>
+<div class="arithmatex">\[P(12,3) = 12 \times 11 \times 10 = 1{,}320\]</div>
+<p><strong>4. Ordered outcomes with exactly 2 red balls</strong></p>
+<p>Choose which 2 positions (out of 3) hold red balls: <span class="arithmatex">\(\binom{3}{2} = 3\)</span> ways.</p>
+<p>Choose 2 distinct red balls from 5 (order matters for the positions): <span class="arithmatex">\(P(5,2) = 20\)</span> ways.</p>
+<p>Choose 1 non-red ball from 7: <span class="arithmatex">\(7\)</span> ways.</p>
+<div class="arithmatex">\[3 \times 20 \times 7 = 420\]</div>
+<blockquote>
+<p><strong>Alternatively:</strong> Think step by step. The ordered triple must have red in 2 positions and non-red in 1 position. Number of arrangements of the positions: <span class="arithmatex">\(\binom{3}{2}=3\)</span>. Red balls fill those 2 ordered positions: <span class="arithmatex">\(5 \times 4 = 20\)</span>. Non-red fills the remaining: <span class="arithmatex">\(7\)</span>. Total: <span class="arithmatex">\(3 \times 20 \times 7 = 420\)</span> ✓</p>
+</blockquote>
 
 
 
