@@ -39,24 +39,6 @@ plugins:
           build: true
           nav:
             - Home: 'index.md'
-            - 'Lecture: Mathematics':
-              - Algebra:
-                - '1. Matrices & Operations': '1_Algebra/01_matrices_and_operations.md'
-                - '2. Determinants': '1_Algebra/02_determinants.md'
-                - '3. Matrix Inversion': '1_Algebra/03_matrix_inversion.md'
-                - '4. Systems of Equations': '1_Algebra/04_systems_of_equations.md'
-              - Geometry:
-                - '1. Vectors': '2_Geometria/01_vectors.md'
-                - '2. Lines': '2_Geometria/02_lines.md'
-                - '3. Planes': '2_Geometria/03_planes.md'
-                - '4. Line and Plane': '2_Geometria/04_line_and_plane.md'
-              - Analysis:
-                - '1. Sequence Limits': '3_Analiza/01_sequence_limits.md'
-                - '2. Function Limits': '3_Analiza/02_function_limits.md'
-                - '3. Derivatives': '3_Analiza/03_derivatives.md'
-                - '4. Function Analysis': '3_Analiza/04_function_analysis.md'
-                - '5. Integrals': '3_Analiza/05_integrals.md'
-                - '6. Calculus Applications': '3_Analiza/06_applications.md'
             - 'Lecture: Probabilistic Methods':
               - Probabilistic Methods:
                 - Basic:
@@ -64,17 +46,28 @@ plugins:
                     - '2. Combinatorics': '4_Metody_probabilistyczne/basic/02_combinatorics.md'
                     - '3. Probability Distributions': '4_Metody_probabilistyczne/basic/03_probability_distributions.md'
                 - 'My Solutions':
-                  - 'Task 1': 
-                    - 'Solution 01 - Task 1 - Coin Tossing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_01.md'
-                    - 'Solution 01 - Task 2 - Dice Roll': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_02.md'
-                    - 'Solution 01 - Task 3 - Card Draw': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_03.md'
-                    - 'Solution 01 - Task 4 - Weekly Weather Observation': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_04.md'
-                    - 'Solution 01 - Task 5 - Buffon Needle': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_05.md'
-                    - 'Solution 01 - Task 6 - Events and Probabilities in Coin Tossing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_06.md'
-                    - 'Solution 01 - Task 7 - Events and Probabilities in Die Rolling': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_07.md'
-                    - 'Solution 01 - Task 8 - Events and Probabilities in Card Drawing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_08.md'
-                    - 'Solution 01 - Task 9 - Events and Probabilities in Weekly Weather Observation': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_09.md'
-                    - 'Solution 01 - Task 10 - Events and Probabilities in Buffon Needle': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_10.md'
+                  - 'Solution 1 - Events & Probability': 
+                    - 'Task 1 - Coin Tossing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_01.md'
+                    - 'Task 2 - Dice Roll': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_02.md'
+                    - 'Task 3 - Card Draw': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_03.md'
+                    - 'Task 4 - Weekly Weather Observation': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_04.md'
+                    - 'Task 5 - Buffon Needle': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_05.md'
+                    - 'Task 6 - Events and Probabilities in Coin Tossing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_06.md'
+                    - 'Task 7 - Events and Probabilities in Die Rolling': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_07.md'
+                    - 'Task 8 - Events and Probabilities in Card Drawing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_08.md'
+                    - 'Task 9 - Events and Probabilities in Weekly Weather Observation': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_09.md'
+                    - 'Task 10 - Events and Probabilities in Buffon Needle': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_10.md'
+                  - 'Solution 2 - Combinatorics': 
+                    - 'Task 1 - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_01.md'
+                    - 'Task 2 - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_02.md'
+                    - 'Task 3 - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_03.md'
+                    - 'Task 4 - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_04.md'
+                    - 'Task 5 - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_05.md'
+                    - 'Task 6 - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_06.md'
+                    - 'Task 7 - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_07.md'
+                    - 'Task 8 - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_08.md'
+                    - 'Task 9 - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_09.md'
+                    - 'Task 10 - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_10.md'
                 - Advanced:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/advanced/01_events_and_probability.md'
                     - '2. Random Variables': '4_Metody_probabilistyczne/advanced/02_random_variables.md'
@@ -88,6 +81,7 @@ plugins:
                     - '10. Advanced Methods': '4_Metody_probabilistyczne/advanced/10_advanced_methods.md'
                     - '11. Decision Theory': '4_Metody_probabilistyczne/advanced/11_decision_theory.md'
               - Animations:
-                - 'Solution 1 - Task 1 - Coin Toss': 'en/anim/4_Metody_probalistyczne/coin_toss.html'
-                - 'Solution 1 - Task 2 - Dice Roll': 'en/anim/4_Metody_probalistyczne/dice_roll.html'
-                - 'Solution 1 - Task 3 - Card Draw': 'en/anim/4_Metody_probalistyczne/card_draw.html'
+                - 'Task 1': 
+                  - 'Solution 1 - Task 1 - Coin Toss': 'en/anim/4_Metody_probalistyczne/coin_toss.html'
+                  - 'Solution 1 - Task 2 - Dice Roll': 'en/anim/4_Metody_probalistyczne/dice_roll.html'
+                  - 'Solution 1 - Task 3 - Card Draw': 'en/anim/4_Metody_probalistyczne/card_draw.html'
