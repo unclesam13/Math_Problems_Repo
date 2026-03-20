@@ -1082,6 +1082,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 6 - Combinations in Card Problems
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1098,6 +1116,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-task-is-about" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this task is about
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deck-facts-memorise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deck Facts — Memorise
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easy-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Easy Approach
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-solutions-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Solutions at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1908,6 +1989,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-task-is-about" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this task is about
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deck-facts-memorise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deck Facts — Memorise
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easy-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Easy Approach
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-solutions-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Solutions at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1924,6 +2057,55 @@
 
 
 <h1 id="task-6-combinations-in-card-problems">Task 6 — Combinations in Card Problems</h1>
+<h3 id="what-this-task-is-about">What this task is about</h3>
+<p>Applying combinations to a structured set (a card deck). The key is knowing the deck composition and splitting the selection into independent groups.</p>
+<h3 id="deck-facts-memorise">Deck Facts — Memorise</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total cards</td>
+<td>52</td>
+</tr>
+<tr>
+<td>Suits (♠♥♦♣)</td>
+<td>4 suits × 13 cards = 52</td>
+</tr>
+<tr>
+<td>Hearts</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Non-hearts</td>
+<td>39</td>
+</tr>
+<tr>
+<td>Face cards (J,Q,K)</td>
+<td>3 ranks × 4 suits = 12</td>
+</tr>
+<tr>
+<td>Non-face cards</td>
+<td>40</td>
+</tr>
+<tr>
+<td>Aces</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Total 5-card hands</td>
+<td><span class="arithmatex">\(\binom{52}{5} = 2{,}598{,}960\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="easy-approach">Easy Approach</h3>
+<p>Always split the deck into the relevant groups and choose from each independently:</p>
+<div class="arithmatex">\[\text{exactly } j \text{ hearts} = \binom{13}{j} \times \binom{39}{5-j}\]</div>
+<hr />
 <p>A standard deck: 52 cards, 13 hearts, 12 face cards (J,Q,K in each of 4 suits), 40 non-face cards.</p>
 <p><strong>1. 5-card hand with exactly 2 hearts</strong></p>
 <p>Choose 2 hearts from 13, then 3 non-hearts from remaining 39:</p>
@@ -1935,6 +2117,38 @@
 <p>Face cards: J, Q, K = 3 ranks × 4 suits = 12 cards. Non-face cards: <span class="arithmatex">\(52 - 12 = 40\)</span>.</p>
 <p>Choose 5 from the 40 non-face cards:</p>
 <div class="arithmatex">\[\binom{40}{5} = \frac{40 \times 39 \times 38 \times 37 \times 36}{120} = 658{,}008\]</div>
+<hr />
+<h3 id="task-solutions-at-a-glance">Task Solutions at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Exactly 2 hearts</td>
+<td><span class="arithmatex">\(\binom{13}{2}\binom{39}{3}\)</span></td>
+<td><span class="arithmatex">\(712{,}842\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>At least 1 heart</td>
+<td><span class="arithmatex">\(\binom{52}{5} - \binom{39}{5}\)</span></td>
+<td><span class="arithmatex">\(2{,}023{,}203\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>No face cards</td>
+<td><span class="arithmatex">\(\binom{40}{5}\)</span></td>
+<td><span class="arithmatex">\(658{,}008\)</span></td>
+</tr>
+</tbody>
+</table>
 
 
 
