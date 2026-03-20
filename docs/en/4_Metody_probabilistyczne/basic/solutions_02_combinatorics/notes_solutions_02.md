@@ -269,12 +269,12 @@ $$(n-1)!$$
 ### Constraint Tricks
 
 **"Two people must sit together"** in a circle:
-$$\underbrace{(n-2)!}_{\text{circle of } (n-1) \text{ units}} \times \underbrace{2!}_{\text{internal arrangement}}$$
+$\underbrace{(n-2)!}_{\text{circle of } (n-1) \text{ units}} \times \underbrace{2!}_{\text{internal arrangement}}$
 
 Here we have $(n-1)$ units in a circle → $(n-2)!$, times $2!$ for internal arrangement.
 
 **"Two people must sit opposite"** (only meaningful for even $n$):
-$$\text{Fix person A} \rightarrow \text{person B has 1 forced seat} \rightarrow (n-2)! \text{ for the rest}$$
+$\text{Fix person A} \rightarrow \text{person B has 1 forced seat} \rightarrow (n-2)! \text{ for the rest}$
 
 ### Task Solutions at a Glance
 
