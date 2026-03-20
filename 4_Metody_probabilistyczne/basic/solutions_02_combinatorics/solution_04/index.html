@@ -1026,6 +1026,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 4 - Circular Permutations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1042,6 +1060,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task-solutions-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Solutions at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#most-important-observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most Important Observation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1908,6 +1967,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task-solutions-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Solutions at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#most-important-observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most Important Observation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1939,6 +2028,41 @@
 <p>Alternatively, if the problem intends a <strong>6-person</strong> table (which is the standard version):</p>
 <p>Fix person A. Person B can sit in the 1 seat directly opposite. The remaining 4 people arrange freely:</p>
 <div class="arithmatex">\[1 \times 4! = 24\]</div>
+<h3 id="task-solutions-at-a-glance">Task Solutions at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Method</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>7 people at round table</td>
+<td><span class="arithmatex">\((7-1)!\)</span></td>
+<td><span class="arithmatex">\(720\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Two must sit together</td>
+<td><span class="arithmatex">\((6-1)! \times 2!\)</span></td>
+<td><span class="arithmatex">\(240\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Two must sit opposite (7 seats — odd!)</td>
+<td>No seat is directly opposite</td>
+<td>See note below</td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-observation">Most Important Observation</h3>
+<blockquote>
+<p>In a circle, all rotations of the same arrangement are <strong>identical</strong>. Fixing one person eliminates this redundancy. This is why we get <span class="arithmatex">\((n-1)!\)</span> not <span class="arithmatex">\(n!\)</span>. A common mistake is to use <span class="arithmatex">\(n!\)</span> for circular arrangements — always subtract one from <span class="arithmatex">\(n\)</span> before taking the factorial.</p>
+</blockquote>
 
 
 
