@@ -4,7 +4,7 @@
 
 Applying combinations to a structured set (a card deck). The key is knowing the deck composition and splitting the selection into independent groups.
 
-### Deck Facts — Memorise
+### Deck Facts
 
 | Property | Count |
 |---|---|
