@@ -1001,6 +1001,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Quick Reference — Counting Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-six-situations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Six Situations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1971,6 +1988,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Quick Reference — Counting Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-six-situations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Six Situations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2000,6 +2034,7 @@
 <th>Order?</th>
 <th>Repetition?</th>
 <th>All objects?</th>
+<th>Identical objects?</th>
 </tr>
 </thead>
 <tbody>
@@ -2009,6 +2044,7 @@
 <td>✓</td>
 <td>✗</td>
 <td>✓</td>
+<td>✗</td>
 </tr>
 <tr>
 <td>Circular permutation</td>
@@ -2016,17 +2052,20 @@
 <td>✓</td>
 <td>✗</td>
 <td>✓</td>
+<td>✗</td>
 </tr>
 <tr>
 <td>Perm. with repeats</td>
 <td><span class="arithmatex">\(\dfrac{n!}{n_1!\,n_2!\cdots}\)</span></td>
 <td>✓</td>
-<td>—</td>
+<td>✗</td>
+<td>✓</td>
 <td>✓</td>
 </tr>
 <tr>
 <td>Combination</td>
 <td><span class="arithmatex">\(\dbinom{n}{k}\)</span></td>
+<td>✗</td>
 <td>✗</td>
 <td>✗</td>
 <td>✗</td>
@@ -2037,12 +2076,14 @@
 <td>✓</td>
 <td>✗</td>
 <td>✗</td>
+<td>✗</td>
 </tr>
 <tr>
 <td>Sequence w/ repetition</td>
 <td><span class="arithmatex">\(n^k\)</span></td>
 <td>✓</td>
 <td>✓</td>
+<td>✗</td>
 <td>✗</td>
 </tr>
 </tbody>
@@ -2068,6 +2109,83 @@
 <p><strong>6. Seating 6 people around a round table</strong></p>
 <p>All 6, circular arrangement, only relative position matters.</p>
 <div class="arithmatex">\[\boxed{\text{Circular permutation}} \qquad (6-1)! = 5! = 120\]</div>
+<h3 id="the-six-situations">The Six Situations</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Situation</th>
+<th>Q1</th>
+<th>Q2</th>
+<th>Q3</th>
+<th>Q4</th>
+<th>Model</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>7 students in a line</td>
+<td>All</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Permutation</td>
+<td><span class="arithmatex">\(7! = 5040\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Committee of 4 from 12</td>
+<td>Some</td>
+<td><strong>No</strong></td>
+<td>No</td>
+<td>No</td>
+<td>Combination</td>
+<td><span class="arithmatex">\(\binom{12}{4} = 495\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Gold/silver/bronze from 15</td>
+<td>Some</td>
+<td><strong>Yes</strong></td>
+<td>No</td>
+<td>No</td>
+<td>k-Permutation</td>
+<td><span class="arithmatex">\(P(15,3) = 2730\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>6-digit PIN</td>
+<td>Some</td>
+<td>Yes</td>
+<td><strong>Yes</strong></td>
+<td>No</td>
+<td>Sequence</td>
+<td><span class="arithmatex">\(10^6 = 1{,}000{,}000\)</span></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Letters of BANANA</td>
+<td>All</td>
+<td>Yes</td>
+<td>—</td>
+<td><strong>Yes</strong></td>
+<td>Perm. w/ repeats</td>
+<td><span class="arithmatex">\(\frac{6!}{3!\,2!} = 60\)</span></td>
+</tr>
+<tr>
+<td>6</td>
+<td>6 people at round table</td>
+<td>All</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td><strong>Circular</strong></td>
+<td><span class="arithmatex">\((6-1)! = 120\)</span></td>
+</tr>
+</tbody>
+</table>
 
 
 
