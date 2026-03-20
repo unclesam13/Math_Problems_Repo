@@ -993,6 +993,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-decision-tree-memorise-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Decision Tree (memorise this)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#quick-reference-counting-models" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1980,6 +1991,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-decision-tree-memorise-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Decision Tree (memorise this)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#quick-reference-counting-models" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2025,6 +2047,22 @@
 
 
 <h1 id="task-1-recognizing-counting-models">Task 1 - Recognizing Counting Models</h1>
+<h2 id="the-decision-tree-memorise-this">The Decision Tree (memorise this)</h2>
+<pre><code>Are we using ALL objects?
+│
+├── YES ──► Are they in a CIRCLE?
+│           ├── YES ──► Circular permutation: (n−1)!
+│           └── NO ───► Are some IDENTICAL?
+│                       ├── YES ──► Perm. with repeats: n! / (n₁! n₂! ...)
+│                       └── NO ───► Permutation: n!
+│
+└── NO (only SOME) ──► Does ORDER matter?
+                       ├── NO ───► Combination: C(n,k)
+                       └── YES ──► Is REPETITION allowed?
+                                   ├── YES ──► Sequence: nᵏ
+                                   └── NO ───► k-Permutation: P(n,k)
+</code></pre>
+<hr />
 <h2 id="quick-reference-counting-models">Quick Reference — Counting Models</h2>
 <table>
 <thead>
