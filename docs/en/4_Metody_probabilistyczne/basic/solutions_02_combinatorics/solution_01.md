@@ -2,7 +2,7 @@
 
 
 
-## The Decision Tree (memorise this)
+## The Decision Tree
 
 ```
 Are we using ALL objects?
