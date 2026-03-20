@@ -1,5 +1,27 @@
 # Task 1 - Recognizing Counting Models
 
+
+
+## The Decision Tree (memorise this)
+
+```
+Are we using ALL objects?
+│
+├── YES ──► Are they in a CIRCLE?
+│           ├── YES ──► Circular permutation: (n−1)!
+│           └── NO ───► Are some IDENTICAL?
+│                       ├── YES ──► Perm. with repeats: n! / (n₁! n₂! ...)
+│                       └── NO ───► Permutation: n!
+│
+└── NO (only SOME) ──► Does ORDER matter?
+                       ├── NO ───► Combination: C(n,k)
+                       └── YES ──► Is REPETITION allowed?
+                                   ├── YES ──► Sequence: nᵏ
+                                   └── NO ───► k-Permutation: P(n,k)
+```
+
+---
+
 ## Quick Reference — Counting Models
  
 | Model | Formula | Order? | Repetition? | All objects? | Identical objects? |
@@ -12,8 +34,7 @@
 | Sequence w/ repetition | $n^k$ | ✓ | ✓ | ✗ | ✗ |
  
 ---
- 
-For each situation, the key questions are: *All objects? Order? Repetition? Identical objects?*
+ For each situation, the key questions are: *All objects? Order? Repetition? Identical objects?*
  
 **1. Arranging 7 students in a line**
  
