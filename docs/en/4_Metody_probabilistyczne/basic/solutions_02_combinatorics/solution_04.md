@@ -25,3 +25,17 @@ Alternatively, if the problem intends a **6-person** table (which is the standar
 Fix person A. Person B can sit in the 1 seat directly opposite. The remaining 4 people arrange freely:
  
 $$1 \times 4! = 24$$
+
+
+### Task Solutions at a Glance
+
+| # | Problem | Method | Answer |
+|---|---|---|---|
+| 1 | 7 people at round table | $(7-1)!$ | $720$ |
+| 2 | Two must sit together | $(6-1)! \times 2!$ | $240$ |
+| 3 | Two must sit opposite (7 seats — odd!) | No seat is directly opposite | See note below |
+
+
+### Most Important Observation
+
+> In a circle, all rotations of the same arrangement are **identical**. Fixing one person eliminates this redundancy. This is why we get $(n-1)!$ not $n!$. A common mistake is to use $n!$ for circular arrangements — always subtract one from $n$ before taking the factorial.

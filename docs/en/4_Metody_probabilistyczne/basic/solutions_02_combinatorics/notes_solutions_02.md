@@ -269,7 +269,7 @@ $$(n-1)!$$
 ### Constraint Tricks
 
 **"Two people must sit together"** in a circle:
-$$\text{Glue pair} \rightarrow (n-2)! \times 2!$$
+$$\underbrace{(n-2)!}_{\text{circle of } (n-1) \text{ units}} \times \underbrace{2!}_{\text{internal arrangement}}$$
 
 Here we have $(n-1)$ units in a circle → $(n-2)!$, times $2!$ for internal arrangement.
 
