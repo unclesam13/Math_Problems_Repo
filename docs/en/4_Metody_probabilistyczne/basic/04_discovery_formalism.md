@@ -22,7 +22,7 @@ In the shortest terms: this list is meant to teach **mathematical thinking**, no
 
 
 
-# Problem 1 — Coin × Coin
+## Problem 1 — Coin × Coin
 
 Consider an experiment consisting of two coin tosses.
 
@@ -38,7 +38,7 @@ Each cell corresponds to one possible outcome.
 
 
 
-## Part A — marking events
+### Part A — marking events
 
 For each statement, mark all outcomes for which the statement is true:
 
@@ -50,11 +50,11 @@ For each statement, mark all outcomes for which the statement is true:
 
 
 
-## Part B — interpretation
+### Part B — interpretation
 
 Describe the event represented by each case below:
 
-### Case 1
+#### Case 1
 
 ```
       H   T
@@ -64,7 +64,7 @@ T     .   .
 
 
 
-### Case 2
+#### Case 2
 
 ```
       H   T
@@ -74,7 +74,7 @@ T     X   .
 
 
 
-# Problem 2 — Die × Die
+## Problem 2 — Die × Die
 
 Consider an experiment consisting of two dice rolls.
 
@@ -92,7 +92,7 @@ Representation:
 
 
 
-## Part A — marking events
+### Part A — marking events
 
 Mark all outcomes satisfying the statement:
 
@@ -104,11 +104,11 @@ Mark all outcomes satisfying the statement:
 
 
 
-## Part B — interpretation
+### Part B — interpretation
 
 Describe the event represented by each case below:
 
-### Case 1
+#### Case 1
 
 ```
       1 2 3 4 5 6
@@ -122,7 +122,7 @@ Describe the event represented by each case below:
 
 
 
-### Case 2
+#### Case 2
 
 ```
       1 2 3 4 5 6
@@ -136,7 +136,7 @@ Describe the event represented by each case below:
 
 
 
-# Problem 3 — Weather (7 days × 3 states)
+## Problem 3 — Weather (7 days × 3 states)
 
 Consider a week described day by day in terms of weather. The table below is a graphical representation of statements about the weather during the week: columns correspond to days, rows correspond to weather states, and marking a cell means that the given state is assigned, selected, or allowed for that day in the situation being described. It is not a full listing of all possible weekly weather sequences.
 
@@ -157,7 +157,7 @@ R     .   .   .   .   .   .   .
 
 
 
-## Part A — marking events
+### Part A — marking events
 
 Mark all outcomes satisfying the statement:
 
@@ -169,11 +169,11 @@ Mark all outcomes satisfying the statement:
 
 
 
-## Part B — interpretation
+### Part B — interpretation
 
 Describe the event represented by each case below:
 
-### Case 1
+#### Case 1
 
 ```
       Mon Tue Wed Thu Fri Sat Sun
@@ -184,7 +184,7 @@ R     .   .   .   .   .   .   .
 
 
 
-### Case 2
+#### Case 2
 
 ```
       Mon Tue Wed Thu Fri Sat Sun
