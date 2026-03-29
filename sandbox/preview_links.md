@@ -26,6 +26,12 @@ Jak to dziala:
 - Podglad HTML:
   <https://html-preview.github.io/?url=https://github.com/dchorazkiewicz/Math_Problems_Repo/blob/main/sandbox/ps_2_combinatorics_lab.html>
 
+- Mechanika permutacji / wariacji / kombinacji:
+  GitHub:
+  <https://github.com/dchorazkiewicz/Math_Problems_Repo/blob/main/sandbox/ps_2_counting_mechanics_lab.html>
+  Podglad:
+  <https://html-preview.github.io/?url=https://github.com/dchorazkiewicz/Math_Problems_Repo/blob/main/sandbox/ps_2_counting_mechanics_lab.html>
+
 ## Lista 3
 
 - Laboratorium rozkladow:

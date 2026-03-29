@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanika Kombinatoryki</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at top left, rgba(29,77,122,0.10), transparent 24%),
+                linear-gradient(180deg, #f8f4ed 0%, #eef4f7 100%);
+            color: #21313d;
+        }
+        .page {
+            max-width: 1480px;
+            margin: 0 auto;
+            padding: 24px 18px 40px;
+        }
+        .panel {
+            border: 1px solid #d8d1c4;
+            border-radius: 28px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 18px 42px rgba(33,49,61,0.08);
+        }
+        .hero, .workspace { padding: 24px; }
+        .workspace { margin-top: 20px; }
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: #dbeafe;
+            color: #1d4d7a;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        h1 {
+            margin: 14px 0 10px;
+            font-size: clamp(2.2rem, 4vw, 4rem);
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            color: #17324c;
+        }
+        h2, h3 { margin: 0 0 10px; color: #17324c; }
+        p { margin: 0; line-height: 1.65; }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .intro-card {
+            border: 1px solid #d8d1c4;
+            border-radius: 18px;
+            background: #fffdfa;
+            padding: 14px 16px;
+        }
+        .intro-list {
+            display: grid;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .intro-item {
+            border: 1px solid #e7e1d8;
+            border-radius: 14px;
+            background: white;
+            padding: 10px 12px;
+        }
+        .layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 18px;
+            align-items: start;
+        }
+        .sidebar {
+            position: sticky;
+            top: 10px;
+            display: grid;
+            gap: 14px;
+        }
+        .card {
+            border: 1px solid #d8d1c4;
+            border-radius: 20px;
+            background: #fffdfa;
+            padding: 16px;
+        }
+        .tabs {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        button, input, select { font: inherit; }
+        .tab, .action {
+            border: 1px solid #d8d1c4;
+            border-radius: 16px;
+            background: #fffdfa;
+            color: #21313d;
+            padding: 12px 10px;
+            text-align: left;
+            cursor: pointer;
+        }
+        .tab.active {
+            background: #dbeafe;
+            border-color: #1d4d7a;
+            box-shadow: inset 0 0 0 1px #1d4d7a;
+        }
+        .tab small {
+            display: block;
+            margin-top: 4px;
+            color: #62717c;
+            font-size: 0.76rem;
+        }
+        .controls {
+            display: grid;
+            gap: 10px;
+        }
+        label {
+            display: grid;
+            gap: 6px;
+            color: #46545f;
+        }
+        input {
+            border: 1px solid #d8d1c4;
+            border-radius: 12px;
+            padding: 10px 12px;
+            background: white;
+            color: #21313d;
+        }
+        .main {
+            display: grid;
+            gap: 16px;
+        }
+        .content {
+            border: 1px solid #d8d1c4;
+            border-radius: 22px;
+            background: white;
+            padding: 18px;
+        }
+        .split {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 16px;
+            align-items: start;
+        }
+        .note {
+            border-left: 4px solid #1d4d7a;
+            border-radius: 16px;
+            background: #eef6ff;
+            padding: 12px 14px;
+        }
+        .formula {
+            font-family: "Courier New", monospace;
+            background: #fbfaf7;
+            border: 1px solid #d8d1c4;
+            border-radius: 14px;
+            padding: 10px 12px;
+            line-height: 1.55;
+        }
+        .formula sup, .formula sub, .math sup, .math sub { line-height: 0; }
+        .math {
+            font-family: "Courier New", monospace;
+            white-space: nowrap;
+        }
+        .lesson-list, .box-list, .action-row {
+            display: grid;
+            gap: 10px;
+        }
+        .lesson, .box {
+            border: 1px solid #e7e1d8;
+            border-radius: 16px;
+            background: #fffdfa;
+            padding: 12px 14px;
+        }
+        .lesson strong, .box strong { color: #17324c; }
+        .action-row {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .stage {
+            border: 1px solid #d8d1c4;
+            border-radius: 22px;
+            background: linear-gradient(180deg, #fffdfa 0%, #f8fbff 100%);
+            padding: 16px;
+        }
+        .stage-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .scene {
+            position: relative;
+            min-height: 420px;
+            border: 1px solid #dfe6ec;
+            border-radius: 20px;
+            background:
+                radial-gradient(circle at 85% 15%, rgba(29,77,122,0.05), transparent 22%),
+                linear-gradient(180deg, #fbfaf7 0%, #f4f9ff 100%);
+            overflow: hidden;
+        }
+        .scene-title {
+            font-size: 0.95rem;
+            color: #5f6e79;
+        }
+        .bag {
+            position: absolute;
+            left: 18px;
+            top: 110px;
+            width: 190px;
+            height: 230px;
+            border-radius: 40px 40px 28px 28px;
+            background: linear-gradient(180deg, #d97706, #9a6708);
+            box-shadow: inset 0 -12px 24px rgba(0,0,0,0.16);
+        }
+        .bag::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            top: -16px;
+            width: 154px;
+            height: 34px;
+            border-radius: 18px;
+            background: #7c4a03;
+        }
+        .bag-label {
+            position: absolute;
+            left: 48px;
+            top: 80px;
+            font-size: 0.95rem;
+            color: white;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.22);
+        }
+        .drop-zone {
+            position: absolute;
+            left: 248px;
+            right: 18px;
+            top: 78px;
+        }
+        .zone-title {
+            color: #46545f;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        .slots {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            min-height: 90px;
+        }
+        .slot {
+            width: 76px;
+            height: 76px;
+            border: 2px dashed #c9d5de;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.9);
+            display: grid;
+            place-items: center;
+            color: #71808c;
+            font-size: 0.85rem;
+        }
+        .record-box {
+            position: absolute;
+            left: 248px;
+            right: 18px;
+            bottom: 22px;
+            border: 1px solid #d8d1c4;
+            border-radius: 18px;
+            background: #fffdfa;
+            padding: 14px;
+        }
+        .record-title {
+            font-weight: 700;
+            color: #17324c;
+            margin-bottom: 8px;
+        }
+        .record-value {
+            font-family: "Courier New", monospace;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .record-note {
+            margin-top: 8px;
+            color: #5f6e79;
+            line-height: 1.55;
+        }
+        .token {
+            position: absolute;
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+            transition: left 850ms ease, top 850ms ease, transform 850ms ease, opacity 400ms ease;
+            user-select: none;
+        }
+        .ghost {
+            opacity: 0.22;
+        }
+        .blue { background: #2563eb; }
+        .amber { background: #d97706; }
+        .teal { background: #0f766e; }
+        .rose { background: #b4235c; }
+        .violet { background: #6d28d9; }
+        .slate { background: #475569; }
+        details.help {
+            border: 1px solid #d8d1c4;
+            border-radius: 16px;
+            background: #fffdfa;
+            overflow: hidden;
+        }
+        details.help summary {
+            cursor: pointer;
+            padding: 12px 14px;
+            font-weight: 700;
+            background: #eef6ff;
+            color: #17324c;
+        }
+        .help-body {
+            padding: 12px 14px 14px;
+            display: grid;
+            gap: 8px;
+            color: #5f6e79;
+            line-height: 1.6;
+        }
+        .mini {
+            color: #5f6e79;
+            line-height: 1.6;
+        }
+        @media (max-width: 1180px) {
+            .layout, .split { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+        }
+        @media (max-width: 760px) {
+            .tabs, .action-row { grid-template-columns: 1fr; }
+            .hero-grid { grid-template-columns: 1fr; }
+            .scene { min-height: 560px; }
+            .bag { position: relative; left: auto; top: auto; margin: 18px auto 0; }
+            .bag-label { left: 50%; transform: translateX(-50%); top: 120px; }
+            .drop-zone { left: 18px; top: 18px; right: 18px; }
+            .record-box { left: 18px; right: 18px; bottom: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <section class="panel hero">
+            <div class="eyebrow">Sandbox · Mechanika Liczenia</div>
+            <h1>Permutacje, Wariacje i Kombinacje — jak to naprawde dziala?</h1>
+            <p>
+                Ta aplikacja nie ma tylko liczyc wzorow. Ma <strong>pokazac mechanike</strong>:
+                wyciaganie elementow z worka, ukladanie ich, zamiany miejscami oraz to,
+                kiedy taka zamiana tworzy <strong>nowy wynik</strong>, a kiedy <strong>nic nie zmienia</strong>.
+            </p>
+            <div class="hero-grid">
+                <div class="intro-card">
+                    <h3>Co chcemy zobaczyc?</h3>
+                    <div class="intro-list">
+                        <div class="intro-item">Jak wyglada <strong>wyciaganie</strong> elementow do wyniku.</div>
+                        <div class="intro-item">Czy <strong>kolejnosc</strong> tworzy nowy przypadek.</div>
+                        <div class="intro-item">Czy wolno użyc elementu <strong>ponownie</strong>.</div>
+                        <div class="intro-item">Czy zamiana dwoch identycznych elementow daje <strong>ten sam obraz</strong>.</div>
+                    </div>
+                </div>
+                <div class="intro-card">
+                    <h3>Jak z tego korzystac?</h3>
+                    <div class="intro-list">
+                        <div class="intro-item">Wybierz model u gory.</div>
+                        <div class="intro-item">Ustaw liczbe elementow i liczbe miejsc.</div>
+                        <div class="intro-item">Kliknij `Uloz wynik`, potem `Przemieszaj kolejnosc` lub `Zamien takie same`.</div>
+                        <div class="intro-item">Patrz nie tylko na wynik zapisany tekstem, ale tez na to, co zmienia sie na scenie.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel workspace">
+            <div class="tabs" id="modelTabs"></div>
+            <div class="layout">
+                <aside class="sidebar">
+                    <div class="card">
+                        <h3>Parametry</h3>
+                        <div class="controls" id="controls"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Pomysl na model</h3>
+                        <div id="ideaPanel"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Najwazniejsza lekcja</h3>
+                        <div id="lessonPanel"></div>
+                    </div>
+                </aside>
+
+                <main class="main">
+                    <div class="content">
+                        <div class="split">
+                            <div>
+                                <h2 id="modelTitle"></h2>
+                                <div class="note" id="modelIntro"></div>
+                                <div class="formula" id="formulaBox" style="margin-top:12px;"></div>
+                                <div class="lesson-list" id="reasoningBoxes" style="margin-top:12px;"></div>
+                                <details class="help" style="margin-top:12px;">
+                                    <summary>Rozwin argumentacje</summary>
+                                    <div class="help-body" id="argumentBody"></div>
+                                </details>
+                            </div>
+                            <div>
+                                <div class="box">
+                                    <strong>Co obserwowac?</strong>
+                                    <div class="mini" id="watchPanel" style="margin-top:8px;"></div>
+                                </div>
+                                <div class="action-row" style="margin-top:12px;">
+                                    <button class="action" id="buildBtn">Uloz wynik</button>
+                                    <button class="action" id="shuffleBtn">Przemieszaj kolejnosc</button>
+                                    <button class="action" id="swapBtn">Zamien takie same</button>
+                                    <button class="action" id="resetBtn">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stage">
+                        <div class="stage-header">
+                            <div>
+                                <h3>Scena mechaniki</h3>
+                                <div class="scene-title">Worek, miejsca wyniku i zapis tego, co naprawde liczymy.</div>
+                            </div>
+                            <div class="mini" id="sceneStatus"></div>
+                        </div>
+                        <div class="scene" id="scene">
+                            <div class="bag"></div>
+                            <div class="bag-label">WOREK</div>
+                            <div class="drop-zone">
+                                <div class="zone-title">Miejsca wyniku</div>
+                                <div class="slots" id="slots"></div>
+                            </div>
+                            <div class="record-box">
+                                <div class="record-title">Jak zapisujemy wynik?</div>
+                                <div class="record-value" id="recordValue"></div>
+                                <div class="record-note" id="recordNote"></div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const models = {
+            permutation: {
+                label: "Permutacja",
+                small: "wszystkie, bez powtorzen",
+                formula: "n!",
+                intro: "Bierzemy wszystkie rozne elementy i ustawiamy je w kolejnosci. Kazda zmiana kolejnosci tworzy nowy wynik.",
+                watch: "Po kliknieciu `Przemieszaj kolejnosc` zobaczysz, ze ten sam zestaw elementow po zamianie miejsc daje nowy zapis wyniku.",
+                idea: "Wynik to uporzadkowany rzad wszystkich elementow.",
+                lesson: "Jeżeli kolejność jest częścią odpowiedzi, to zamiana miejsc naprawdę tworzy nowy przypadek.",
+                arguments: [
+                    "W pierwszym miejscu mozemy polozyc dowolny z n elementow.",
+                    "W drugim miejscu zostaje juz n-1 elementow, potem n-2 i tak dalej.",
+                    "Dlatego mnozymy n · (n-1) · ... · 1 = n!."
+                ],
+                reasoning: [
+                    "Uzywamy wszystkich elementow.",
+                    "Kolejnosc ma znaczenie.",
+                    "Nie wolno powtarzac."
+                ]
+            },
+            kvariation: {
+                label: "Wariacja bez powtorzen",
+                small: "czesc, kolejnosc tak",
+                formula: "n! / (n-k)!",
+                intro: "Bierzemy tylko czesc elementow, ale kolejnosc dalej jest wazna. To sa uporzadkowane wybory dlugosci k.",
+                watch: "Gdy przemieszamy dwa wylosowane elementy, zapis wyniku się zmienia. To dlatego ABC i BAC są różne.",
+                idea: "Wynik to uporzadkowany wybór tylko k miejsc.",
+                lesson: "To nie jest kombinacja, bo miejsca w wyniku dalej sa rozne i sa czescia odpowiedzi.",
+                arguments: [
+                    "Na pierwsze miejsce mamy n mozliwosci.",
+                    "Na drugie miejsce zostaje n-1, potem n-2, az do k-tego miejsca.",
+                    "Mnozymy tylko k pierwszych czynnikow: n · (n-1) · ... · (n-k+1)."
+                ],
+                reasoning: [
+                    "Bierzemy tylko czesc elementow.",
+                    "Kolejnosc ma znaczenie.",
+                    "Bez powtorzen."
+                ]
+            },
+            repetition: {
+                label: "Wariacja z powtorzeniami",
+                small: "czesc, kolejnosc tak, z powtorzeniami",
+                formula: "n^k",
+                intro: "Mamy k miejsc i na kazde miejsce mozemy wpisac dowolny z n symboli. Worek nie \"chudnie\", bo mozemy uzyc elementu znowu.",
+                watch: "Zobaczysz, ze po wyciagnieciu element dalej pozostaje w worku jako dostepny. To jest istota powtorzen.",
+                idea: "Wynik to uporzadkowany ciag dlugosci k, w ktorym symbol moze pojawic sie wiele razy.",
+                lesson: "Powtorzenia oznaczaja, ze kazde miejsce liczymy od nowa od pelnej liczby mozliwosci.",
+                arguments: [
+                    "Kazde z k miejsc ma n mozliwosci.",
+                    "Wybor na jednym miejscu nie ogranicza kolejnych miejsc.",
+                    "Dlatego mamy n · n · ... · n = n^k."
+                ],
+                reasoning: [
+                    "Bierzemy tylko czesc miejsc.",
+                    "Kolejnosc ma znaczenie.",
+                    "Powtorzenia sa dozwolone."
+                ]
+            },
+            combination: {
+                label: "Kombinacja",
+                small: "czesc, kolejnosc nie",
+                formula: "n! / (k!(n-k)!)",
+                intro: "Wybieramy k elementow, ale zapis nie ma pamietac ich kolejnosci. Liczy sie sam zbior wybranych obiektow.",
+                watch: "Po przemieszaniu wybranych elementow zapis zestawu pozostaje ten sam. To ma byc doslownie widoczne na scenie.",
+                idea: "Wynik to nie uporzadkowany rzad, tylko zestaw wybranych elementow.",
+                lesson: "Kombinacja to sytuacja, w której wiele różnych ułożeń opisuje dokładnie ten sam wybór.",
+                arguments: [
+                    "Gdyby kolejnosc miala znaczenie, liczylibysmy wariacje bez powtorzen.",
+                    "Ale kazdy ten sam zestaw k elementow pojawia sie tam k! razy w roznych kolejnosciach.",
+                    "Dlatego dzielimy przez k!."
+                ],
+                reasoning: [
+                    "Bierzemy tylko czesc elementow.",
+                    "Kolejnosc nie ma znaczenia.",
+                    "Kazdy zestaw bylby nadliczony k! razy."
+                ]
+            },
+            repeatedPermutation: {
+                label: "Permutacja z powtorzeniami",
+                small: "wszystkie, ale czesc identyczna",
+                formula: "n! / (n1! n2! ... nr!)",
+                intro: "Ustawiamy wszystkie elementy, ale niektore sa tego samego rodzaju. Zamiana dwoch identycznych elementow nie daje nowego obrazu.",
+                watch: "Tu najważniejszy jest przycisk `Zamien takie same`. Zobaczysz ruch dwóch elementów, ale końcowy obraz i zapis pozostają dokładnie takie same.",
+                idea: "Liczymy różne ustawienia kolorów / typów, a nie numerowanych kopii tego samego koloru.",
+                lesson: "Dzielimy właśnie przez silnie liczebności kolorów, bo tyle razy ten sam obraz byłby nadliczony w zwykłej permutacji.",
+                arguments: [
+                    "Gdyby wszystkie kopie byly rozne, liczylibysmy n! ustawien.",
+                    "Ale zamiany elementow tego samego koloru nic nie zmieniaja wizualnie.",
+                    "Jesli np. trzy czerwone mozna permutowac miedzy soba na 3! sposobow bez zmiany obrazu, to trzeba przez 3! podzielic."
+                ],
+                reasoning: [
+                    "Uzywamy wszystkich elementow.",
+                    "Kolejnosc ma znaczenie tylko na poziomie pozycji.",
+                    "Zamiany identycznych elementow nie tworza nowego wyniku."
+                ]
+            }
+        };
+
+        const state = {
+            model: "permutation",
+            n: 5,
+            k: 3,
+            repeatedCounts: [3, 2, 1],
+            sceneTokens: [],
+            arrangement: [],
+            lastStatus: "Wybierz model i kliknij `Uloz wynik`."
+        };
+
+        const palette = ["blue", "amber", "teal", "rose", "violet", "slate"];
+        const labels = ["A", "B", "C", "D", "E", "F", "G"];
+
+        function htmlEscape(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        }
+
+        function buildDistinctPool(n) {
+            const out = [];
+            for (let i = 0; i < n; i += 1) {
+                out.push({
+                    id: "d" + i,
+                    label: labels[i] || String(i + 1),
+                    family: "u" + i,
+                    color: palette[i % palette.length],
+                    distinct: true
+                });
+            }
+            return out;
+        }
+
+        function buildRepeatedPool() {
+            const out = [];
+            const counts = state.repeatedCounts;
+            for (let family = 0; family < counts.length; family += 1) {
+                for (let j = 0; j < counts[family]; j += 1) {
+                    out.push({
+                        id: "r" + family + "_" + j,
+                        label: labels[family],
+                        family: "f" + family,
+                        color: palette[family % palette.length],
+                        distinct: false
+                    });
+                }
+            }
+            return out;
+        }
+
+        function currentPool() {
+            if (state.model === "repeatedPermutation") return buildRepeatedPool();
+            return buildDistinctPool(state.n);
+        }
+
+        function currentSlotCount() {
+            if (state.model === "permutation") return state.n;
+            if (state.model === "repeatedPermutation") return state.repeatedCounts[0] + state.repeatedCounts[1] + state.repeatedCounts[2];
+            return state.k;
+        }
+
+        function renderTabs() {
+            const panel = document.getElementById("modelTabs");
+            panel.innerHTML = Object.entries(models).map(([key, model]) => `
+                <button class="tab ${state.model === key ? "active" : ""}" data-model="${key}">
+                    ${model.label}
+                    <small>${model.small}</small>
+                </button>
+            `).join("");
+            panel.querySelectorAll("[data-model]").forEach((button) => {
+                button.addEventListener("click", () => {
+                    state.model = button.dataset.model;
+                    state.lastStatus = "Model zmieniony. Kliknij `Uloz wynik`.";
+                    if (state.model === "permutation") state.k = state.n;
+                    resetScene();
+                    render();
+                });
+            });
+        }
+
+        function renderControls() {
+            const panel = document.getElementById("controls");
+            let html = "";
+            if (state.model === "permutation") {
+                html += `<label>Liczba roznych elementow n<input type="number" min="2" max="6" value="${state.n}" data-key="n"></label>`;
+            } else if (state.model === "kvariation" || state.model === "combination") {
+                html += `<label>Liczba elementow w worku n<input type="number" min="2" max="6" value="${state.n}" data-key="n"></label>`;
+                html += `<label>Liczba wyciagniec k<input type="number" min="1" max="${state.n}" value="${state.k}" data-key="k"></label>`;
+            } else if (state.model === "repetition") {
+                html += `<label>Liczba symboli n<input type="number" min="2" max="5" value="${state.n}" data-key="n"></label>`;
+                html += `<label>Liczba miejsc k<input type="number" min="1" max="5" value="${state.k}" data-key="k"></label>`;
+            } else {
+                html += `<label>Liczba czerwonych / A<input type="number" min="0" max="4" value="${state.repeatedCounts[0]}" data-key="r0"></label>`;
+                html += `<label>Liczba pomaranczowych / B<input type="number" min="0" max="4" value="${state.repeatedCounts[1]}" data-key="r1"></label>`;
+                html += `<label>Liczba zielonych / C<input type="number" min="0" max="4" value="${state.repeatedCounts[2]}" data-key="r2"></label>`;
+            }
+            panel.innerHTML = html;
+            panel.querySelectorAll("input").forEach((input) => {
+                input.addEventListener("input", () => {
+                    const key = input.dataset.key;
+                    const value = Number(input.value);
+                    if (key === "n") state.n = value;
+                    if (key === "k") state.k = value;
+                    if (key === "r0") state.repeatedCounts[0] = value;
+                    if (key === "r1") state.repeatedCounts[1] = value;
+                    if (key === "r2") state.repeatedCounts[2] = value;
+                    normalizeState();
+                    resetScene();
+                    render();
+                });
+            });
+        }
+
+        function normalizeState() {
+            state.n = Math.max(2, Math.min(6, Math.round(state.n)));
+            state.k = Math.max(1, Math.min(5, Math.round(state.k)));
+            if (state.model === "permutation") state.k = state.n;
+            if (state.model === "kvariation" || state.model === "combination") state.k = Math.min(state.k, state.n);
+            state.repeatedCounts = state.repeatedCounts.map((x) => Math.max(0, Math.min(4, Math.round(x))));
+            const totalRepeated = state.repeatedCounts[0] + state.repeatedCounts[1] + state.repeatedCounts[2];
+            if (state.model === "repeatedPermutation" && totalRepeated < 2) {
+                state.repeatedCounts = [2, 1, 0];
+            }
+        }
+
+        function renderTextPanels() {
+            const model = models[state.model];
+            document.getElementById("modelTitle").textContent = model.label;
+            document.getElementById("modelIntro").textContent = model.intro;
+            document.getElementById("formulaBox").innerHTML = model.formula;
+            document.getElementById("watchPanel").textContent = model.watch;
+            document.getElementById("ideaPanel").innerHTML = `<div class="mini">${model.idea}</div>`;
+            document.getElementById("lessonPanel").innerHTML = `<div class="mini">${model.lesson}</div>`;
+            document.getElementById("reasoningBoxes").innerHTML = model.reasoning.map((line) => `<div class="lesson"><strong>Wazna obserwacja</strong><br>${line}</div>`).join("");
+            document.getElementById("argumentBody").innerHTML = model.arguments.map((line) => `<div>${line}</div>`).join("");
+            document.getElementById("sceneStatus").textContent = state.lastStatus;
+        }
+
+        function slotCenters() {
+            const count = currentSlotCount();
+            const out = [];
+            for (let i = 0; i < count; i += 1) {
+                const row = Math.floor(i / 4);
+                const col = i % 4;
+                out.push({ left: 262 + col * 88, top: 118 + row * 92 });
+            }
+            return out;
+        }
+
+        function bagPositions(pool) {
+            return pool.map((_, i) => {
+                const row = Math.floor(i / 3);
+                const col = i % 3;
+                return { left: 48 + col * 46, top: 146 + row * 42 };
+            });
+        }
+
+        function canonicalRecord(tokens) {
+            if (state.model === "combination") {
+                const sorted = [...tokens].sort((a, b) => a.label.localeCompare(b.label));
+                return "{" + sorted.map((x) => x.label).join(", ") + "}";
+            }
+            if (state.model === "repeatedPermutation") {
+                return tokens.map((x) => x.label).join("");
+            }
+            return tokens.map((x) => x.label).join("");
+        }
+
+        function recordExplanation(tokens) {
+            if (!tokens.length) return "Jeszcze nic nie ulozylismy.";
+            if (state.model === "combination") {
+                return "Tutaj zapis celowo ignoruje kolejnosc. Niezaleznie od tego, jak poustawiasz wybrane elementy na scenie, liczy sie tylko sam zestaw.";
+            }
+            if (state.model === "repeatedPermutation") {
+                return "Tutaj zapis pamieta kolejnosc kolorow / typow. Ale zamiana dwoch takich samych elementow nic nie zmienia, bo obraz i zapis pozostaja identyczne.";
+            }
+            if (state.model === "repetition") {
+                return "Tutaj ten sam symbol moze pojawic sie kilka razy, bo po wyborze nadal pozostaje dostepny dla nastepnych miejsc.";
+            }
+            return "Tu kolejnosc miejsc jest czescia wyniku, wiec przestawienie elementow zmienia zapis.";
+        }
+
+        function createArrangement() {
+            const pool = currentPool();
+            if (state.model === "permutation") return [...pool];
+            if (state.model === "kvariation") return pool.slice(0, state.k);
+            if (state.model === "combination") return pool.slice(0, state.k);
+            if (state.model === "repetition") {
+                const symbols = buildDistinctPool(state.n);
+                const out = [];
+                for (let i = 0; i < state.k; i += 1) out.push(symbols[i % symbols.length]);
+                return out;
+            }
+            return [...pool];
+        }
+
+        function resetScene() {
+            state.sceneTokens = [];
+            state.arrangement = [];
+            state.lastStatus = "Kliknij `Uloz wynik`, aby zobaczyc mechanike modelu.";
+        }
+
+        function buildScene() {
+            const pool = currentPool();
+            const arrangement = createArrangement();
+            state.arrangement = arrangement.map((token, i) => ({
+                ...token,
+                sceneId: token.id + "_slot_" + i,
+                slotIndex: i
+            }));
+            state.sceneTokens = pool.map((token, i) => ({
+                ...token,
+                sceneId: token.id,
+                inBag: true,
+                left: bagPositions(pool)[i].left,
+                top: bagPositions(pool)[i].top
+            }));
+            if (state.model === "repetition") {
+                state.sceneTokens = buildDistinctPool(state.n).map((token, i) => ({
+                    ...token,
+                    sceneId: token.id,
+                    inBag: true,
+                    left: bagPositions(buildDistinctPool(state.n))[i].left,
+                    top: bagPositions(buildDistinctPool(state.n))[i].top
+                }));
+            }
+            state.lastStatus = "Wynik ulozony. Teraz zobacz, co daje przestawienie elementow.";
+            renderScene();
+            setTimeout(() => animateBuild(), 50);
+        }
+
+        function renderSlots() {
+            const count = currentSlotCount();
+            document.getElementById("slots").innerHTML = Array.from({ length: count }, (_, i) => `<div class="slot">miejsce ${i + 1}</div>`).join("");
+        }
+
+        function renderScene() {
+            renderSlots();
+            const scene = document.getElementById("scene");
+            scene.querySelectorAll(".token").forEach((node) => node.remove());
+            const slotPos = slotCenters();
+
+            const bagNodes = state.sceneTokens.map((token) => {
+                return `<div class="token ${token.color}" data-id="${token.sceneId}" style="left:${token.left}px; top:${token.top}px;">${htmlEscape(token.label)}</div>`;
+            }).join("");
+
+            const arrangementNodes = state.arrangement.map((token) => {
+                const pos = slotPos[token.slotIndex];
+                return `<div class="token ${token.color}" data-arrangement-id="${token.sceneId}" style="left:${pos.left}px; top:${pos.top}px;">${htmlEscape(token.label)}</div>`;
+            }).join("");
+
+            scene.insertAdjacentHTML("beforeend", bagNodes + arrangementNodes);
+            document.getElementById("recordValue").innerHTML = state.arrangement.length ? htmlEscape(canonicalRecord(state.arrangement)) : "brak";
+            document.getElementById("recordNote").textContent = recordExplanation(state.arrangement);
+            document.getElementById("sceneStatus").textContent = state.lastStatus;
+        }
+
+        function animateBuild() {
+            const slotPos = slotCenters();
+            if (state.model === "repetition") {
+                state.arrangement.forEach((token, i) => {
+                    const ghost = document.createElement("div");
+                    ghost.className = "token " + token.color + " ghost";
+                    ghost.textContent = token.label;
+                    const start = bagPositions(buildDistinctPool(state.n))[i % Math.max(1, state.n)];
+                    ghost.style.left = start.left + "px";
+                    ghost.style.top = start.top + "px";
+                    ghost.style.opacity = "0.28";
+                    document.getElementById("scene").appendChild(ghost);
+                    requestAnimationFrame(() => {
+                        ghost.style.left = slotPos[i].left + "px";
+                        ghost.style.top = slotPos[i].top + "px";
+                    });
+                    setTimeout(() => ghost.remove(), 1200);
+                });
+                return;
+            }
+
+            state.arrangement.forEach((token, i) => {
+                const source = document.querySelector('[data-id="' + token.id + '"]');
+                if (!source) return;
+                requestAnimationFrame(() => {
+                    source.style.left = slotPos[i].left + "px";
+                    source.style.top = slotPos[i].top + "px";
+                    source.style.transform = "scale(0.94)";
+                    source.style.opacity = "0.18";
+                });
+            });
+        }
+
+        function shuffleArrangement() {
+            if (!state.arrangement.length) {
+                state.lastStatus = "Najpierw uloz wynik.";
+                renderTextPanels();
+                return;
+            }
+            if (state.model === "combination") {
+                const first = state.arrangement[0];
+                state.arrangement = state.arrangement.slice(1).concat(first);
+                state.lastStatus = "Elementy zmienily miejsca, ale zapis zestawu sie nie zmienil, bo kolejnosc nie jest czescia wyniku.";
+            } else {
+                const first = state.arrangement[0];
+                state.arrangement = state.arrangement.slice(1).concat(first);
+                state.lastStatus = "Kolejnosc sie zmienila, wiec wynik tez sie zmienil.";
+            }
+            animateArrangementMove();
+        }
+
+        function animateArrangementMove() {
+            const slotPos = slotCenters();
+            state.arrangement.forEach((token, i) => {
+                token.slotIndex = i;
+                const node = document.querySelector('[data-arrangement-id="' + token.sceneId + '"]');
+                if (!node) return;
+                node.style.left = slotPos[i].left + "px";
+                node.style.top = slotPos[i].top + "px";
+            });
+            document.getElementById("recordValue").innerHTML = htmlEscape(canonicalRecord(state.arrangement));
+            document.getElementById("recordNote").textContent = recordExplanation(state.arrangement);
+            document.getElementById("sceneStatus").textContent = state.lastStatus;
+        }
+
+        function swapEqualTokens() {
+            if (state.model !== "repeatedPermutation") {
+                state.lastStatus = "To dzialanie ma sens tylko przy permutacji z powtorzeniami.";
+                renderTextPanels();
+                return;
+            }
+            if (!state.arrangement.length) {
+                state.lastStatus = "Najpierw uloz wynik.";
+                renderTextPanels();
+                return;
+            }
+            let a = -1;
+            let b = -1;
+            for (let i = 0; i < state.arrangement.length; i += 1) {
+                for (let j = i + 1; j < state.arrangement.length; j += 1) {
+                    if (state.arrangement[i].family === state.arrangement[j].family) {
+                        a = i;
+                        b = j;
+                        break;
+                    }
+                }
+                if (a !== -1) break;
+            }
+            if (a === -1) {
+                state.lastStatus = "Nie ma dwoch takich samych elementow do zamiany.";
+                renderTextPanels();
+                return;
+            }
+            const temp = state.arrangement[a];
+            state.arrangement[a] = state.arrangement[b];
+            state.arrangement[b] = temp;
+            state.lastStatus = "Dwa identyczne elementy zamienily sie miejscami. Ruch byl widoczny, ale wynik koncowy pozostaje taki sam.";
+            animateArrangementMove();
+        }
+
+        function bindActions() {
+            document.getElementById("buildBtn").addEventListener("click", () => {
+                buildScene();
+                renderTextPanels();
+            });
+            document.getElementById("shuffleBtn").addEventListener("click", () => {
+                shuffleArrangement();
+                renderTextPanels();
+            });
+            document.getElementById("swapBtn").addEventListener("click", () => {
+                swapEqualTokens();
+                renderTextPanels();
+            });
+            document.getElementById("resetBtn").addEventListener("click", () => {
+                resetScene();
+                renderScene();
+                renderTextPanels();
+            });
+        }
+
+        function render() {
+            normalizeState();
+            renderTabs();
+            renderControls();
+            renderTextPanels();
+            renderScene();
+        }
+
+        bindActions();
+        resetScene();
+        render();
+    </script>
+</body>
+</html>
