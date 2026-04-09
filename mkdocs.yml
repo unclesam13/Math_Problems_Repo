@@ -71,6 +71,7 @@ plugins:
                     - 'Task 11 - Modeling Outcomes': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_11.md'
                     - 'Task 12 - Mixed Counting Problem': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/solution_12.md'
                     - 'Notes - Combinatorics': '4_Metody_probabilistyczne/basic/solutions_02_combinatorics/notes_solutions_02.md'
+                    - '4. Discovering Formalism': '4_Metody_probabilistyczne/basic/04_discovery_formalism.md'
                 - Advanced:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/advanced/01_events_and_probability.md'
                     - '2. Random Variables': '4_Metody_probabilistyczne/advanced/02_random_variables.md'
