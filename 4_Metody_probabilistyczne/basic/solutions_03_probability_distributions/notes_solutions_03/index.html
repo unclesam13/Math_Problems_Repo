@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#probability-distributions-complete-lesson-notes" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1633,6 +1638,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2261,6 +2268,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -2277,9 +2286,652 @@
 
 
 
-  <h1>Notes - Probability Distributions</h1>
-
-
+<h1 id="probability-distributions-complete-lesson-notes">Probability Distributions — Complete Lesson Notes</h1>
+<blockquote>
+<p>These notes cover every task in Task List 03.
+Each section gives you: the concept in plain language, all formulas with symbols explained,
+the most important observation, likely professor questions with model answers,
+and a prepared script for presenting during the lesson.</p>
+</blockquote>
+<hr />
+<h1 id="part-1-core-terminology-symbol-glossary">PART 1 — Core Terminology &amp; Symbol Glossary</h1>
+<hr />
+<h2 id="the-five-distributions-when-to-use-each">The Five Distributions — When to Use Each</h2>
+<table>
+<thead>
+<tr>
+<th>Distribution</th>
+<th>Keyword</th>
+<th>Use when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Binomial</strong></td>
+<td>"fixed <span class="arithmatex">\(n\)</span> trials"</td>
+<td>counting successes in <span class="arithmatex">\(n\)</span> independent trials, 2 outcomes</td>
+</tr>
+<tr>
+<td><strong>Hypergeometric</strong></td>
+<td>"without replacement"</td>
+<td>drawing from a finite population, no replacement</td>
+</tr>
+<tr>
+<td><strong>Geometric</strong></td>
+<td>"first success"</td>
+<td>counting trials until the first success occurs</td>
+</tr>
+<tr>
+<td><strong>Poisson</strong></td>
+<td>"rate <span class="arithmatex">\(\lambda\)</span>"</td>
+<td>counting events arriving in a time or space interval</td>
+</tr>
+<tr>
+<td><strong>Multinomial</strong></td>
+<td>"more than 2 categories"</td>
+<td>generalisation of binomial to <span class="arithmatex">\(r \geq 2\)</span> outcome types</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="master-symbol-glossary">Master Symbol Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(n\)</span></td>
+<td>number of trials</td>
+<td>total independent repetitions of the experiment</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k\)</span></td>
+<td>count of successes</td>
+<td>how many times the event of interest occurred</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(p\)</span></td>
+<td>success probability</td>
+<td>probability of success on one trial</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(q = 1-p\)</span></td>
+<td>failure probability</td>
+<td>probability of failure on one trial</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(N\)</span></td>
+<td>population size</td>
+<td>total objects in the finite population</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K\)</span></td>
+<td>successes in population</td>
+<td>how many "special" objects exist in the whole population</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(n\)</span> (hyper)</td>
+<td>sample size</td>
+<td>how many objects we draw from the population</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\lambda\)</span></td>
+<td>lambda — rate</td>
+<td>average number of events per interval (Poisson)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(e\)</span></td>
+<td>Euler's number</td>
+<td><span class="arithmatex">\(e \approx 2.71828\)</span>, base of natural logarithm</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(r\)</span></td>
+<td>number of categories</td>
+<td>how many distinct outcome types (Multinomial)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k_i\)</span></td>
+<td>count of category <span class="arithmatex">\(i\)</span></td>
+<td>how many trials produced outcome type <span class="arithmatex">\(i\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(p_i\)</span></td>
+<td>probability of category <span class="arithmatex">\(i\)</span></td>
+<td>probability of one trial falling in category <span class="arithmatex">\(i\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(X\)</span></td>
+<td>random variable</td>
+<td>numerical outcome of the experiment</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(P(X=k)\)</span></td>
+<td>probability mass function</td>
+<td>probability that <span class="arithmatex">\(X\)</span> takes value exactly <span class="arithmatex">\(k\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(E[X]\)</span></td>
+<td>expected value</td>
+<td>average value of <span class="arithmatex">\(X\)</span> over many repetitions</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\text{Var}(X)\)</span></td>
+<td>variance</td>
+<td>spread of <span class="arithmatex">\(X\)</span> around its mean</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="all-formulas-in-one-place">All Formulas in One Place</h2>
+<div class="arithmatex">\[\textbf{Binomial:} \quad P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}\]</div>
+<div class="arithmatex">\[E[X] = np \qquad \text{Var}(X) = np(1-p)\]</div>
+<hr />
+<div class="arithmatex">\[\textbf{Hypergeometric:} \quad P(X=k) = \frac{\dbinom{K}{k}\dbinom{N-K}{n-k}}{\dbinom{N}{n}}\]</div>
+<div class="arithmatex">\[E[X] = n\frac{K}{N} \qquad \text{Var}(X) = n\frac{K}{N}\frac{N-K}{N}\frac{N-n}{N-1}\]</div>
+<hr />
+<div class="arithmatex">\[\textbf{Geometric:} \quad P(X=k) = (1-p)^{k-1} \cdot p\]</div>
+<div class="arithmatex">\[E[X] = \frac{1}{p} \qquad \text{Var}(X) = \frac{1-p}{p^2}\]</div>
+<hr />
+<div class="arithmatex">\[\textbf{Poisson:} \quad P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}\]</div>
+<div class="arithmatex">\[E[X] = \lambda \qquad \text{Var}(X) = \lambda\]</div>
+<hr />
+<div class="arithmatex">\[\textbf{Multinomial:} \quad P(X_1=k_1,\ldots,X_r=k_r) = \frac{n!}{k_1!\cdots k_r!}\, p_1^{k_1}\cdots p_r^{k_r}\]</div>
+<hr />
+<h2 id="the-three-power-tools">The Three Power Tools</h2>
+<p>These solve almost every hard problem:</p>
+<p><strong>Tool 1 — Complement</strong>
+$<span class="arithmatex">\(P(\text{at least one}) = 1 - P(\text{none})\)</span>$
+Use when you see: <em>"at least one"</em>, <em>"at least two"</em>, <em>"no later than"</em></p>
+<p><strong>Tool 2 — Independent trials multiply</strong>
+$<span class="arithmatex">\(P(A \cap B) = P(A) \cdot P(B) \quad \text{when } A, B \text{ independent}\)</span>$
+Use when: trials are independent and you need a sequence of results</p>
+<p><strong>Tool 3 — Scale <span class="arithmatex">\(\lambda\)</span> with time</strong>
+$<span class="arithmatex">\(\lambda_t = \lambda \cdot t \quad \text{(Poisson only)}\)</span>$
+Use when the time window changes from what is given</p>
+<hr />
+<h1 id="part-2-task-by-task-notes">PART 2 — Task-by-Task Notes</h1>
+<hr />
+<h2 id="task-1-binomial-model-quality-control">Task 1 — Binomial Model (Quality Control)</h2>
+<h3 id="what-this-task-is-about">What this task is about</h3>
+<p>We introduce the Binomial model through the simplest possible concrete example:
+inspecting 3 screws where each is independently good or defective with fixed probability <span class="arithmatex">\(p\)</span>.</p>
+<h3 id="easy-approach">Easy Approach</h3>
+<p>Think of the experiment as a sequence of coin flips — except instead of H/T we have G/D.
+With 3 flips there are <span class="arithmatex">\(2^3 = 8\)</span> outcomes. List them all, assign probabilities by multiplying individual probabilities, and observe the pattern.</p>
+<h3 id="key-concepts">Key Concepts</h3>
+<p><strong>Bernoulli trial</strong> — any experiment with exactly two possible outcomes (success / failure).
+A single screw inspection is one Bernoulli trial.</p>
+<p><strong>Binomial experiment</strong> — repeating the same Bernoulli trial <span class="arithmatex">\(n\)</span> times independently.
+Inspecting 3 screws is a Binomial experiment with <span class="arithmatex">\(n = 3\)</span>.</p>
+<p><strong>Why do we multiply probabilities?</strong>
+Because inspections are <strong>independent</strong> — the result of screw 1 tells us nothing about screw 2.
+For independent events: <span class="arithmatex">\(P(A \cap B) = P(A) \cdot P(B)\)</span>.</p>
+<p><strong>What does <span class="arithmatex">\(\binom{n}{k}\)</span> count in the Binomial formula?</strong>
+The number of different sequences of <span class="arithmatex">\(n\)</span> trials that contain exactly <span class="arithmatex">\(k\)</span> successes.
+For <span class="arithmatex">\(k=1\)</span> in <span class="arithmatex">\(n=3\)</span>: the defective screw can be in position 1, 2, or 3 — that is <span class="arithmatex">\(\binom{3}{1} = 3\)</span> sequences.</p>
+<h3 id="most-important-observation">Most Important Observation</h3>
+<blockquote>
+<p><strong>"Success" does not mean "good outcome."</strong>
+In probability, success = the event we are counting.
+Here we count defectives, so defective = success.
+This is a naming convention, not a value judgement.</p>
+</blockquote>
+<p>The Binomial formula is essentially:</p>
+<div class="arithmatex">\[P(X=k) = \underbrace{\binom{n}{k}}_{\text{how many sequences}} \times \underbrace{p^k}_{\text{prob. of } k \text{ successes}} \times \underbrace{(1-p)^{n-k}}_{\text{prob. of } n-k \text{ failures}}\]</div>
+<h3 id="four-conditions-memorise-these">Four Conditions — Memorise These</h3>
+<ol>
+<li><strong>Fixed <span class="arithmatex">\(n\)</span></strong> — number of trials decided in advance</li>
+<li><strong>Two outcomes</strong> — success or failure only</li>
+<li><strong>Constant <span class="arithmatex">\(p\)</span></strong> — same probability every trial</li>
+<li><strong>Independent</strong> — one trial does not affect another</li>
+</ol>
+<h3 id="professor-may-ask">Professor May Ask</h3>
+<p><strong>Q: Why does the sum <span class="arithmatex">\(q^3 + 3q^2p + 3qp^2 + p^3 = 1\)</span>?</strong>
+A: Because this is the binomial expansion of <span class="arithmatex">\((q+p)^3 = 1^3 = 1\)</span>.
+The coefficients 1, 3, 3, 1 are exactly <span class="arithmatex">\(\binom{3}{0}, \binom{3}{1}, \binom{3}{2}, \binom{3}{3}\)</span>.
+This confirms all probabilities sum to 1.</p>
+<p><strong>Q: What happens if the screws are not independent?</strong>
+A: The Binomial model breaks down. For example, if a machine fault causes consecutive screws to all be defective together, successive results are correlated — we cannot simply multiply probabilities.</p>
+<p><strong>Q: How does the distribution change as <span class="arithmatex">\(p\)</span> increases?</strong>
+A: The distribution shifts right — higher values of <span class="arithmatex">\(k\)</span> become more probable.
+At <span class="arithmatex">\(p = 0.5\)</span> the distribution is symmetric. At <span class="arithmatex">\(p &gt; 0.5\)</span> it is skewed left.</p>
+<h3 id="presentation-script">🎤 Presentation Script</h3>
+<p><em>"In Task 1 we build the Binomial model from scratch by looking at 3 screws, each independently defective with probability <span class="arithmatex">\(p\)</span>. I start by writing down all 8 possible outcomes — three-letter sequences of G and D. Then I assign probabilities by multiplying, because the inspections are independent. For example, GDG has probability <span class="arithmatex">\(q \cdot p \cdot q = q^2 p\)</span>. What I notice is that the probability only depends on how many defectives there are, not on their positions. That pattern — multiplying <span class="arithmatex">\(p^k\)</span> and <span class="arithmatex">\(q^{n-k}\)</span> then accounting for the number of orderings with <span class="arithmatex">\(\binom{n}{k}\)</span> — is exactly the Binomial formula. The key thing to remember is that success here means defective, which sounds wrong but is just the label for whatever we are counting."</em></p>
+<hr />
+<h2 id="task-2-hypergeometric-model-sampling-from-a-batch">Task 2 — Hypergeometric Model (Sampling from a Batch)</h2>
+<h3 id="what-this-task-is-about_1">What this task is about</h3>
+<p>We draw 4 components without replacement from a batch of 20 (5 defective, 15 good).
+The key is understanding why this is NOT Binomial and how the formula counts favorable outcomes.</p>
+<h3 id="easy-approach_1">Easy Approach</h3>
+<p>Think of the formula as three separate counting steps:
+1. How many ways to choose the defective ones from the defective pool? → <span class="arithmatex">\(\binom{K}{k}\)</span>
+2. How many ways to choose the good ones from the good pool? → <span class="arithmatex">\(\binom{N-K}{n-k}\)</span>
+3. How many total samples exist? → <span class="arithmatex">\(\binom{N}{n}\)</span></p>
+<p>Divide favorable by total.</p>
+<h3 id="key-concept-why-not-binomial">Key Concept — Why NOT Binomial?</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Binomial</th>
+<th>Hypergeometric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Replacement</td>
+<td>With</td>
+<td><strong>Without</strong></td>
+</tr>
+<tr>
+<td>Draws</td>
+<td>Independent</td>
+<td><strong>Dependent</strong></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(p\)</span> stays constant</td>
+<td>Yes</td>
+<td><strong>No — changes each draw</strong></td>
+</tr>
+</tbody>
+</table>
+<p>After drawing one defective component, only 4 defective remain out of 19 total.
+The probability is no longer <span class="arithmatex">\(5/20\)</span> — it changed to <span class="arithmatex">\(4/19\)</span>.
+Dependent draws → cannot use Binomial → use Hypergeometric.</p>
+<h3 id="the-formula-broken-down">The Formula Broken Down</h3>
+<div class="arithmatex">\[P(X=k) = \frac{\binom{K}{k} \cdot \binom{N-K}{n-k}}{\binom{N}{n}}\]</div>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it counts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\binom{K}{k}\)</span></td>
+<td>ways to pick <span class="arithmatex">\(k\)</span> defectives from the <span class="arithmatex">\(K\)</span> defective ones</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\binom{N-K}{n-k}\)</span></td>
+<td>ways to pick the remaining <span class="arithmatex">\(n-k\)</span> good ones from the <span class="arithmatex">\(N-K\)</span> good ones</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\binom{N}{n}\)</span></td>
+<td>all possible samples of size <span class="arithmatex">\(n\)</span> from the full <span class="arithmatex">\(N\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The numerator counts favorable outcomes. The denominator counts all outcomes. This is classical probability: <span class="arithmatex">\(P = \text{favorable} / \text{total}\)</span>.</p>
+<h3 id="most-important-observation_1">Most Important Observation</h3>
+<blockquote>
+<p><strong>The 5% rule:</strong> If <span class="arithmatex">\(n/N &lt; 0.05\)</span> (sample is less than 5% of population), the hypergeometric is well approximated by Binomial with <span class="arithmatex">\(p = K/N\)</span>. Here <span class="arithmatex">\(4/20 = 20\%\)</span> — too large to approximate. We must use hypergeometric.</p>
+</blockquote>
+<h3 id="professor-may-ask_1">Professor May Ask</h3>
+<p><strong>Q: Why does the hypergeometric have a finite maximum for <span class="arithmatex">\(k\)</span>?</strong>
+A: You can only draw as many defectives as exist — so <span class="arithmatex">\(k \leq \min(n, K)\)</span>.
+You also cannot draw more good components than exist — so <span class="arithmatex">\(k \geq \max(0, n-(N-K))\)</span>.
+These bounds come from the population constraints.</p>
+<p><strong>Q: What is the expected number of defectives in the sample?</strong>
+A: <span class="arithmatex">\(E[X] = n \cdot \frac{K}{N} = 4 \cdot \frac{5}{20} = 1\)</span>. We expect on average 1 defective in a sample of 4 from a batch that is 25% defective.</p>
+<p><strong>Q: How do you verify your distribution table is correct?</strong>
+A: Check that all probabilities sum to 1: <span class="arithmatex">\(1365 + 2275 + 1050 + 150 + 5 = 4845 = \binom{20}{4}\)</span> ✓</p>
+<h3 id="presentation-script_1">🎤 Presentation Script</h3>
+<p><em>"Task 2 introduces the Hypergeometric distribution. The setup looks similar to Task 1 — we are counting defective items — but there is one crucial difference: we draw without replacement. That single word changes everything. Without replacement, each draw changes what remains in the warehouse. After pulling out one defective component, only 4 defective ones remain among 19. So the probability of success changes with every draw — the trials are dependent — and we cannot use Binomial. Instead, I use the Hypergeometric formula, which works by pure counting: how many ways can I pick exactly <span class="arithmatex">\(k\)</span> defectives from the defective pool, times how many ways to fill the rest from the good pool, divided by all possible samples."</em></p>
+<hr />
+<h2 id="task-3-geometric-model-waiting-for-the-first-event">Task 3 — Geometric Model (Waiting for the First Event)</h2>
+<h3 id="what-this-task-is-about_2">What this task is about</h3>
+<p>We inspect pages until the first error appears. The number of pages inspected is the random variable. The experiment has no fixed endpoint — it ends when the first success occurs.</p>
+<h3 id="easy-approach_2">Easy Approach</h3>
+<p>Build the formula from logic:
+- First error on page <span class="arithmatex">\(k\)</span> means pages 1 through <span class="arithmatex">\(k-1\)</span> were all correct, then page <span class="arithmatex">\(k\)</span> had an error.
+- Each page is independent.
+- Probability = <span class="arithmatex">\((1-p)^{k-1} \cdot p\)</span></p>
+<p>That's it. There is nothing more to the formula.</p>
+<h3 id="key-concept-the-infinite-sample-space">Key Concept — The Infinite Sample Space</h3>
+<div class="arithmatex">\[\Omega = \{E,\ CE,\ CCE,\ CCCE,\ \ldots\}\]</div>
+<p>The sample space is <strong>countably infinite</strong> — theoretically you could check millions of pages without finding an error. This is fine mathematically because even though the sum has infinitely many terms, it converges to 1:</p>
+<div class="arithmatex">\[\sum_{k=1}^{\infty}(1-p)^{k-1}p = 1\]</div>
+<p>This is a geometric series (which is also where the distribution gets its name).</p>
+<h3 id="most-important-observation-the-memoryless-property">Most Important Observation — The Memoryless Property</h3>
+<blockquote>
+<p><strong>The geometric distribution has no memory.</strong></p>
+<p>If you have already checked 10 pages with no error, your situation is exactly the same as someone who just started. The past gives no information about the future.</p>
+<p>Formally: <span class="arithmatex">\(P(X &gt; m+n \mid X &gt; m) = P(X &gt; n)\)</span></p>
+</blockquote>
+<p>This is unique to the geometric distribution among discrete distributions.</p>
+<h3 id="professor-may-ask_2">Professor May Ask</h3>
+<p><strong>Q: What is the expected number of pages until the first error?</strong>
+A: <span class="arithmatex">\(E[X] = \frac{1}{p}\)</span>. If <span class="arithmatex">\(p = 0.1\)</span>, we expect to check <span class="arithmatex">\(\frac{1}{0.1} = 10\)</span> pages on average before the first error. This is intuitive — if errors are rare, we wait longer.</p>
+<p><strong>Q: How is the geometric different from the binomial?</strong>
+A: Binomial has a fixed number of trials <span class="arithmatex">\(n\)</span> and counts successes. Geometric has no fixed <span class="arithmatex">\(n\)</span> — it counts trials until the first success. They are answers to opposite questions.</p>
+<p><strong>Q: Why is the geometric series sum equal to 1?</strong>
+A: <span class="arithmatex">\(\sum_{k=1}^{\infty}(1-p)^{k-1}p = p \cdot \frac{1}{1-(1-p)} = \frac{p}{p} = 1\)</span>. The formula <span class="arithmatex">\(\sum_{k=0}^{\infty}r^k = \frac{1}{1-r}\)</span> for <span class="arithmatex">\(|r|&lt;1\)</span> applies with <span class="arithmatex">\(r = 1-p\)</span>.</p>
+<h3 id="presentation-script_2">🎤 Presentation Script</h3>
+<p><em>"Task 3 is about waiting. Instead of asking 'how many defectives in 10 trials', we ask 'how many pages until the first error'. The number of pages inspected is now the random variable, and it can be any positive integer — 1, 2, 3, and so on to infinity. The formula is simple to derive from first principles: to get the first error on page <span class="arithmatex">\(k\)</span>, pages 1 to <span class="arithmatex">\(k-1\)</span> must be correct and page <span class="arithmatex">\(k\)</span> must be wrong. Multiply those independent probabilities and you get <span class="arithmatex">\((1-p)^{k-1} \cdot p\)</span>. One property of this distribution that is worth highlighting is the memoryless property — after any number of error-free pages, the distribution of future waiting time is the same as at the beginning. The past tells you nothing about when the next error will arrive."</em></p>
+<hr />
+<h2 id="task-4-poisson-model-arrival-of-events">Task 4 — Poisson Model (Arrival of Events)</h2>
+<h3 id="what-this-task-is-about_3">What this task is about</h3>
+<p>We count random events (error reports) arriving in a fixed time window.
+There is no fixed number of trials — events happen spontaneously at a constant average rate <span class="arithmatex">\(\lambda\)</span>.</p>
+<h3 id="easy-approach_3">Easy Approach</h3>
+<p>The Poisson distribution has one parameter: <span class="arithmatex">\(\lambda\)</span> (the average rate).
+Once you know <span class="arithmatex">\(\lambda\)</span> for your interval, plug into:</p>
+<div class="arithmatex">\[P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}\]</div>
+<p>The only "trick" is: if the time window changes, scale <span class="arithmatex">\(\lambda\)</span> proportionally first.</p>
+<h3 id="key-concept-what-is-lambda">Key Concept — What is <span class="arithmatex">\(\lambda\)</span>?</h3>
+<p><span class="arithmatex">\(\lambda\)</span> (lambda) is the <strong>average number of events per interval</strong>. It is both the mean AND the variance of the Poisson distribution.</p>
+<div class="arithmatex">\[E[X] = \lambda \qquad \text{Var}(X) = \lambda\]</div>
+<p>This is a special property of the Poisson — no other common distribution has mean equal to variance.</p>
+<h3 id="scaling-lambda">Scaling <span class="arithmatex">\(\lambda\)</span></h3>
+<div class="arithmatex">\[\lambda_t = \lambda \cdot t\]</div>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+<th>Time window</th>
+<th>New <span class="arithmatex">\(\lambda\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3 per hour</td>
+<td>2 hours</td>
+<td>6</td>
+</tr>
+<tr>
+<td>3 per hour</td>
+<td>30 min</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>5 per hour</td>
+<td>1 hour</td>
+<td>5</td>
+</tr>
+<tr>
+<td>5 per hour</td>
+<td>12 min</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-observation_2">Most Important Observation</h3>
+<blockquote>
+<p><strong>Poisson as a limit of Binomial:</strong>
+When <span class="arithmatex">\(n\)</span> is very large and <span class="arithmatex">\(p\)</span> is very small, but <span class="arithmatex">\(np = \lambda\)</span> stays fixed,
+the Binomial distribution converges to Poisson.
+This is why Poisson works for rare events that can theoretically happen many times
+(phone calls, radioactive decays, website requests).</p>
+</blockquote>
+<h3 id="professor-may-ask_3">Professor May Ask</h3>
+<p><strong>Q: Why is <span class="arithmatex">\(P(X=0) = e^{-\lambda}\)</span>?</strong>
+A: Substitute <span class="arithmatex">\(k=0\)</span>: <span class="arithmatex">\(P(X=0) = \frac{\lambda^0 e^{-\lambda}}{0!} = \frac{1 \cdot e^{-\lambda}}{1} = e^{-\lambda}\)</span>.
+This is the probability of receiving zero events — it decreases exponentially as <span class="arithmatex">\(\lambda\)</span> grows.</p>
+<p><strong>Q: Why does Var<span class="arithmatex">\((X) = \lambda\)</span> for the Poisson distribution?</strong>
+A: This is a mathematical consequence of the Poisson's derivation as a limit of Binomials with <span class="arithmatex">\(np = \lambda\)</span> and <span class="arithmatex">\(p \to 0\)</span>. The variance <span class="arithmatex">\(np(1-p) \to np = \lambda\)</span>.</p>
+<p><strong>Q: What is the most probable value of <span class="arithmatex">\(X\)</span>?</strong>
+A: The mode of Poisson<span class="arithmatex">\((\lambda)\)</span> is <span class="arithmatex">\(\lfloor \lambda \rfloor\)</span> (floor of <span class="arithmatex">\(\lambda\)</span>). When <span class="arithmatex">\(\lambda\)</span> is an integer, both <span class="arithmatex">\(\lambda\)</span> and <span class="arithmatex">\(\lambda-1\)</span> are modes — the distribution has two equally likely most probable values.</p>
+<h3 id="presentation-script_3">🎤 Presentation Script</h3>
+<p><em>"Task 4 introduces the Poisson distribution, which models random arrivals. The setup is different from everything before — there is no experiment with a fixed number of trials. Instead, events arrive spontaneously in a time window, and we count how many. The entire distribution is determined by just one number: <span class="arithmatex">\(\lambda\)</span>, the average rate. For this problem <span class="arithmatex">\(\lambda = 3\)</span> reports per hour. The formula <span class="arithmatex">\(P(X=k) = \lambda^k e^{-\lambda} / k!\)</span> gives the probability of exactly <span class="arithmatex">\(k\)</span> arrivals. Two things to emphasise: first, <span class="arithmatex">\(e^{-\lambda}\)</span> is the normalising constant that makes all probabilities sum to 1. Second, <span class="arithmatex">\(\lambda\)</span> scales linearly with time — if the window changes from 1 hour to 2 hours, <span class="arithmatex">\(\lambda\)</span> doubles to 6."</em></p>
+<hr />
+<h2 id="task-5-multinomial-model-categories-of-outcomes">Task 5 — Multinomial Model (Categories of Outcomes)</h2>
+<h3 id="what-this-task-is-about_4">What this task is about</h3>
+<p>Rolling a die 5 times, grouping results into 3 categories (small/medium/large).
+The Multinomial is the natural generalization of the Binomial to more than 2 outcomes.</p>
+<h3 id="easy-approach_4">Easy Approach</h3>
+<p>The Multinomial formula has two parts:</p>
+<p><strong>Part 1 — the multinomial coefficient</strong> <span class="arithmatex">\(\frac{n!}{k_1! k_2! k_3!}\)</span></p>
+<p>This is identical to "permutations with repeated elements" from combinatorics.
+It counts how many orderings of the <span class="arithmatex">\(n\)</span> trials produce the exact counts <span class="arithmatex">\((k_1, k_2, k_3)\)</span>.</p>
+<p><strong>Part 2 — the probability</strong> <span class="arithmatex">\(p_1^{k_1} p_2^{k_2} p_3^{k_3}\)</span></p>
+<p>This is the probability of any one specific ordering (they are all equal by independence).</p>
+<p>Multiply them together.</p>
+<h3 id="key-concept-connection-to-binomial">Key Concept — Connection to Binomial</h3>
+<p>Set <span class="arithmatex">\(r = 2\)</span>, <span class="arithmatex">\(p_1 = p\)</span>, <span class="arithmatex">\(p_2 = 1-p\)</span>:</p>
+<div class="arithmatex">\[\frac{n!}{k_1! k_2!} p^{k_1}(1-p)^{k_2} = \binom{n}{k_1} p^{k_1}(1-p)^{n-k_1}\]</div>
+<p>This is exactly the Binomial formula. The Binomial is a special case of the Multinomial with <span class="arithmatex">\(r = 2\)</span>.</p>
+<h3 id="most-important-observation_3">Most Important Observation</h3>
+<blockquote>
+<p><strong>The multinomial coefficient is the same formula as "permutations with repeated elements."</strong></p>
+<p>Arranging 5 items where 3 are type S, 2 are type L, 1 is type M:
+$<span class="arithmatex">\(\frac{5!}{3! \cdot 2! \cdot 1!} = 60 \text{ arrangements}\)</span>$
+This is not a coincidence — the multinomial coefficient literally counts the arrangements of a sequence.</p>
+</blockquote>
+<h3 id="professor-may-ask_4">Professor May Ask</h3>
+<p><strong>Q: What must always be true about <span class="arithmatex">\(p_1 + p_2 + \cdots + p_r\)</span>?</strong>
+A: It must equal 1. The categories are exhaustive (every outcome falls in exactly one category) and mutually exclusive (no outcome can be in two categories simultaneously). So the probabilities must sum to 1.</p>
+<p><strong>Q: What must always be true about <span class="arithmatex">\(k_1 + k_2 + k_3\)</span>?</strong>
+A: It must equal <span class="arithmatex">\(n\)</span>. Every trial produces exactly one outcome, so the counts must sum to the total number of trials.</p>
+<p><strong>Q: What is the expected number of "small" outcomes in 5 rolls?</strong>
+A: <span class="arithmatex">\(E[X_1] = n \cdot p_1 = 5 \cdot \frac{1}{3} \approx 1.67\)</span>. Each <span class="arithmatex">\(X_i\)</span> follows a Binomial<span class="arithmatex">\((n, p_i)\)</span> distribution marginally.</p>
+<h3 id="presentation-script_4">🎤 Presentation Script</h3>
+<p><em>"Task 5 introduces the Multinomial distribution as a generalization of Binomial. Instead of two outcomes per trial, we now have three — we group die rolls into small (1–2), medium (3–4), and large (5–6). The formula has two parts. First, the multinomial coefficient <span class="arithmatex">\(\frac{5!}{k_1! k_2! k_3!}\)</span> — this counts how many orderings of 5 rolls produce the given counts, and it is the same formula as permutations with repeated elements from combinatorics. Second, the probability part <span class="arithmatex">\(p_1^{k_1} p_2^{k_2} p_3^{k_3}\)</span> — this is the probability of any one specific ordering. We multiply because each ordering has equal probability due to independence. Two constraints must always hold: the <span class="arithmatex">\(p_i\)</span> must sum to 1 (categories cover everything) and the <span class="arithmatex">\(k_i\)</span> must sum to <span class="arithmatex">\(n\)</span> (every trial is accounted for)."</em></p>
+<hr />
+<h2 id="task-6-binomial-calculation">Task 6 — Binomial Calculation</h2>
+<h3 id="what-this-task-is-about_5">What this task is about</h3>
+<p><span class="arithmatex">\(n = 10\)</span>, <span class="arithmatex">\(p = 0.04\)</span>, <span class="arithmatex">\(X \sim \text{Bin}(10, 0.04)\)</span>. Compute two probabilities.</p>
+<h3 id="easy-approach_5">Easy Approach</h3>
+<p><strong>Exactly 2:</strong> directly apply the Binomial formula.</p>
+<p><strong>At least 1:</strong> always use complement — computing <span class="arithmatex">\(P(X=0)\)</span> is one step vs. summing <span class="arithmatex">\(P(X=1)\)</span> through <span class="arithmatex">\(P(X=10)\)</span>.</p>
+<h3 id="step-by-step">Step-by-Step</h3>
+<div class="arithmatex">\[P(X=2) = \binom{10}{2}(0.04)^2(0.96)^8 = 45 \times 0.0016 \times 0.7214 = 0.0519\]</div>
+<div class="arithmatex">\[P(X \geq 1) = 1 - P(X=0) = 1 - (0.96)^{10} = 1 - 0.6648 = 0.3352\]</div>
+<h3 id="most-important-observation_4">Most Important Observation</h3>
+<blockquote>
+<p><strong>Always use complement for "at least one."</strong>
+<span class="arithmatex">\(P(X \geq 1) = 1 - P(X=0)\)</span> converts 10 calculations into 1.
+This works for any distribution, not just Binomial.</p>
+</blockquote>
+<h3 id="professor-may-ask_5">Professor May Ask</h3>
+<p><strong>Q: What is <span class="arithmatex">\(\binom{10}{2}\)</span> and what does it represent here?</strong>
+A: <span class="arithmatex">\(\binom{10}{2} = 45\)</span>. It represents the number of ways exactly 2 of the 10 parts can be the defective ones — which 2 positions (out of 10) contain defectives.</p>
+<p><strong>Q: Why is <span class="arithmatex">\((0.96)^8\)</span> in the formula for <span class="arithmatex">\(P(X=2)\)</span>?</strong>
+A: Because <span class="arithmatex">\(n - k = 10 - 2 = 8\)</span> parts must be good (not defective), each with probability <span class="arithmatex">\(0.96\)</span>. Since they are independent, their probabilities multiply: <span class="arithmatex">\((0.96)^8\)</span>.</p>
+<h3 id="presentation-script_5">🎤 Presentation Script</h3>
+<p><em>"Task 6 is a direct application of the Binomial formula. We have 10 parts, each defective with probability 0.04 independently. For exactly 2 defectives I apply the formula directly: <span class="arithmatex">\(\binom{10}{2}\)</span> gives 45 orderings, <span class="arithmatex">\((0.04)^2\)</span> is the probability of 2 defectives, and <span class="arithmatex">\((0.96)^8\)</span> is the probability that the other 8 are good. For at least one defective, I use the complement — the only way to have no defectives at all is if all 10 are good, which has probability <span class="arithmatex">\((0.96)^{10} = 0.665\)</span>. Subtracting from 1 gives <span class="arithmatex">\(0.335\)</span>. This complement trick converts 10 separate calculations into just one."</em></p>
+<hr />
+<h2 id="task-7-hypergeometric-calculation">Task 7 — Hypergeometric Calculation</h2>
+<h3 id="what-this-task-is-about_6">What this task is about</h3>
+<p>15 bulbs (12 working, 3 defective), draw 5 without replacement. Find <span class="arithmatex">\(P(X=2)\)</span>.</p>
+<h3 id="easy-approach_6">Easy Approach</h3>
+<p>Three numbers to compute: <span class="arithmatex">\(\binom{3}{2}\)</span>, <span class="arithmatex">\(\binom{12}{3}\)</span>, <span class="arithmatex">\(\binom{15}{5}\)</span>. Then divide.</p>
+<div class="arithmatex">\[P(X=2) = \frac{\binom{3}{2}\binom{12}{3}}{\binom{15}{5}} = \frac{3 \times 220}{3003} = 0.2198\]</div>
+<h3 id="most-important-observation_5">Most Important Observation</h3>
+<blockquote>
+<p><strong><span class="arithmatex">\(k\)</span> cannot exceed the number of defective bulbs in the box.</strong>
+We only have 3 defective bulbs, so <span class="arithmatex">\(k \leq 3\)</span> — even though we draw 5.
+The maximum is <span class="arithmatex">\(\min(n, K) = \min(5, 3) = 3\)</span>.</p>
+</blockquote>
+<h3 id="professor-may-ask_6">Professor May Ask</h3>
+<p><strong>Q: Why is the denominator <span class="arithmatex">\(\binom{15}{5}\)</span> and not <span class="arithmatex">\(15^5\)</span>?</strong>
+A: Because we draw without replacement and order does not matter — we are forming a set of 5 bulbs, not a sequence. <span class="arithmatex">\(\binom{15}{5}\)</span> counts the number of distinct sets of 5 from 15.</p>
+<p><strong>Q: Can we use Binomial as an approximation here?</strong>
+A: The sample is <span class="arithmatex">\(5/15 = 33\%\)</span> of the population — far above the 5% threshold. The Binomial approximation would be inaccurate. We must use Hypergeometric.</p>
+<h3 id="presentation-script_6">🎤 Presentation Script</h3>
+<p><em>"Task 7 is a direct calculation using the Hypergeometric formula. The box has 15 bulbs: 12 working and 3 defective. We draw 5 without replacement. To find <span class="arithmatex">\(P(X=2)\)</span>, I count: there are <span class="arithmatex">\(\binom{3}{2} = 3\)</span> ways to choose 2 of the 3 defective bulbs, times <span class="arithmatex">\(\binom{12}{3} = 220\)</span> ways to fill the remaining 3 spots from the working bulbs. The denominator is <span class="arithmatex">\(\binom{15}{5} = 3003\)</span>, the total number of samples. Dividing gives approximately 22%. One thing to highlight: <span class="arithmatex">\(k\)</span> cannot exceed 3 here even though we draw 5, because there are only 3 defective bulbs in the box."</em></p>
+<hr />
+<h2 id="task-8-geometric-calculation">Task 8 — Geometric Calculation</h2>
+<h3 id="what-this-task-is-about_7">What this task is about</h3>
+<p><span class="arithmatex">\(p = 0.1\)</span>, compilations until first error. Compute <span class="arithmatex">\(P(X=4)\)</span> and <span class="arithmatex">\(P(X \leq 3)\)</span>.</p>
+<h3 id="easy-approach_7">Easy Approach</h3>
+<p><strong>Exactly on 4th:</strong> plug <span class="arithmatex">\(k=4\)</span> into <span class="arithmatex">\((1-p)^{k-1} \cdot p\)</span>.</p>
+<p><strong>No later than 3rd:</strong> use complement — <span class="arithmatex">\(P(X \leq 3) = 1 - (0.9)^3\)</span>.</p>
+<h3 id="step-by-step_1">Step-by-Step</h3>
+<div class="arithmatex">\[P(X=4) = (0.9)^3 \times 0.1 = 0.729 \times 0.1 = 0.0729\]</div>
+<div class="arithmatex">\[P(X \leq 3) = 1 - (0.9)^3 = 1 - 0.729 = 0.271\]</div>
+<h3 id="most-important-observation_6">Most Important Observation</h3>
+<blockquote>
+<p><strong>The complement trick for Geometric is especially powerful:</strong>
+$<span class="arithmatex">\(P(X \leq k) = 1 - (1-p)^k\)</span>$
+The complement of "first success within <span class="arithmatex">\(k\)</span> trials" is "all <span class="arithmatex">\(k\)</span> trials fail."
+This gives a closed-form answer without summing any series.</p>
+</blockquote>
+<h3 id="professor-may-ask_7">Professor May Ask</h3>
+<p><strong>Q: What is the expected number of compilations until the first error?</strong>
+A: <span class="arithmatex">\(E[X] = \frac{1}{p} = \frac{1}{0.1} = 10\)</span>. On average, 10 compilations are needed.</p>
+<p><strong>Q: Does knowing the first 3 compilations were error-free change anything about the 4th?</strong>
+A: No — this is the memoryless property. Each compilation is independent with <span class="arithmatex">\(P(\text{error}) = 0.1\)</span> regardless of history.</p>
+<h3 id="presentation-script_7">🎤 Presentation Script</h3>
+<p><em>"Task 8 applies the Geometric distribution to program compilation. Each compilation independently fails with probability 0.1. For the first error on exactly the 4th compilation: the first three must be error-free and the fourth must fail. That gives <span class="arithmatex">\((0.9)^3 \times 0.1 = 0.0729\)</span>. For the error occurring no later than the 3rd compilation, I use the complement: instead of summing three terms, I note that the complement is 'all 3 compilations are error-free', which has probability <span class="arithmatex">\((0.9)^3 = 0.729\)</span>. Subtracting from 1 gives 0.271. The complement formula <span class="arithmatex">\(P(X \leq k) = 1 - (1-p)^k\)</span> is much faster than direct summation, especially for larger bounds."</em></p>
+<hr />
+<h2 id="task-9-poisson-calculation">Task 9 — Poisson Calculation</h2>
+<h3 id="what-this-task-is-about_8">What this task is about</h3>
+<p><span class="arithmatex">\(\lambda = 5\)</span> requests per hour. Compute <span class="arithmatex">\(P(X=3)\)</span> and <span class="arithmatex">\(P(X \geq 1)\)</span>.</p>
+<h3 id="easy-approach_8">Easy Approach</h3>
+<p>Compute <span class="arithmatex">\(e^{-5} = 0.006738\)</span> once at the start — reuse it for all calculations.</p>
+<p><strong>Exactly 3:</strong> <span class="arithmatex">\(\frac{5^3 \times 0.006738}{3!} = \frac{125 \times 0.006738}{6} = 0.1404\)</span></p>
+<p><strong>At least 1:</strong> <span class="arithmatex">\(1 - e^{-5} = 1 - 0.006738 = 0.9933\)</span></p>
+<h3 id="most-important-observation_7">Most Important Observation</h3>
+<blockquote>
+<p><strong><span class="arithmatex">\(P(X=0) = e^{-\lambda}\)</span></strong> — the probability of zero events.
+This is always the simplest Poisson probability to compute — just <span class="arithmatex">\(e^{-\lambda}\)</span>.
+The complement gives "at least one event": <span class="arithmatex">\(1 - e^{-\lambda}\)</span>.
+For large <span class="arithmatex">\(\lambda\)</span> this is very close to 1 — events are almost certain to occur.</p>
+</blockquote>
+<h3 id="professor-may-ask_8">Professor May Ask</h3>
+<p><strong>Q: What does <span class="arithmatex">\(e^{-5}\)</span> represent intuitively?</strong>
+A: It is the probability that zero events occur in the interval. With an average of 5 per hour, receiving none is very unlikely: <span class="arithmatex">\(e^{-5} \approx 0.0067 = 0.67\%\)</span>.</p>
+<p><strong>Q: If we observed 0 requests this hour, what does that tell us about <span class="arithmatex">\(\lambda\)</span>?</strong>
+A: It suggests <span class="arithmatex">\(\lambda\)</span> might be smaller than assumed — but even with <span class="arithmatex">\(\lambda = 5\)</span> there is a 0.67% chance of observing zero. A single observation is not enough to revise <span class="arithmatex">\(\lambda\)</span> significantly.</p>
+<h3 id="presentation-script_8">🎤 Presentation Script</h3>
+<p><em>"Task 9 applies the Poisson distribution. We have <span class="arithmatex">\(\lambda = 5\)</span> requests per hour. The first thing I do is compute <span class="arithmatex">\(e^{-5} \approx 0.006738\)</span> — I will need this for every calculation. For exactly 3 requests: <span class="arithmatex">\(\frac{5^3 \times e^{-5}}{3!} = \frac{125 \times 0.00674}{6} \approx 0.140\)</span>. For at least one request, I use the complement — zero requests has probability <span class="arithmatex">\(e^{-5} \approx 0.0067\)</span>, so at least one has probability <span class="arithmatex">\(0.9933\)</span>. With an average of 5 per hour, it is almost impossible to receive no requests at all — 99.3% of the time at least one will arrive."</em></p>
+<hr />
+<h2 id="task-10-multinomial-calculation">Task 10 — Multinomial Calculation</h2>
+<h3 id="what-this-task-is-about_9">What this task is about</h3>
+<p>6 candy selections with replacement, three flavors (40%, 35%, 25%). Find <span class="arithmatex">\(P(X_1=3, X_2=2, X_3=1)\)</span>.</p>
+<h3 id="easy-approach_9">Easy Approach</h3>
+<p>Three steps:
+1. Multinomial coefficient: <span class="arithmatex">\(\frac{6!}{3!\,2!\,1!} = 60\)</span>
+2. Probability part: <span class="arithmatex">\((0.40)^3 \times (0.35)^2 \times (0.25)^1 = 0.064 \times 0.1225 \times 0.25\)</span>
+3. Multiply: <span class="arithmatex">\(60 \times 0.00196 = 0.1176\)</span></p>
+<h3 id="most-important-observation_8">Most Important Observation</h3>
+<blockquote>
+<p><strong>The multinomial coefficient is "permutations with repeated elements."</strong>
+Arranging the sequence S,S,S,L,L,M (3 identical S's, 2 identical L's, 1 M):
+$<span class="arithmatex">\(\frac{6!}{3!\,2!\,1!} = 60\)</span>$
+These 60 orderings all have the same probability because trials are independent.
+We multiply 60 by that common probability.</p>
+</blockquote>
+<h3 id="professor-may-ask_9">Professor May Ask</h3>
+<p><strong>Q: What must <span class="arithmatex">\(k_1 + k_2 + k_3\)</span> equal, and why?</strong>
+A: It must equal <span class="arithmatex">\(n = 6\)</span>. Every selection produces exactly one candy flavor, so the counts across all categories must add up to the total number of selections.</p>
+<p><strong>Q: What is the probability of getting all 6 strawberry?</strong>
+A: <span class="arithmatex">\(\frac{6!}{6!\,0!\,0!}(0.40)^6(0.35)^0(0.25)^0 = 1 \times (0.40)^6 \approx 0.0041\)</span>. The coefficient is 1 because there is only one ordering of 6 identical strawberries.</p>
+<h3 id="presentation-script_9">🎤 Presentation Script</h3>
+<p><em>"Task 10 is the final calculation task, applying the Multinomial distribution. We select 6 candies with replacement from a box with three flavors: 40% strawberry, 35% lemon, 25% mint. We want the probability of getting exactly 3 strawberry, 2 lemon, and 1 mint. First I check: <span class="arithmatex">\(3+2+1=6\)</span> ✓. Then I compute the multinomial coefficient: <span class="arithmatex">\(\frac{6!}{3!\,2!\,1!} = 60\)</span> — this is exactly the permutations-with-repeats formula from combinatorics, counting how many orderings of 6 selections produce these exact counts. Then the probability of any one such ordering: <span class="arithmatex">\((0.40)^3 \times (0.35)^2 \times (0.25)^1 \approx 0.00196\)</span>. Multiplying: <span class="arithmatex">\(60 \times 0.00196 \approx 0.1176\)</span>. About 12% chance."</em></p>
+<hr />
+<h1 id="part-3-exam-quick-reference">PART 3 — Exam Quick Reference</h1>
+<hr />
+<h2 id="distribution-recognition-card">Distribution Recognition Card</h2>
+<table>
+<thead>
+<tr>
+<th>You see this...</th>
+<th>Use this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"inspects/tests <span class="arithmatex">\(n\)</span> items", "flips coin <span class="arithmatex">\(n\)</span> times", fixed <span class="arithmatex">\(n\)</span></td>
+<td><strong>Binomial</strong></td>
+</tr>
+<tr>
+<td>"without replacement", "finite batch", "draws from box"</td>
+<td><strong>Hypergeometric</strong></td>
+</tr>
+<tr>
+<td>"until first success", "until first error", "waiting for"</td>
+<td><strong>Geometric</strong></td>
+</tr>
+<tr>
+<td>"per hour", "per page", "arrival rate", "on average <span class="arithmatex">\(\lambda\)</span>"</td>
+<td><strong>Poisson</strong></td>
+</tr>
+<tr>
+<td>"three categories", "more than two outcomes per trial"</td>
+<td><strong>Multinomial</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="complement-rule-apply-in-these-situations">Complement Rule — Apply in These Situations</h2>
+<table>
+<thead>
+<tr>
+<th>Problem says...</th>
+<th>Compute instead...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>at least one</td>
+<td><span class="arithmatex">\(1 - P(\text{none})\)</span></td>
+</tr>
+<tr>
+<td>at least two</td>
+<td><span class="arithmatex">\(1 - P(\text{none}) - P(\text{exactly one})\)</span></td>
+</tr>
+<tr>
+<td>no later than <span class="arithmatex">\(k\)</span></td>
+<td><span class="arithmatex">\(1 - P(\text{later than } k) = 1 - (1-p)^k\)</span> for Geometric</td>
+</tr>
+<tr>
+<td>more than zero</td>
+<td><span class="arithmatex">\(1 - P(X=0) = 1 - e^{-\lambda}\)</span> for Poisson</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="five-things-to-say-in-every-oral-answer">Five Things to Say in Every Oral Answer</h2>
+<ol>
+<li><strong>Name the distribution</strong> and state its parameter(s): <em>"<span class="arithmatex">\(X\)</span> follows a Binomial distribution with <span class="arithmatex">\(n=10\)</span> and <span class="arithmatex">\(p=0.04\)</span>"</em></li>
+<li><strong>Verify the conditions</strong>: <em>"The four Binomial conditions hold because..."</em></li>
+<li><strong>State the formula</strong>: write it out with the specific values substituted</li>
+<li><strong>Explain your strategy</strong>: <em>"I use the complement because at-least-one problems are easier this way..."</em></li>
+<li><strong>Interpret the answer</strong>: <em>"So there is a 33.5% chance that at least one part is defective, which is reasonable given..."</em></li>
+</ol>
+<hr />
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Correct thinking</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Using Binomial when sampling without replacement</td>
+<td>Check: is the population finite and sample <span class="arithmatex">\(&gt; 5\%\)</span> of it? → Hypergeometric</td>
+</tr>
+<tr>
+<td>Forgetting to use complement for "at least one"</td>
+<td><span class="arithmatex">\(P(X \geq 1) = 1 - P(X=0)\)</span> always</td>
+</tr>
+<tr>
+<td>Using old <span class="arithmatex">\(\lambda\)</span> when time window changes</td>
+<td>Always rescale: <span class="arithmatex">\(\lambda_t = \lambda \cdot t\)</span></td>
+</tr>
+<tr>
+<td>Forgetting <span class="arithmatex">\(0! = 1\)</span> and <span class="arithmatex">\(\lambda^0 = 1\)</span></td>
+<td><span class="arithmatex">\(P(X=0) = e^{-\lambda}\)</span> exactly</td>
+</tr>
+<tr>
+<td>Confusing geometric <span class="arithmatex">\(P(X=k)\)</span> with <span class="arithmatex">\(P(X \leq k)\)</span></td>
+<td><span class="arithmatex">\(P(X=k) = (1-p)^{k-1}p\)</span>, <span class="arithmatex">\(P(X \leq k) = 1-(1-p)^k\)</span></td>
+</tr>
+<tr>
+<td>Not checking <span class="arithmatex">\(k_1 + \cdots + k_r = n\)</span> in Multinomial</td>
+<td>Always verify the counts sum to <span class="arithmatex">\(n\)</span> before computing</td>
+</tr>
+</tbody>
+</table>
 
 
 
