@@ -45,6 +45,7 @@ plugins:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/basic/01_events_and_probability.md'
                     - '2. Combinatorics': '4_Metody_probabilistyczne/basic/02_combinatorics.md'
                     - '3. Probability Distributions': '4_Metody_probabilistyczne/basic/03_probability_distributions.md'
+                    - '4. Discovery Formalisms': '4_Metody_probabilistyczne/basic/04_discovery_formalisms.md'
                 - 'My Solutions':
                   - 'Solution 1 - Events & Probability': 
                     - 'Task 1 - Coin Tossing': '4_Metody_probabilistyczne/basic/solutions_01_events_and_probability/solution_01.md'
