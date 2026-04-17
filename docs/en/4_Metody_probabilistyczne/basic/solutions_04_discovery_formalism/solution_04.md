@@ -12,13 +12,14 @@ $$
 S = \text{sunny}, \quad C = \text{cloudy}, \quad R = \text{rainy}
 $$
 
+<iframe src="https://unclesam13.github.io/Math_Problems_Repo/anim/4_Metody_probalistyczne/weather_task4.html" width="100%" height="520" frameborder="0" style="border-radius:4px;"></iframe>
+
 There are 7 days:
 
 $$
 \{Mon, Tue, Wed, Thu, Fri, Sat, Sun\}
 $$
 
-<iframe src="https://unclesam13.github.io/Math_Problems_Repo/anim/4_Metody_probalistyczne/weather_task4.html" width="100%" height="520" frameborder="0" style="border-radius:4px;"></iframe>
 
 ## 1.2 Sample Space
 
