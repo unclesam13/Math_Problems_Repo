@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://unclesam13.github.io/Math_Problems_Repo/4_Metody_probabilistyczne/basic/solutions_04_discovery_formalism.md/solution_04/">
+        <link rel="canonical" href="https://unclesam13.github.io/Math_Problems_Repo/4_Metody_probabilistyczne/basic/solutions_04_discovery_formalism/solution_03/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Problem 3 — Weather (7 days × 3 states) - Math Problems</title>
+        <title>Solution 03 - Math Problems</title>
       
     
     
@@ -73,11 +73,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#problem-3-weather-7-days-3-states" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -110,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Problem 3 — Weather (7 days × 3 states)
+              Solution 03
             
           </span>
         </div>
@@ -1669,6 +1664,14 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
               
                 
   
@@ -1684,10 +1687,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2_3_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2_4" >
         
           
-          <label class="md-nav__link" for="__nav_2_1_2_3_12" id="__nav_2_1_2_3_12_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_1_2_4" id="__nav_2_1_2_4_label" tabindex="0">
             
   
   
@@ -1705,8 +1708,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_1_2_3_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_1_2_3_12">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1723,7 +1726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../solutions_04_discovery_formalism/solution_04.md" class="md-nav__link">
+      <a href="../solution_04/" class="md-nav__link">
         
   
   
@@ -1739,14 +1742,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -2440,8 +2435,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -2458,492 +2451,9 @@
 
 
 
-<h1 id="problem-3-weather-7-days-3-states">Problem 3 — Weather (7 days × 3 states)</h1>
-<h1 id="1-conceptual-foundations">1. Conceptual Foundations</h1>
-<h2 id="11-description-of-the-experiment">1.1 Description of the Experiment</h2>
-<p>We consider a <strong>random experiment</strong> describing the weather during a week.</p>
-<p>Each day can take one of three possible states:</p>
-<div class="arithmatex">\[
-S = \text{sunny}, \quad C = \text{cloudy}, \quad R = \text{rainy}
-\]</div>
-<p>There are 7 days:</p>
-<div class="arithmatex">\[
-\{Mon, Tue, Wed, Thu, Fri, Sat, Sun\}
-\]</div>
-<iframe src="https://unclesam13.github.io/Math_Problems_Repo/anim/4_Metody_probalistyczne/weather_task4.html" width="100%" height="520" frameborder="0" style="border-radius:4px;"></iframe>
+  <h1>Solution 03</h1>
 
-<h2 id="12-sample-space">1.2 Sample Space</h2>
-<p>An <strong>elementary outcome</strong> is a full assignment of weather states to all days:</p>
-<div class="arithmatex">\[
-\omega = (w_{Mon}, w_{Tue}, w_{Wed}, w_{Thu}, w_{Fri}, w_{Sat}, w_{Sun})
-\]</div>
-<p>where:</p>
-<div class="arithmatex">\[
-w_d \in \{S, C, R\}
-\]</div>
-<p>Thus the sample space is:</p>
-<div class="arithmatex">\[
-\Omega = \{S, C, R\}^7
-\]</div>
-<h2 id="13-meaning-of-the-table-representation">1.3 Meaning of the Table Representation</h2>
-<p>The table is <strong>not a list of outcomes</strong>.</p>
-<p>Instead, it is a <strong>graphical representation of an event</strong>, i.e., a subset of <span class="arithmatex">\(\Omega\)</span>.</p>
-<ul>
-<li>Columns represent <strong>days</strong></li>
-<li>Rows represent <strong>weather states</strong></li>
-<li>Marking a cell (<span class="arithmatex">\(X\)</span>) means that this state is <strong>allowed or selected</strong> for that day</li>
-</ul>
-<p>Thus, the table defines a <strong>set of all sequences consistent with the marked constraints</strong>.</p>
-<p><br></br></p>
-<h1 id="2-part-a-constructing-events">2. Part A — Constructing Events</h1>
-<h2 id="21-event-monday-is-sunny">2.1 Event: Monday is sunny</h2>
-<h3 id="formal-description">Formal description</h3>
-<div class="arithmatex">\[
-A = \{\omega \in \Omega : w_{Mon} = S\}
-\]</div>
-<h3 id="interpretation">Interpretation</h3>
-<p>Only Monday is fixed; all other days are arbitrary.</p>
-<h3 id="graphical-representation">Graphical representation</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Mon</th>
-<th>Tue</th>
-<th>Wed</th>
-<th>Thu</th>
-<th>Fri</th>
-<th>Sat</th>
-<th>Sun</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>S</td>
-<td>X</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>C</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>R</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="22-event-weekend-saturday-and-sunday-is-rainy">2.2 Event: Weekend (Saturday and Sunday) is rainy</h2>
-<h3 id="formal-description_1">Formal description</h3>
-<div class="arithmatex">\[
-A = \{\omega \in \Omega : w_{Sat} = R \;\text{and}\; w_{Sun} = R\}
-\]</div>
-<h3 id="interpretation_1">Interpretation</h3>
-<p>Both days must be rainy simultaneously (logical AND).</p>
-<h3 id="graphical-representation_1">Graphical representation</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Mon</th>
-<th>Tue</th>
-<th>Wed</th>
-<th>Thu</th>
-<th>Fri</th>
-<th>Sat</th>
-<th>Sun</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>S</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>C</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>R</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>X</td>
-<td>X</td>
-</tr>
-</tbody>
-</table>
-<h2 id="23-event-it-rains-on-wednesday-or-friday">2.3 Event: It rains on Wednesday or Friday</h2>
-<h3 id="formal-description_2">Formal description</h3>
-<div class="arithmatex">\[
-A = \{\omega \in \Omega : w_{Wed} = R \;\lor\; w_{Fri} = R\}
-\]</div>
-<h3 id="interpretation_2">Interpretation</h3>
-<p>This is a <strong>logical OR</strong>:
-- at least one of the days is rainy
-- possibly both</p>
-<h3 id="graphical-representation_2">Graphical representation</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Mon</th>
-<th>Tue</th>
-<th>Wed</th>
-<th>Thu</th>
-<th>Fri</th>
-<th>Sat</th>
-<th>Sun</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>S</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>C</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>R</td>
-<td></td>
-<td></td>
-<td>X</td>
-<td></td>
-<td>X</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="24-event-there-is-no-rainy-day-during-the-week">2.4 Event: There is no rainy day during the week</h2>
-<h3 id="formal-description_3">Formal description</h3>
-<div class="arithmatex">\[
-A = \{\omega \in \Omega : \forall d,\; w_d \neq R\}
-\]</div>
-<p>Equivalently:</p>
-<div class="arithmatex">\[
-w_d \in \{S, C\} \quad \text{for all } d
-\]</div>
-<h3 id="interpretation_3">Interpretation</h3>
-<p>Rain is completely excluded.</p>
-<h3 id="graphical-representation_3">Graphical representation</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Mon</th>
-<th>Tue</th>
-<th>Wed</th>
-<th>Thu</th>
-<th>Fri</th>
-<th>Sat</th>
-<th>Sun</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>S</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-</tr>
-<tr>
-<td>C</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-</tr>
-<tr>
-<td>R</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="25-event-thursday-is-not-sunny">2.5 Event: Thursday is not sunny</h2>
-<h3 id="formal-description_4">Formal description</h3>
-<div class="arithmatex">\[
-A = \{\omega \in \Omega : w_{Thu} \neq S\}
-\]</div>
-<h3 id="interpretation_4">Interpretation</h3>
-<p>Allowed states: <span class="arithmatex">\(C\)</span> or <span class="arithmatex">\(R\)</span></p>
-<h3 id="graphical-representation_4">Graphical representation</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Mon</th>
-<th>Tue</th>
-<th>Wed</th>
-<th>Thu</th>
-<th>Fri</th>
-<th>Sat</th>
-<th>Sun</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>S</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>C</td>
-<td></td>
-<td></td>
-<td></td>
-<td>X</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>R</td>
-<td></td>
-<td></td>
-<td></td>
-<td>X</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><br></br></p>
-<h1 id="3-part-b-interpreting-events">3. Part B — Interpreting Events</h1>
-<h2 id="31-case-1">3.1 Case 1</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Mon</th>
-<th>Tue</th>
-<th>Wed</th>
-<th>Thu</th>
-<th>Fri</th>
-<th>Sat</th>
-<th>Sun</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>S</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>X</td>
-<td>X</td>
-</tr>
-<tr>
-<td>C</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>R</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="step-1-observation">Step 1 — Observation</h3>
-<ul>
-<li>Only row <span class="arithmatex">\(S\)</span> is marked</li>
-<li>Only for Saturday and Sunday</li>
-</ul>
-<hr />
-<h3 id="step-2-formal-description">Step 2 — Formal description</h3>
-<div class="arithmatex">\[
-A = \{\omega \in \Omega : w_{Sat} = S \;\text{and}\; w_{Sun} = S\}
-\]</div>
-<hr />
-<h3 id="step-3-interpretation">Step 3 — Interpretation</h3>
-<blockquote>
-<p>The weekend is sunny.</p>
-</blockquote>
-<p>All other days are unrestricted.</p>
-<h2 id="32-case-2">3.2 Case 2</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Mon</th>
-<th>Tue</th>
-<th>Wed</th>
-<th>Thu</th>
-<th>Fri</th>
-<th>Sat</th>
-<th>Sun</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>S</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-</tr>
-<tr>
-<td>C</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-</tr>
-<tr>
-<td>R</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="step-1-observation_1">Step 1 — Observation</h3>
-<ul>
-<li><span class="arithmatex">\(S\)</span> and <span class="arithmatex">\(C\)</span> allowed for all days</li>
-<li><span class="arithmatex">\(R\)</span> excluded everywhere</li>
-</ul>
-<hr />
-<h3 id="step-2-formal-description_1">Step 2 — Formal description</h3>
-<div class="arithmatex">\[
-A = \{\omega \in \Omega : \forall d,\; w_d \in \{S, C\}\}
-\]</div>
-<hr />
-<h3 id="step-3-interpretation_1">Step 3 — Interpretation</h3>
-<blockquote>
-<p>There are no rainy days during the week.</p>
-</blockquote>
-<p><br></br></p>
-<h1 id="4-conceptual-discussion">4. Conceptual Discussion</h1>
-<p>This problem highlights a key transition in probability theory:</p>
-<h2 id="41-events-as-sets">4.1 Events as Sets</h2>
-<p>An event is not merely a verbal description, but a <strong>subset of the sample space</strong>:</p>
-<div class="arithmatex">\[
-A \subseteq \Omega
-\]</div>
-<h2 id="42-logical-statements-vs-set-structure">4.2 Logical Statements vs Set Structure</h2>
-<p>Statements such as:</p>
-<ul>
-<li>“Monday is sunny”</li>
-<li>“It rains on Wednesday or Friday”</li>
-</ul>
-<p>correspond to:</p>
-<ul>
-<li>restrictions on coordinates</li>
-<li>logical operations (AND, OR, NOT)</li>
-</ul>
-<h2 id="43-graphical-representation">4.3 Graphical Representation</h2>
-<p>The table allows us to:</p>
-<ul>
-<li>visualize allowed configurations</li>
-<li>see structure instead of listing outcomes</li>
-<li>understand constraints geometrically</li>
-</ul>
-<h2 id="44-from-intuition-to-formalism">4.4 From Intuition to Formalism</h2>
-<p>We move through three levels:</p>
-<ol>
-<li>Verbal description  </li>
-<li>Graphical structure  </li>
-<li>Formal mathematical definition  </li>
-</ol>
-<p>This transition is essential for understanding probability as a <strong>mathematical theory</strong>, not just a computational tool.</p>
-<p><br></br></p>
-<h1 id="5-final-insight">5. Final Insight</h1>
-<p>The main idea of this problem is:</p>
-<blockquote>
-<p>An event can be described equivalently as:
-- a condition,
-- a graphical constraint,
-- a subset of the sample space.</p>
-</blockquote>
-<p>Understanding these connections is fundamental for further study of probability.</p>
+
 
 
 
