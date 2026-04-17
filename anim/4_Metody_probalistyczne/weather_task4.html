@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Event Visualizer</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(8, 70px);
+      gap: 8px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .cell {
+      width: 60px;
+      height: 60px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      line-height: 60px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .active {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .header {
+      font-weight: bold;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #1976d2;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0d47a1;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Weather Event Visualizer</h2>
+
+<p>Click cells to define allowed weather states</p>
+
+<div class="grid" id="grid"></div>
+
+<div>
+  <button onclick="clearGrid()">Clear</button>
+  <button onclick="presetWeekendRain()">Weekend Rain</button>
+  <button onclick="presetNoRain()">No Rain</button>
+</div>
+
+<script>
+  const days = ["", "Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  const states = ["S","C","R"];
+  const grid = document.getElementById("grid");
+
+  // Build grid
+  for (let r = 0; r < 4; r++) {
+    for (let c = 0; c < 8; c++) {
+
+      const div = document.createElement("div");
+      div.classList.add("cell");
+
+      if (r === 0 && c > 0) {
+        div.innerText = days[c];
+        div.classList.add("header");
+      }
+      else if (c === 0 && r > 0) {
+        div.innerText = states[r-1];
+        div.classList.add("header");
+      }
+      else if (r > 0 && c > 0) {
+        div.onclick = () => div.classList.toggle("active");
+      }
+
+      grid.appendChild(div);
+    }
+  }
+
+  function clearGrid() {
+    document.querySelectorAll(".cell").forEach(c => {
+      if (!c.classList.contains("header")) {
+        c.classList.remove("active");
+      }
+    });
+  }
+
+  function presetWeekendRain() {
+    clearGrid();
+    const cells = document.querySelectorAll(".cell");
+
+    // R row = row 3
+    // Sat = col 6, Sun = col 7
+    cells[3*8 + 6].classList.add("active");
+    cells[3*8 + 7].classList.add("active");
+  }
+
+  function presetNoRain() {
+    clearGrid();
+    const cells = document.querySelectorAll(".cell");
+
+    for (let c = 1; c <= 7; c++) {
+      // S row
+      cells[1*8 + c].classList.add("active");
+      // C row
+      cells[2*8 + c].classList.add("active");
+    }
+  }
+</script>
+
+</body>
+</html>
