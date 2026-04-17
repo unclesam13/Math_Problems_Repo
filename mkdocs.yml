@@ -84,7 +84,7 @@ plugins:
                     - 'Task 9 - Poisson Model (Calculation)': '4_Metody_probabilistyczne/basic/solutions_03_probability_distributions/solution_09.md'
                     - 'Task 10 - Multinomial Model (Calculation)': '4_Metody_probabilistyczne/basic/solutions_03_probability_distributions/solution_10.md'
                     - 'Notes - Probability Distributions': '4_Metody_probabilistyczne/basic/solutions_03_probability_distributions/notes_solutions_03.md'
-                    - 'Solution 4 - Discovering Formalism':
+                  - 'Solution 4 - Discovering Formalism':
                       - 'Task 4 - Weather Observation': '4_Metody_probabilistyczne/basic/solutions_04_discovery_formalism/solution_04.md'
                 - Advanced:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/advanced/01_events_and_probability.md'
