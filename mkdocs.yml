@@ -85,7 +85,7 @@ plugins:
                     - 'Task 10 - Multinomial Model (Calculation)': '4_Metody_probabilistyczne/basic/solutions_03_probability_distributions/solution_10.md'
                     - 'Notes - Probability Distributions': '4_Metody_probabilistyczne/basic/solutions_03_probability_distributions/notes_solutions_03.md'
                   - 'Solution 4 - Discovering Formalism':
-                      - 'Task 4 - Weather Observation': '4_Metody_probabilistyczne/basic/solutions_04_discovery_formalism/solution_04.md'
+                      - 'Task 3 - Weather Observation': '4_Metody_probabilistyczne/basic/solutions_04_discovery_formalism/solution_03.md'
                 - Advanced:
                     - '1. Events & Probability': '4_Metody_probabilistyczne/advanced/01_events_and_probability.md'
                     - '2. Random Variables': '4_Metody_probabilistyczne/advanced/02_random_variables.md'
@@ -104,4 +104,4 @@ plugins:
                   - 'Task 2 - Dice Roll': 'en/anim/4_Metody_probalistyczne/dice_roll.html'
                   - 'Task 3 - Card Draw': 'en/anim/4_Metody_probalistyczne/card_draw.html'
                 - 'Solution 4 - Discovering Formalism': 
-                  - "Task 4 - Weather Observation": 'en/anim/4_Metody_probalistyczne/weather_task4.html'
+                  - "Task 3 - Weather Observation": 'en/anim/4_Metody_probalistyczne/weather_task3.html'
