@@ -1,124 +1,196 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Weather Event Visualizer</title>
+<meta charset="UTF-8">
+<title>Interactive Weather Probability Model</title>
 
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      margin: 30px;
-      background: #f9f9f9;
-    }
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #eaf0f6;
+  margin: 20px;
+}
 
-    h2 {
-      margin-bottom: 10px;
-    }
+body.sunny {
+  background: linear-gradient(#87ceeb, #e0f7ff);
+  transition: 0.8s;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(8, 70px);
-      gap: 8px;
-      justify-content: center;
-      margin: 20px 0;
-    }
+body.cloudy {
+  background: linear-gradient(#b0b8c4, #e6e9ef);
+  transition: 0.8s;
+}
 
-    .cell {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      line-height: 60px;
-      font-weight: bold;
-      cursor: pointer;
-      background: white;
-      transition: 0.2s;
-    }
+body.rainy {
+  background: linear-gradient(#4a5a6a, #8aa0b3);
+  transition: 0.8s;
+}
 
-    .cell:hover {
-      transform: scale(1.05);
-    }
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 70px);
+  gap: 8px;
+  justify-content: center;
+  margin: 20px;
+}
 
-    .active {
-      background-color: #4CAF50;
-      color: white;
-    }
+.cell {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  background: white;
+  user-select: none;
+}
 
-    .header {
-      font-weight: bold;
-      background: transparent;
-      border: none;
-      cursor: default;
-    }
+.header {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
 
-    button {
-      margin: 5px;
-      padding: 10px 14px;
-      border: none;
-      border-radius: 8px;
-      background: #1976d2;
-      color: white;
-      cursor: pointer;
-    }
+.active {
+  background: #4CAF50;
+  color: white;
+}
 
-    button:hover {
-      background: #0d47a1;
-    }
+.highlight {
+  background: #ff9800 !important;
+}
 
-    .output {
-      margin-top: 20px;
-      padding: 15px;
-      background: white;
-      border-radius: 10px;
-      display: inline-block;
-      min-width: 300px;
-    }
+/* BUTTONS */
+button {
+  margin: 5px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+}
 
-    .highlight {
-      color: #1976d2;
-      font-weight: bold;
-    }
-  </style>
+/* OUTPUT */
+.output {
+  margin-top: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* ===================== */
+/* 🌦 ANIMATED WEATHER   */
+/* ===================== */
+
+.weather {
+  margin-top: 20px;
+  height: 120px;
+  position: relative;
+}
+
+/* ☀️ SUN */
+.sun {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffeb3b, #ff9800);
+  position: absolute;
+  left: 30%;
+  top: 20px;
+  animation: spin 6s linear infinite;
+  box-shadow: 0 0 30px #ffeb3b;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ☁️ CLOUD */
+.cloud {
+  width: 90px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50px;
+  position: absolute;
+  left: 45%;
+  top: 40px;
+  animation: float 4s ease-in-out infinite;
+  box-shadow: 20px 10px 0 #fff, -20px 10px 0 #fff;
+}
+
+@keyframes float {
+  0%,100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+/* 🌧 RAIN */
+.rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.drop {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: #2196f3;
+  animation: fall 0.6s linear infinite;
+}
+
+@keyframes fall {
+  from { transform: translateY(-20px); opacity: 1; }
+  to { transform: translateY(120px); opacity: 0; }
+}
+</style>
 </head>
 
 <body>
 
-<h2>🌦 Weather Event Visualizer</h2>
+<h2>🌦 Interactive Weather Probability Model</h2>
 
-<p>Click cells to define allowed weather states for each day</p>
+<div class="weather">
+  <div class="sun"></div>
+  <div class="cloud"></div>
+  <div class="rain" id="rain"></div>
+</div>
 
 <div class="grid" id="grid"></div>
 
 <div>
-  <button onclick="clearGrid()">Clear</button>
-  <button onclick="presetMondaySunny()">Monday Sunny</button>
-  <button onclick="presetWeekendRain()">Weekend Rain</button>
-  <button onclick="presetNoRain()">No Rain</button>
+  <button onclick="setMode('sunny')">Sunny Mode ☀️</button>
+  <button onclick="setMode('rainy')">Rainy Mode 🌧</button>
+  <button onclick="setMode('cloudy')">Cloudy Mode ☁️</button>
+  <button onclick="clearGrid()">Reset</button>
 </div>
 
 <div class="output">
-  <p><b>Event Description:</b></p>
-  <p id="eventText">No event defined</p>
-
-  <p><b>Generated Outcome:</b></p>
-  <p id="randomWeek">-</p>
-
-  <p><b>Belongs to Event?</b></p>
-  <p id="result">-</p>
-
-  <button onclick="generateRandom()">Generate Random Week</button>
+  <p><b>Random Week:</b> <span id="randomWeek">-</span></p>
+  <p><b>Probability:</b> <span id="prob">-</span></p>
+  <button onclick="simulate()">Run Simulation</button>
 </div>
 
 <script>
+
 const days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const states = ["S","C","R"];
 const grid = document.getElementById("grid");
 
-// Build grid
+let mode = null;
+
+// BUILD GRID
 for (let r = 0; r < 4; r++) {
   for (let c = 0; c < 8; c++) {
-
     const div = document.createElement("div");
     div.classList.add("cell");
 
@@ -134,9 +206,9 @@ for (let r = 0; r < 4; r++) {
       div.dataset.row = r-1;
       div.dataset.col = c-1;
 
+      // CLICK interaction
       div.onclick = () => {
         div.classList.toggle("active");
-        updateEventDescription();
       };
     }
 
@@ -144,86 +216,123 @@ for (let r = 0; r < 4; r++) {
   }
 }
 
-function getActiveMatrix() {
-  const matrix = Array(7).fill(null).map(() => []);
-  document.querySelectorAll(".cell.active").forEach(cell => {
-    matrix[cell.dataset.col].push(states[cell.dataset.row]);
-  });
-  return matrix;
-}
+/* ===================== */
+/* MODE CONTROL          */
+/* ===================== */
 
-function updateEventDescription() {
-  const matrix = getActiveMatrix();
-  let parts = [];
+function setMode(type) {
+  document.body.classList.remove("sunny","cloudy","rainy");
+  document.body.classList.add(type);
 
-  matrix.forEach((allowed, i) => {
-    if (allowed.length === 1) {
-      parts.push(`${days[i]} = ${allowed[0]}`);
-    }
-    else if (allowed.length === 2) {
-      parts.push(`${days[i]} ∈ {${allowed.join(",")}}`);
-    }
-    else if (allowed.length === 3) {
-      // unrestricted
-    }
-  });
+  const rain = document.getElementById("rain");
 
-  document.getElementById("eventText").innerHTML =
-    parts.length ? parts.join(", ") : "No constraints (Ω)";
-}
-
-function clearGrid() {
-  document.querySelectorAll(".cell").forEach(c => {
-    if (!c.classList.contains("header")) {
-      c.classList.remove("active");
-    }
-  });
-  updateEventDescription();
-}
-
-function presetMondaySunny() {
-  clearGrid();
-  document.querySelector('[data-row="0"][data-col="0"]').classList.add("active");
-  updateEventDescription();
-}
-
-function presetWeekendRain() {
-  clearGrid();
-  document.querySelector('[data-row="2"][data-col="5"]').classList.add("active");
-  document.querySelector('[data-row="2"][data-col="6"]').classList.add("active");
-  updateEventDescription();
-}
-
-function presetNoRain() {
-  clearGrid();
-  for (let c = 0; c < 7; c++) {
-    document.querySelector(`[data-row="0"][data-col="${c}"]`).classList.add("active");
-    document.querySelector(`[data-row="1"][data-col="${c}"]`).classList.add("active");
+  if (type === "sunny") {
+    rain.style.display = "none";
+    animateSun();
   }
-  updateEventDescription();
+
+  if (type === "cloudy") {
+    rain.style.display = "none";
+    animateCloud();
+  }
+
+  if (type === "rainy") {
+    rain.style.display = "block";
+    animateRain();
+  }
 }
 
-function generateRandom() {
+/* WEATHER ANIMATIONS */
+function animateRain() {
+  const rain = document.getElementById("rain");
+  rain.innerHTML = "";
+
+  for (let i = 0; i < 60; i++) {
+    let drop = document.createElement("div");
+    drop.className = "drop";
+
+    drop.style.left = Math.random() * 100 + "%";
+    drop.style.animationDuration = (0.4 + Math.random() * 0.4) + "s";
+    drop.style.opacity = Math.random();
+
+    rain.appendChild(drop);
+  }
+}
+
+function animateSun() {
+  const sun = document.querySelector(".sun");
+  sun.style.boxShadow = "0 0 60px #ffeb3b";
+
+  setInterval(() => {
+    let pulse = 30 + Math.sin(Date.now() / 500) * 10;
+    sun.style.boxShadow = `0 0 ${pulse}px #ffeb3b`;
+  }, 50);
+}
+
+function animateCloud() {
+  const cloud = document.querySelector(".cloud");
+
+  cloud.style.transform = "translateX(0px)";
+  cloud.style.opacity = 1;
+
+  setInterval(() => {
+    cloud.style.transform =
+      `translateX(${Math.sin(Date.now() / 1000) * 30}px)`;
+  }, 50);
+}
+
+/* ===================== */
+/* SIMULATION            */
+/* ===================== */
+
+function generateRandomWeek() {
   let week = [];
   for (let i = 0; i < 7; i++) {
     week.push(states[Math.floor(Math.random()*3)]);
   }
+  return week;
+}
 
-  document.getElementById("randomWeek").innerText = week.join(" ");
+function simulate() {
+  let success = 0;
+  let trials = 500;
 
-  const matrix = getActiveMatrix();
+  for (let i = 0; i < trials; i++) {
+    let w = generateRandomWeek();
 
-  let valid = true;
-  for (let i = 0; i < 7; i++) {
-    if (matrix[i].length > 0 && !matrix[i].includes(week[i])) {
-      valid = false;
-      break;
-    }
+    // simple condition: at least 2 sunny days
+    if (w.filter(x => x === "S").length >= 2) success++;
   }
 
-  document.getElementById("result").innerHTML =
-    valid ? "<span class='highlight'>YES</span>" : "<span style='color:red'>NO</span>";
+  let prob = success / trials;
+
+  let sample = generateRandomWeek();
+  document.getElementById("randomWeek").innerText = sample.join(" ");
+  document.getElementById("prob").innerText = prob.toFixed(3);
+
+  highlight(sample);
 }
+
+/* ===================== */
+/* HIGHLIGHT             */
+/* ===================== */
+
+function highlight(week) {
+  document.querySelectorAll(".cell").forEach(c => c.classList.remove("highlight"));
+
+  week.forEach((state, day) => {
+    let row = states.indexOf(state);
+    let cell = document.querySelector(`[data-row="${row}"][data-col="${day}"]`);
+    if (cell) cell.classList.add("highlight");
+  });
+}
+
+function clearGrid() {
+  document.querySelectorAll(".cell").forEach(c => {
+    c.classList.remove("active","highlight");
+  });
+}
+
 </script>
 
 </body>
