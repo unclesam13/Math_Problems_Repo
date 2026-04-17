@@ -101,3 +101,5 @@ plugins:
                   - 'Task 1 - Coin Toss': 'en/anim/4_Metody_probalistyczne/coin_toss.html'
                   - 'Task 2 - Dice Roll': 'en/anim/4_Metody_probalistyczne/dice_roll.html'
                   - 'Task 3 - Card Draw': 'en/anim/4_Metody_probalistyczne/card_draw.html'
+                - 'Solution 4 - Discovering Formalism': 
+                  - "Task 4 - Weather Observation": 'en/anim/4_Metody_probalistyczne/weather_task4.html'
