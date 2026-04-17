@@ -8,7 +8,12 @@
     body {
       font-family: Arial;
       text-align: center;
-      margin: 40px;
+      margin: 30px;
+      background: #f9f9f9;
+    }
+
+    h2 {
+      margin-bottom: 10px;
     }
 
     .grid {
@@ -16,18 +21,23 @@
       grid-template-columns: repeat(8, 70px);
       gap: 8px;
       justify-content: center;
-      margin-top: 20px;
+      margin: 20px 0;
     }
 
     .cell {
       width: 60px;
       height: 60px;
-      border: 1px solid #ccc;
       border-radius: 10px;
+      border: 1px solid #ccc;
       line-height: 60px;
       font-weight: bold;
       cursor: pointer;
+      background: white;
       transition: 0.2s;
+    }
+
+    .cell:hover {
+      transform: scale(1.05);
     }
 
     .active {
@@ -37,11 +47,14 @@
 
     .header {
       font-weight: bold;
+      background: transparent;
+      border: none;
+      cursor: default;
     }
 
     button {
-      margin: 10px;
-      padding: 10px 15px;
+      margin: 5px;
+      padding: 10px 14px;
       border: none;
       border-radius: 8px;
       background: #1976d2;
@@ -52,80 +65,165 @@
     button:hover {
       background: #0d47a1;
     }
+
+    .output {
+      margin-top: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 10px;
+      display: inline-block;
+      min-width: 300px;
+    }
+
+    .highlight {
+      color: #1976d2;
+      font-weight: bold;
+    }
   </style>
 </head>
 
 <body>
 
-<h2>Weather Event Visualizer</h2>
+<h2>🌦 Weather Event Visualizer</h2>
 
-<p>Click cells to define allowed weather states</p>
+<p>Click cells to define allowed weather states for each day</p>
 
 <div class="grid" id="grid"></div>
 
 <div>
   <button onclick="clearGrid()">Clear</button>
+  <button onclick="presetMondaySunny()">Monday Sunny</button>
   <button onclick="presetWeekendRain()">Weekend Rain</button>
   <button onclick="presetNoRain()">No Rain</button>
 </div>
 
+<div class="output">
+  <p><b>Event Description:</b></p>
+  <p id="eventText">No event defined</p>
+
+  <p><b>Generated Outcome:</b></p>
+  <p id="randomWeek">-</p>
+
+  <p><b>Belongs to Event?</b></p>
+  <p id="result">-</p>
+
+  <button onclick="generateRandom()">Generate Random Week</button>
+</div>
+
 <script>
-  const days = ["", "Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
-  const states = ["S","C","R"];
-  const grid = document.getElementById("grid");
+const days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const states = ["S","C","R"];
+const grid = document.getElementById("grid");
 
-  // Build grid
-  for (let r = 0; r < 4; r++) {
-    for (let c = 0; c < 8; c++) {
+// Build grid
+for (let r = 0; r < 4; r++) {
+  for (let c = 0; c < 8; c++) {
 
-      const div = document.createElement("div");
-      div.classList.add("cell");
+    const div = document.createElement("div");
+    div.classList.add("cell");
 
-      if (r === 0 && c > 0) {
-        div.innerText = days[c];
-        div.classList.add("header");
-      }
-      else if (c === 0 && r > 0) {
-        div.innerText = states[r-1];
-        div.classList.add("header");
-      }
-      else if (r > 0 && c > 0) {
-        div.onclick = () => div.classList.toggle("active");
-      }
+    if (r === 0 && c > 0) {
+      div.innerText = days[c-1];
+      div.classList.add("header");
+    }
+    else if (c === 0 && r > 0) {
+      div.innerText = states[r-1];
+      div.classList.add("header");
+    }
+    else if (r > 0 && c > 0) {
+      div.dataset.row = r-1;
+      div.dataset.col = c-1;
 
-      grid.appendChild(div);
+      div.onclick = () => {
+        div.classList.toggle("active");
+        updateEventDescription();
+      };
+    }
+
+    grid.appendChild(div);
+  }
+}
+
+function getActiveMatrix() {
+  const matrix = Array(7).fill(null).map(() => []);
+  document.querySelectorAll(".cell.active").forEach(cell => {
+    matrix[cell.dataset.col].push(states[cell.dataset.row]);
+  });
+  return matrix;
+}
+
+function updateEventDescription() {
+  const matrix = getActiveMatrix();
+  let parts = [];
+
+  matrix.forEach((allowed, i) => {
+    if (allowed.length === 1) {
+      parts.push(`${days[i]} = ${allowed[0]}`);
+    }
+    else if (allowed.length === 2) {
+      parts.push(`${days[i]} ∈ {${allowed.join(",")}}`);
+    }
+    else if (allowed.length === 3) {
+      // unrestricted
+    }
+  });
+
+  document.getElementById("eventText").innerHTML =
+    parts.length ? parts.join(", ") : "No constraints (Ω)";
+}
+
+function clearGrid() {
+  document.querySelectorAll(".cell").forEach(c => {
+    if (!c.classList.contains("header")) {
+      c.classList.remove("active");
+    }
+  });
+  updateEventDescription();
+}
+
+function presetMondaySunny() {
+  clearGrid();
+  document.querySelector('[data-row="0"][data-col="0"]').classList.add("active");
+  updateEventDescription();
+}
+
+function presetWeekendRain() {
+  clearGrid();
+  document.querySelector('[data-row="2"][data-col="5"]').classList.add("active");
+  document.querySelector('[data-row="2"][data-col="6"]').classList.add("active");
+  updateEventDescription();
+}
+
+function presetNoRain() {
+  clearGrid();
+  for (let c = 0; c < 7; c++) {
+    document.querySelector(`[data-row="0"][data-col="${c}"]`).classList.add("active");
+    document.querySelector(`[data-row="1"][data-col="${c}"]`).classList.add("active");
+  }
+  updateEventDescription();
+}
+
+function generateRandom() {
+  let week = [];
+  for (let i = 0; i < 7; i++) {
+    week.push(states[Math.floor(Math.random()*3)]);
+  }
+
+  document.getElementById("randomWeek").innerText = week.join(" ");
+
+  const matrix = getActiveMatrix();
+
+  let valid = true;
+  for (let i = 0; i < 7; i++) {
+    if (matrix[i].length > 0 && !matrix[i].includes(week[i])) {
+      valid = false;
+      break;
     }
   }
 
-  function clearGrid() {
-    document.querySelectorAll(".cell").forEach(c => {
-      if (!c.classList.contains("header")) {
-        c.classList.remove("active");
-      }
-    });
-  }
-
-  function presetWeekendRain() {
-    clearGrid();
-    const cells = document.querySelectorAll(".cell");
-
-    // R row = row 3
-    // Sat = col 6, Sun = col 7
-    cells[3*8 + 6].classList.add("active");
-    cells[3*8 + 7].classList.add("active");
-  }
-
-  function presetNoRain() {
-    clearGrid();
-    const cells = document.querySelectorAll(".cell");
-
-    for (let c = 1; c <= 7; c++) {
-      // S row
-      cells[1*8 + c].classList.add("active");
-      // C row
-      cells[2*8 + c].classList.add("active");
-    }
-  }
+  document.getElementById("result").innerHTML =
+    valid ? "<span class='highlight'>YES</span>" : "<span style='color:red'>NO</span>";
+}
 </script>
 
 </body>
